@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/homeFruitsFragment"
+        android:icon="@drawable/home_icon"
+        app:showAsAction="ifRoom"
+        android:title="@string/Home" />
+    <item android:title=""
+        android:visible="true" />
+    <item
+        app:showAsAction="ifRoom"
+        android:id="@+id/settingFragment"
+        android:icon="@drawable/setting_icon"
+        android:title="@string/Setting" />
+</menu>
