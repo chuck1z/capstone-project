@@ -1,9 +1,14 @@
 package com.darkshandev.freshcam.presentation
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.view.View
+import android.view.animation.AnticipateInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.activity.viewModels
+import androidx.core.animation.doOnEnd
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -24,8 +29,17 @@ class MainActivity : AppCompatActivity() {
         navHostFragment.navController
     }
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
-
+        splashScreen.setOnExitAnimationListener { splashScreenView ->
+            // Create your custom animation.
+            ObjectAnimator.ofFloat(splashScreenView, "alpha", 0f).apply {
+                duration = 1000
+                interpolator = AnticipateInterpolator()
+                doOnEnd { splashScreenView.remove() }
+                start()
+            }
+        }
         setContentView(binding.root)
         setupNavigation()
     }
