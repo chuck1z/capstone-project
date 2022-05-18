@@ -6,4 +6,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FruitsViewmodel @Inject constructor() :ViewModel(){
+
 }
