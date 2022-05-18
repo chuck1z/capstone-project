@@ -10,5 +10,5 @@ interface StoryService {
     suspend fun getFruits(
         @Query("page") page: Int? = null,
         @Query("size") size: Int? = null,
-        ): Response<List<FruitsModel>>
+    ): Response<List<FruitsModel>>
 }
