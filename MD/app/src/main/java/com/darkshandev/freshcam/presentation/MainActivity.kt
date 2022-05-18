@@ -1,7 +1,7 @@
 package com.darkshandev.freshcam.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.darkshandev.freshcam.R
 import dagger.hilt.android.AndroidEntryPoint
 
