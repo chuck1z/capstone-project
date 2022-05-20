@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Apple",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 2,
+        "name": "Orange",
+        "binom": "Citrus Sinensis",
+        "nutrition": {
+            "carbs": "11g",
+            "protein": "0.9g",
+            "calories": "45",
+            "fat": "0.1g"
+        },
+        "vitamin": ["Vit C", "Vit D", "Vit B6"],
+        "about": "",
+        "tips": ["Make sure the tip of the fruit is either pale white or yellowish brown. Avoid oranges with dark-looking tip", "Make sure the skin looks clear or have minimal blemishes"]
+    },
+    {
+        "id": 3,
+        "name": "Banana",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    }
+]
