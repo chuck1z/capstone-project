@@ -5,4 +5,13 @@
     <string name="Setting">Setting</string>
     <string name="Home">Home</string>
     <string name="Scan">Scan</string>
+    <string name="fruit_of_the_day">Fruit of the Day</string>
+    <string name="more_info">more info</string>
+    <string name="Description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu augue ut lectus arcu bibendum at varius vel pharetra.</string>
+    <string name="fruit_tips">Fruit Tips</string>
+    <string name="fruit_title">Fruit Title</string>
+    <string name="title">Title</string>
+    <string name="sub_title">Sub Title</string>
+    <string name="about">About</string>
+    <string name="aboutDesc">About Description</string>
 </resources>
