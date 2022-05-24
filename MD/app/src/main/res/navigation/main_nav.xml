@@ -18,7 +18,11 @@
         android:id="@+id/scanFruitsFragment"
         android:name="com.darkshandev.freshcam.presentation.classifier.views.ScanFruitsFragment"
         android:label="Scan"
-        tools:layout="@layout/fragment_scan_fruits" />
+        tools:layout="@layout/fragment_scan_fruits" >
+        <action
+            android:id="@+id/action_scanFruitsFragment_to_scanResultFragment"
+            app:destination="@id/scanResultFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.darkshandev.freshcam.presentation.settings.views.SettingFragment"
@@ -28,4 +32,9 @@
             android:id="@+id/action_settingFragment_to_scanFruitsFragment"
             app:destination="@id/scanFruitsFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/scanResultFragment"
+        android:name="com.darkshandev.freshcam.presentation.classifier.views.ScanResultFragment"
+        android:label="fragment_scan_result"
+        tools:layout="@layout/fragment_scan_result" />
 </navigation>
