@@ -1,5 +1,6 @@
 package com.darkshandev.freshcam.presentation.classifier.views
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -102,7 +103,11 @@ private var binding: FragmentScanFruitsBinding? = null
 
             }
             galleryButton.setOnClickListener {
-
+                val intent = Intent()
+                intent.action = Intent.ACTION_GET_CONTENT
+                intent.type = "image/*"
+                val chooser = Intent.createChooser(intent, getString(R.string.pick_photo))
+                launcherIntentGallery.launch(chooser)
             }
         }
     }
