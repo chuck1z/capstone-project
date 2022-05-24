@@ -1,13 +1,12 @@
 package com.darkshandev.freshcam.presentation.fruits
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.darkshandev.freshcam.data.FruitsTips
+import com.darkshandev.freshcam.data.models.FruitsTips
 import com.darkshandev.freshcam.databinding.ItemFruitsTipsBinding
 import com.darkshandev.freshcam.utils.FruitTipsDiffUtils
 
