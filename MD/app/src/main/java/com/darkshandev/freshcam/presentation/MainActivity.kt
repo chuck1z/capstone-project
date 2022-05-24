@@ -68,6 +68,7 @@ navController.addOnDestinationChangedListener { _, destination, _ ->
     when (destination.id) {
         R.id.homeFruitsFragment -> {
             binding.fab.visibility = View.VISIBLE
+            binding.bottomAppBar.visibility =View.VISIBLE
             binding.bottomNavigationView.visibility = View.VISIBLE
             binding.fab.setOnClickListener {
                 navController.navigate(R.id.action_homeFruitsFragment_to_scanFruitsFragment)
@@ -75,6 +76,7 @@ navController.addOnDestinationChangedListener { _, destination, _ ->
         }
         R.id.settingFragment -> {
             binding.fab.visibility = View.VISIBLE
+            binding.bottomAppBar.visibility =View.VISIBLE
             binding.bottomNavigationView.visibility = View.VISIBLE
             binding.fab.setOnClickListener {
                 navController.navigate(R.id.action_settingFragment_to_scanFruitsFragment)
@@ -83,6 +85,8 @@ navController.addOnDestinationChangedListener { _, destination, _ ->
         R.id.scanFruitsFragment -> {
             binding.fab.visibility = View.GONE
             binding.bottomNavigationView.visibility = View.GONE
+            binding.bottomAppBar.visibility =View.GONE
+
         }
     }
 
