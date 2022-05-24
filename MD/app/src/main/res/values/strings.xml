@@ -14,4 +14,8 @@
     <string name="sub_title">Sub Title</string>
     <string name="about">About</string>
     <string name="aboutDesc">About Description</string>
+    <string name="take_photo">take photo</string>
+    <string name="take_from_gallery">take from gallery</string>
+    <string name="flash_on">flash on</string>
+    <string name="frame_capture">frame capture</string>
 </resources>
