@@ -10,10 +10,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.ImageCapture
-import androidx.camera.core.ImageCaptureException
-import androidx.camera.core.Preview
+import androidx.camera.core.*
+import androidx.camera.core.TorchState.OFF
+import androidx.camera.core.TorchState.ON
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.darkshandev.freshcam.R
@@ -41,8 +40,9 @@ private var binding: FragmentScanFruitsBinding? = null
         savedInstanceState: Bundle?
     ): View? {
   binding = FragmentScanFruitsBinding.inflate(inflater, container, false)
-        setupView()
+
         prepareCamera()
+        setupView()
         return binding?.root
     }
     override fun onResume() {
@@ -97,10 +97,18 @@ private var binding: FragmentScanFruitsBinding? = null
             activity?.onBackPressed()
          }
             captureImage.setOnClickListener {
-
+                captureImage()
             }
             flashButton.setOnClickListener {
-
+            imageCapture?.apply {
+                if(flashMode== ON){
+                    flashMode= ImageCapture.FLASH_MODE_OFF
+                    flashButton.setImageResource(R.drawable.ic_baseline_flash_off_24)
+                }else{
+                    flashMode= ImageCapture.FLASH_MODE_ON
+                    flashButton.setImageResource(R.drawable.ic_baseline_flash_on_24)
+                }
+            }
             }
             galleryButton.setOnClickListener {
                 val intent = Intent()
