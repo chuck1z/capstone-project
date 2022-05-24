@@ -11,21 +11,24 @@ import java.io.File
 import javax.inject.Inject
 
 @HiltViewModel
-class ClassifierViewmodel @Inject constructor(private val repository: ClassifierRepository) : ViewModel(){
+class ClassifierViewmodel @Inject constructor(private val repository: ClassifierRepository) :
+    ViewModel() {
     private val _image = MutableStateFlow<File?>(null)
     val image = _image.asStateFlow()
-    fun setImage(image: File){
+    fun setImage(image: File) {
         _image.value?.delete()
         _image.value = image
     }
+
     private val _result = MutableStateFlow<AppState<ScanResult>>(AppState.Initial())
     val result = _result.asStateFlow()
-    fun classifyImage(){
+    fun classifyImage() {
         _result.value = AppState.Loading()
-        repository.classifyImage(image.value!!, object : ClassifierRepository.ClassifierCallback{
+        repository.classifyImage(image.value!!, object : ClassifierRepository.ClassifierCallback {
             override fun onSuccess(result: ScanResult) {
                 _result.value = AppState.Success(result)
             }
+
             override fun onError(error: String) {
                 _result.value = AppState.Error(error)
             }

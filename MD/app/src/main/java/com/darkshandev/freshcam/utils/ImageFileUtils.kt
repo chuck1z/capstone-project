@@ -4,7 +4,6 @@ import android.app.Application
 import android.content.ContentResolver
 import android.content.Context
 import android.net.Uri
-import android.os.Build
 import android.os.Environment
 import com.darkshandev.freshcam.R
 import java.io.File
@@ -17,6 +16,7 @@ fun createTempFile(context: Context): File {
     val timeStamp = System.currentTimeMillis().toString()
     return File.createTempFile(timeStamp, ".jpg", storageDir)
 }
+
 fun createFile(application: Application): File {
     val mediaDir = application.externalMediaDirs.firstOrNull()?.let {
         File(it, application.resources.getString(R.string.app_name)).apply { mkdirs() }
@@ -32,7 +32,7 @@ fun createFile(application: Application): File {
 
 fun uriToFile(selectedImg: Uri, context: Context): File {
     val contentResolver: ContentResolver = context.contentResolver
-    val myFile =    createTempFile(context)
+    val myFile = createTempFile(context)
     val inputStream = contentResolver.openInputStream(selectedImg) as InputStream
     val outputStream: OutputStream = FileOutputStream(myFile)
     val buf = ByteArray(1024)

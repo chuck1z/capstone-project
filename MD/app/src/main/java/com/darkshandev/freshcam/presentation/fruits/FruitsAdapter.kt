@@ -10,14 +10,14 @@ import com.darkshandev.freshcam.data.models.FruitsTips
 import com.darkshandev.freshcam.databinding.ItemFruitsTipsBinding
 import com.darkshandev.freshcam.utils.FruitTipsDiffUtils
 
-class FruitsAdapter() : RecyclerView.Adapter<FruitsAdapter.ViewHolder>(){
+class FruitsAdapter() : RecyclerView.Adapter<FruitsAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     private lateinit var binding: ItemFruitsTipsBinding
-    private var currentList= emptyList<FruitsTips>();
-    fun updateList(newList: List<FruitsTips>){
-       //update currentList with newList using FruitTipsDiffUtils
+    private var currentList = emptyList<FruitsTips>();
+    fun updateList(newList: List<FruitsTips>) {
+        //update currentList with newList using FruitTipsDiffUtils
         val diff = DiffUtil
             .calculateDiff(FruitTipsDiffUtils(currentList, newList))
         this.currentList = newList
@@ -25,6 +25,7 @@ class FruitsAdapter() : RecyclerView.Adapter<FruitsAdapter.ViewHolder>(){
         diff.dispatchUpdatesTo(this)
 
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FruitsAdapter.ViewHolder {
         binding = ItemFruitsTipsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding.root)
@@ -32,7 +33,7 @@ class FruitsAdapter() : RecyclerView.Adapter<FruitsAdapter.ViewHolder>(){
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val fruitsTips = currentList[position]
-        with(binding){
+        with(binding) {
             Glide.with(binding.root.context)
                 .load(fruitsTips.photoUrl)
                 .into(ivFruitTips)

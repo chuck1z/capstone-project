@@ -15,13 +15,14 @@ import com.darkshandev.freshcam.presentation.fruits.viewmodels.FruitsViewmodel
 
 class HomeFruitsFragment : Fragment() {
 
-    private  var binding: FragmentHomeFruitsBinding? = null
+    private var binding: FragmentHomeFruitsBinding? = null
     private val fruitsViewmodel: FruitsViewmodel by viewModels()
     private val adapter = FruitsAdapter()
     override fun onDestroy() {
-        binding=null
+        binding = null
         super.onDestroy()
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentHomeFruitsBinding.inflate(layoutInflater)
@@ -33,9 +34,9 @@ class HomeFruitsFragment : Fragment() {
     ): View? {
         binding?.apply {
             rvFruitsTips.adapter = adapter
-            rvFruitsTips.layoutManager =LinearLayoutManager(requireContext())
+            rvFruitsTips.layoutManager = LinearLayoutManager(requireContext())
         }
-        val dummyList=List(10){
+        val dummyList = List(10) {
             FruitsTips(
                 title = "Fruits Tips #$it",
                 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",

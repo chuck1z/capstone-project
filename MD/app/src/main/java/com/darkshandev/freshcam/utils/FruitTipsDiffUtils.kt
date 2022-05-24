@@ -3,7 +3,10 @@ package com.darkshandev.freshcam.utils
 import androidx.recyclerview.widget.DiffUtil
 import com.darkshandev.freshcam.data.models.FruitsTips
 
-class FruitTipsDiffUtils(private val oldList: List<FruitsTips>, private val newList: List<FruitsTips>) :
+class FruitTipsDiffUtils(
+    private val oldList: List<FruitsTips>,
+    private val newList: List<FruitsTips>
+) :
     DiffUtil.Callback() {
     override fun getOldListSize(): Int = oldList.size
 

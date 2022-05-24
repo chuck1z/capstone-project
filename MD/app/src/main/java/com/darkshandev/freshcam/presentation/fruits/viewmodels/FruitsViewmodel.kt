@@ -9,7 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class FruitsViewmodel @Inject constructor(private val repo:FruitsRepository) : ViewModel(){
+class FruitsViewmodel @Inject constructor(private val repo: FruitsRepository) : ViewModel() {
     private val _fruits = MutableLiveData<List<FruitsTips>>()
     val fruits: LiveData<List<FruitsTips>> = _fruits
 }

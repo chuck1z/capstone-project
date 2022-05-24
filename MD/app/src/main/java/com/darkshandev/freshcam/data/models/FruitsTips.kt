@@ -8,4 +8,4 @@ data class FruitsTips(
     val photoUrl: String,
     val title: String,
     val description: String
-): Parcelable
+) : Parcelable

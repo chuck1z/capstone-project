@@ -13,7 +13,13 @@ class ClassifierRepository @Inject constructor(private val dataSource: Classifie
 
     fun classifyImage(value: File, any: ClassifierCallback) {
 
-        any.onSuccess(ScanResult("Orange_Fresh",70.0f,"lorem ipsum dolor sit amet consectetur adipiscing elit"))
+        any.onSuccess(
+            ScanResult(
+                "Orange_Fresh",
+                70.0f,
+                "lorem ipsum dolor sit amet consectetur adipiscing elit"
+            )
+        )
 
     }
 }

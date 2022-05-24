@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.MainActivity">
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -27,8 +28,7 @@
         app:fabCradleMargin="10dp"
         app:elevation="8dp"
         app:fabAlignmentMode="center"
-        app:fabCradleRoundedCornerRadius="20dp"
-        >
+        app:fabCradleRoundedCornerRadius="20dp">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"
@@ -51,5 +51,5 @@
         android:contentDescription="@string/app_name"
         app:layout_anchor="@id/bottomAppBar"
         app:srcCompat="@drawable/ic_baseline_camera_24"
-        app:tint="@color/white"/>
+        app:tint="@color/white" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

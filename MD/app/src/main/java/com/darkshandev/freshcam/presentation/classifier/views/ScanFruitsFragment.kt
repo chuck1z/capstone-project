@@ -19,7 +19,6 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.darkshandev.freshcam.R
 import com.darkshandev.freshcam.databinding.FragmentScanFruitsBinding
@@ -170,8 +169,8 @@ class ScanFruitsFragment : Fragment() {
             classifierViewmodel.setImage(image)
             classifierViewmodel.classifyImage()
             findNavController().navigate(R.id.action_scanFruitsFragment_to_scanResultFragment)
-        }catch (e:java.lang.Exception){
-            e.message?.let { Log.e("Error", it )}
+        } catch (e: java.lang.Exception) {
+            e.message?.let { Log.e("Error", it) }
         }
 
 
