@@ -1,4 +1,4 @@
-const { getDetails } = require("./handlertest");
+const { getDetails } = require("./handler");
 
 const routes = [
   {
