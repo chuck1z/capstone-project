@@ -6,16 +6,40 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.darkshandev.freshcam.R
+import com.darkshandev.freshcam.databinding.FragmentScanFruitsBinding
 
 class ScanFruitsFragment : Fragment() {
-
+private var binding: FragmentScanFruitsBinding? = null
+    override fun onDestroyView() {
+        binding=null
+        super.onDestroyView()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_scan_fruits, container, false)
+  binding = FragmentScanFruitsBinding.inflate(inflater, container, false)
+        setupView()
+        return binding?.root
     }
+
+    private fun setupView() {
+        binding?.apply {
+         backButton.setOnClickListener {
+            activity?.onBackPressed()
+         }
+            captureImage.setOnClickListener {
+
+            }
+            flashButton.setOnClickListener {
+
+            }
+            galleryButton.setOnClickListener {
+
+            }
+        }
+    }
+
 
 }
