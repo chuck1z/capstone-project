@@ -1,4 +1,4 @@
-package com.darkshandev.freshcam.data
+package com.darkshandev.freshcam.data.models
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -8,4 +8,4 @@ data class FruitsTips(
     val photoUrl: String,
     val title: String,
     val description: String
-): Parcelable
+) : Parcelable

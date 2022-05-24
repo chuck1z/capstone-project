@@ -94,7 +94,7 @@
         android:textStyle="bold"
         android:padding="16dp"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/cvFruit"/>
+        app:layout_constraintTop_toBottomOf="@id/cvFruit" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFruitsTips"
