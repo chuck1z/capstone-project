@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.darkshandev.freshcam.R
-import com.darkshandev.freshcam.data.FruitsTips
+import com.darkshandev.freshcam.data.models.FruitsTips
 import com.darkshandev.freshcam.databinding.FragmentHomeFruitsBinding
 import com.darkshandev.freshcam.presentation.fruits.FruitsAdapter
 import com.darkshandev.freshcam.presentation.fruits.viewmodels.FruitsViewmodel
