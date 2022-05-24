@@ -15,6 +15,7 @@ import androidx.camera.core.ImageCaptureException
 import androidx.core.content.ContextCompat
 import com.darkshandev.freshcam.R
 import com.darkshandev.freshcam.databinding.FragmentScanFruitsBinding
+import com.darkshandev.freshcam.utils.createFile
 import com.darkshandev.freshcam.utils.uriToFile
 import java.io.File
 import java.util.concurrent.ExecutorService
@@ -67,7 +68,30 @@ private var binding: FragmentScanFruitsBinding? = null
             }
         }
     }
+    private fun captureImage() {
+        val imageCapture = imageCapture ?: return
 
+        val photoFile = createFile(requireActivity().application)
+        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+        imageCapture.takePicture(
+            outputOptions,
+            ContextCompat.getMainExecutor(requireContext()),
+            object : ImageCapture.OnImageSavedCallback {
+                override fun onError(exc: ImageCaptureException) {
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.failed_pick_photo),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+                override fun onImageSaved(output: ImageCapture.OutputFileResults) {
+                    output.savedUri
+                    classifyFruitsByThis(image = photoFile)
+                }
+            }
+        )
+    }
     private val launcherIntentGallery = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
