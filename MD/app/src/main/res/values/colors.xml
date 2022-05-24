@@ -3,6 +3,8 @@
     <color name="primary">#FFFF</color>
     <color name="secondary">#72CC50</color>
     <color name="back">#E5E5E5</color>
+    <color name="fresh">#72CC50</color>
+    <color name="rotten">#F87D67</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
