@@ -22,10 +22,13 @@
         <entry key="app/src/main/res/drawable/ic_baseline_settings_24_active.xml" value="0.2085" />
         <entry key="app/src/main/res/drawable/ic_baseline_settings_24_inactive.xml" value="0.2085" />
         <entry key="app/src/main/res/drawable/round_button.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/rounded_sheet.xml" value="0.121" />
+        <entry key="app/src/main/res/drawable/rounded_sheet_dark.xml" value="0.121" />
         <entry key="app/src/main/res/drawable/setting_icon.xml" value="0.1265" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26136363636363635" />
-        <entry key="app/src/main/res/layout/fragment_home_fruits.xml" value="0.15670289855072464" />
+        <entry key="app/src/main/res/layout/fragment_home_fruits.xml" value="0.6761548028475997" />
         <entry key="app/src/main/res/layout/fragment_scan_fruits.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_scan_result.xml" value="0.28063659667968754" />
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.15670289855072464" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.21388888888888888" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2085" />
