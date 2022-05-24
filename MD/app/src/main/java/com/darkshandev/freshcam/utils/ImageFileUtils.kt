@@ -6,6 +6,7 @@ import android.content.Context
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
+import com.darkshandev.freshcam.R
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
