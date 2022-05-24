@@ -1,14 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/back"
     android:layout_height="match_parent"
     tools:context=".presentation.classifier.views.ScanFruitsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <androidx.camera.view.PreviewView
+        android:id="@+id/preview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+
+        android:layout_marginVertical="16dp"
+        android:foreground="@drawable/foreground_corners"
+        app:layout_constraintBottom_toTopOf="@+id/captureImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/back_button">
+
+    </androidx.camera.view.PreviewView>
+
+    <ImageView
+        android:id="@+id/captureImage"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@string/take_photo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_camera_24"
+        app:tint="@color/secondary" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="56dp"
+        android:layout_marginVertical="56dp"
+        android:src="@drawable/frame"
+        app:layout_constraintBottom_toBottomOf="@+id/preview"
+        app:layout_constraintEnd_toEndOf="@+id/preview"
+        app:layout_constraintStart_toStartOf="@+id/preview"
+        app:layout_constraintTop_toTopOf="@+id/preview"
+        android:contentDescription="@string/frame_capture" />
+
+    <ImageButton
+        android:id="@+id/gallery_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/round_button"
+        android:contentDescription="@string/take_from_gallery"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:src="@drawable/ic_outline_image_24"
+        app:layout_constraintBottom_toBottomOf="@+id/captureImage"
+        app:layout_constraintEnd_toStartOf="@+id/captureImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/captureImage" />
+
+    <ImageButton
+        android:id="@+id/flash_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/round_button"
+        android:contentDescription="@string/flash_on"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:src="@drawable/ic_outline_image_24"
+        app:layout_constraintBottom_toBottomOf="@+id/captureImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/captureImage"
+        app:layout_constraintTop_toTopOf="@+id/captureImage" />
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/round_button"
+        android:contentDescription="@string/flash_on"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:src="@drawable/ic_baseline_chevron_left_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
