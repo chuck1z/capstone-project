@@ -26,7 +26,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val fruitsViewmodel:FruitsViewmodel by viewModels()
-    private val classifierViewmodel: ClassifierViewmodel by viewModels( )
+    private val classifierViewmodel: ClassifierViewmodel by viewModels()
     private  val  binding:ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val navController by lazy {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
