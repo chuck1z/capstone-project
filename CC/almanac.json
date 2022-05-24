@@ -15,6 +15,174 @@
     },
     {
         "id": 2,
+        "name": "Avocado",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 3,
+        "name": "Banana",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 4,
+        "name": "Date Fruit",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 5,
+        "name": "Durian",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 6,
+        "name": "Grape",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 7,
+        "name": "Guanabana",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 8,
+        "name": "Guava",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 9,
+        "name": "Lime",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 10,
+        "name": "Longan",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 11,
+        "name": "Mango",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 12,
+        "name": "Mamgosteen",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 13,
+        "name": "Melon",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 14,
         "name": "Orange",
         "binom": "Citrus Sinensis",
         "nutrition": {
@@ -28,8 +196,106 @@
         "tips": ["Make sure the tip of the fruit is either pale white or yellowish brown. Avoid oranges with dark-looking tip", "Make sure the skin looks clear or have minimal blemishes"]
     },
     {
-        "id": 3,
-        "name": "Banana",
+        "id": 15,
+        "name": "Papaya",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 16,
+        "name": "Pineapple",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 17,
+        "name": "Pomegranate",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 18,
+        "name": "Rambutan",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 19,
+        "name": "Salak",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 20,
+        "name": "Strawberry",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 21,
+        "name": "Watermelon",
+        "binom": "",
+        "nutrition": {
+            "carbs": "",
+            "protein": "",
+            "calories": "",
+            "fat": ""
+        },
+        "vitamin": [],
+        "about": "",
+        "tips": []
+    },
+    {
+        "id": 22,
+        "name": "Watery rose apple",
         "binom": "",
         "nutrition": {
             "carbs": "",
