@@ -18,4 +18,5 @@
     <string name="take_from_gallery">take from gallery</string>
     <string name="flash_on">flash on</string>
     <string name="frame_capture">frame capture</string>
+    <string name="failed_pick_photo">failed to capture photo</string>
 </resources>
