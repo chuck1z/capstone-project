@@ -1,15 +1,24 @@
 package com.darkshandev.freshcam.presentation.classifier.views
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
+import androidx.camera.core.ImageCaptureException
+import androidx.core.content.ContextCompat
 import com.darkshandev.freshcam.R
 import com.darkshandev.freshcam.databinding.FragmentScanFruitsBinding
+import com.darkshandev.freshcam.utils.uriToFile
+import java.io.File
 import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 class ScanFruitsFragment : Fragment() {
 private var binding: FragmentScanFruitsBinding? = null
@@ -29,7 +38,17 @@ private var binding: FragmentScanFruitsBinding? = null
     ): View? {
   binding = FragmentScanFruitsBinding.inflate(inflater, container, false)
         setupView()
+        prepareCamera()
         return binding?.root
+    }
+
+    private fun prepareCamera() {
+        cameraExecutor = Executors.newSingleThreadExecutor()
+//        imageCapture = ImageCapture.Builder()
+//            .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
+//            .setTargetRotation(binding?.root?.display?.rotation)
+//            .build()
+
     }
 
     private fun setupView() {
@@ -49,5 +68,17 @@ private var binding: FragmentScanFruitsBinding? = null
         }
     }
 
+    private val launcherIntentGallery = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == AppCompatActivity.RESULT_OK) {
+            val selectedImg: Uri = result.data?.data as Uri
+            val myFile = uriToFile(selectedImg, requireContext())
+            classifyFruitsByThis(image = myFile)
+        }
+    }
+    private fun classifyFruitsByThis(image: File){
 
+
+    }
 }
