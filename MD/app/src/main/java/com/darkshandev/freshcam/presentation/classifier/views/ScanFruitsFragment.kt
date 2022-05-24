@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
+import androidx.camera.core.Preview
+import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.darkshandev.freshcam.R
 import com.darkshandev.freshcam.databinding.FragmentScanFruitsBinding
@@ -42,7 +44,12 @@ private var binding: FragmentScanFruitsBinding? = null
         prepareCamera()
         return binding?.root
     }
+    override fun onResume() {
+        super.onResume()
 
+            startCamera()
+
+    }
     private fun prepareCamera() {
         cameraExecutor = Executors.newSingleThreadExecutor()
 //        imageCapture = ImageCapture.Builder()
@@ -50,6 +57,37 @@ private var binding: FragmentScanFruitsBinding? = null
 //            .setTargetRotation(binding?.root?.display?.rotation)
 //            .build()
 
+    }
+    private fun startCamera() {
+
+        binding?.apply {
+            val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
+            cameraProviderFuture.addListener({
+                val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+                val preview = Preview.Builder()
+                    .build()
+                    .also {
+                        it.setSurfaceProvider(preview.surfaceProvider)
+                    }
+                imageCapture = ImageCapture.Builder().build()
+                try {
+                    cameraProvider.unbindAll()
+                    cameraProvider.bindToLifecycle(
+                        viewLifecycleOwner,
+                        cameraSelector,
+                        preview,
+                        imageCapture
+                    )
+                } catch (exc: Exception) {
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.failed_get_camera),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }, ContextCompat.getMainExecutor(requireContext()))
+
+        }
     }
 
     private fun setupView() {
@@ -70,7 +108,6 @@ private var binding: FragmentScanFruitsBinding? = null
     }
     private fun captureImage() {
         val imageCapture = imageCapture ?: return
-
         val photoFile = createFile(requireActivity().application)
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
         imageCapture.takePicture(
