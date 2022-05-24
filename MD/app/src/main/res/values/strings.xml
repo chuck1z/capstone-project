@@ -19,4 +19,5 @@
     <string name="flash_on">flash on</string>
     <string name="frame_capture">frame capture</string>
     <string name="failed_pick_photo">failed to capture photo</string>
+    <string name="failed_get_camera">failed to get camera</string>
 </resources>
