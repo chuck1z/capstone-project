@@ -3,7 +3,7 @@
 base url : ``https://not-defined.com/``
 base image url : ``https://not-defined.com/static/images/
 ### Fruits Of The Day
-- Path : ``/fotd``
+- Path : ``/fruits/fotd``
 - Method : ``GET``
 - Response :
 ```json
@@ -16,6 +16,31 @@ base image url : ``https://not-defined.com/static/images/
       "image":"apple.png",
       "short_desc":"lorem ipsum dolor sit amet..."
     }
+}
+
+```
+### Fruits Tips
+- Path : ``/fruits/tips``
+- Method : ``GET``
+- Response :
+```json
+{
+    "error": false,
+    "message": "Tips fetched successfully",
+    "data": [
+        {
+            "tips_id":"tf0001",
+            "title":"apple nice fruits",
+            "image":"tips-apple.png",
+            "short_desc":"lorem ipsum dolor sit amet..."
+        },
+        {
+            "tips_id":"tf0001",
+            "title":"orange good fruits",
+            "image":"tips-orange.png",
+            "short_desc":"lorem ipsum dolor sit amet..."
+    }
+    ]
 }
 
 ```
