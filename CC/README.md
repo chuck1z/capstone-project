@@ -1,7 +1,7 @@
 # Api Documentation
 ## Endpoint
 base url : ``https://not-defined.com/``
-base image url : ``https://not-defined.com/static/images/
+base image url : ``https://not-defined.com/static/images/``
 ### Fruits Of The Day
 - Path : ``/fruits/fotd``
 - Method : ``GET``
@@ -94,3 +94,21 @@ base image url : ``https://not-defined.com/static/images/
 
 ```
 
+### latest model
+- Path : ``/models/latest``
+- Method : ``GET``
+- Response :
+```json
+{
+    "error": false,
+    "message": "latest models fetched successfully",
+    "data": 
+       {
+        "latest_model_version":"v1.3.3",
+        "latest_label_version":"v1.3.0",
+        "desc":"some",
+        "date":"2022-01-08T06:34:18.598Z"
+    }     
+}
+
+```
