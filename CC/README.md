@@ -45,7 +45,7 @@ base image url : ``https://not-defined.com/static/images/
 
 ```
 ### Fruits Tips detail
-- Path : ``/fruits/tips/tf0001``
+- Path : ``/fruits/tips/<tips-id>``
 - Method : ``GET``
 - Response :
 ```json
@@ -66,5 +66,31 @@ base image url : ``https://not-defined.com/static/images/
 }
 
 ```
+### Fruits detail
+- Path : ``/fruits/<fruits-id>/detail``
+- Method : ``GET``
+- Response :
+```json
+{
+    "error": false,
+    "message": "Tips detail fetched successfully",
+    "data": 
+       {
+        "id":"f00021",
+        "name": "Orange",
+        "binom": "Citrus Sinensis",
+        "nutrition": {
+            "carbs": "11g",
+            "protein": "0.9g",
+            "calories": "45",
+            "fat": "0.1g"
+        },
+        "vitamin": ["Vit C", "Vit D", "Vit B6"],
+        "about": "",
+        "tips": ["Make sure the tip of the fruit is either pale white or yellowish brown. Avoid oranges with dark-looking tip", "Make sure the skin looks clear or have minimal blemishes"]
+    }
+        
+}
 
+```
 
