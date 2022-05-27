@@ -1,7 +1,7 @@
 # Api Documentation
 ## Endpoint
-base url : ``https://not-defined.com/``
-base image url : ``https://not-defined.com/static/images/``
+- base url : ``https://not-defined.com/``
+- base image url : ``https://not-defined.com/static/images/``
 ### Fruits Of The Day
 - Path : ``/fruits/fotd``
 - Method : ``GET``
