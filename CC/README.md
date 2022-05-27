@@ -112,3 +112,13 @@ base image url : ``https://not-defined.com/static/images/``
 }
 
 ```
+
+### latest model download
+- Path : ``/models/<latest-version>/model``
+- Method : ``GET``
+- Response :``file``
+
+### latest model download
+- Path : ``/models/<latest-version>/label``
+- Method : ``GET``
+- Response :``file``
