@@ -131,6 +131,7 @@ class ScanFruitsFragment : Fragment() {
     }
 
     private fun captureImage() {
+        try{
         val imageCapture = imageCapture ?: return
         val photoFile = createFile(requireActivity().application)
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
@@ -145,13 +146,15 @@ class ScanFruitsFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     output.savedUri
                     classifyFruitsByThis(image = photoFile)
                 }
             }
         )
+        }catch (e:java.lang.Exception){
+            Toast.makeText(requireContext(),e.message,Toast.LENGTH_SHORT).show()
+        }
     }
 
     private val launcherIntentGallery = registerForActivityResult(
@@ -170,6 +173,7 @@ class ScanFruitsFragment : Fragment() {
             classifierViewmodel.classifyImage()
             findNavController().navigate(R.id.action_scanFruitsFragment_to_scanResultFragment)
         } catch (e: java.lang.Exception) {
+
             e.message?.let { Log.e("Error", it) }
         }
 
