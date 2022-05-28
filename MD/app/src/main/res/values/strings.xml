@@ -21,4 +21,6 @@
     <string name="failed_pick_photo">failed to capture photo</string>
     <string name="failed_get_camera">failed to get camera</string>
     <string name="pick_photo">pick photo</string>
+    <string name="error_request">request failed, please try again</string>
+    <string name="unable_fetch_stories">failed to fetch detail fruits, please try again</string>
 </resources>
