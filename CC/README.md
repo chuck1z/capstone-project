@@ -85,6 +85,7 @@
             "calories": "45",
             "fat": "0.1g"
         },
+        "image":"orange.png",
         "vitamin": ["Vit C", "Vit D", "Vit B6"],
         "about": "",
         "tips": ["Make sure the tip of the fruit is either pale white or yellowish brown. Avoid oranges with dark-looking tip", "Make sure the skin looks clear or have minimal blemishes"]
