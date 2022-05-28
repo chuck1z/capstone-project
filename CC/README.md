@@ -35,7 +35,7 @@
             "short_desc":"lorem ipsum dolor sit amet..."
         },
         {
-            "tips_id":"tf0001",
+            "tips_id":"tf0002",
             "title":"orange good fruits",
             "image":"tips-orange.png",
             "short_desc":"lorem ipsum dolor sit amet..."

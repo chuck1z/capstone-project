@@ -1,0 +1,16 @@
+[
+    {
+        "tips_id": "td0001",
+        "name": "Apple",
+        "binom": "Malus domestica",
+        "nutrition": {
+            "carbs": "25g",
+            "protein": "0.5g",
+            "calories": "95",
+            "fat": "0.3g"
+        },
+        "vitamin": ["Vit B6",  "Vit C"],
+        "about": "",
+        "tips": []
+    }
+]

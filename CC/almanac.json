@@ -1,62 +1,66 @@
 [
     {
-        "id": 1,
+        "fruits_id": "f0001",
         "name": "Apple",
-        "binom": "",
+        "binom": "Malus domestica",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "25g",
+            "protein": "0.5g",
+            "calories": "95",
+            "fat": "0.3g"
         },
-        "vitamin": [],
+        "vitamin": ["Vit B6",  "Vit C"],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 2,
+        "fruits_id": "f0002",
         "name": "Avocado",
-        "binom": "",
+        "binom": "Persea americana",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "12g",
+            "protein": "2.9g",
+            "calories": "234",
+            "fat": "21g"
         },
-        "vitamin": [],
+        "vitamin": ["Vit C", "Vit B6"],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 3,
+        "fruits_id": "f0003",
         "name": "Banana",
         "binom": "",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "27g",
+            "protein": "1.3g",
+            "calories": "105",
+            "fat": "0.4g"
         },
-        "vitamin": [],
+        "vitamin": ["Vit C", "Vit B6"],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 4,
+        "fruits_id": "f0004",
         "name": "Date Fruit",
         "binom": "",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "36g",
+            "protein": "0.8g",
+            "calories": "133",
+            "fat": "0g"
         },
-        "vitamin": [],
+        "vitamin": ["Vit B6"],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 5,
+        "fruits_id": "f0005",
         "name": "Durian",
         "binom": "",
         "nutrition": {
@@ -67,10 +71,11 @@
         },
         "vitamin": [],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 6,
+        "fruits_id":"f0006",
         "name": "Grape",
         "binom": "",
         "nutrition": {
@@ -81,10 +86,11 @@
         },
         "vitamin": [],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 7,
+        "fruits_id":"f0007",
         "name": "Guanabana",
         "binom": "",
         "nutrition": {
@@ -95,10 +101,11 @@
         },
         "vitamin": [],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 8,
+        "fruits_id":"f0008",
         "name": "Guava",
         "binom": "",
         "nutrition": {
@@ -109,10 +116,11 @@
         },
         "vitamin": [],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 9,
+        "fruits_id":"f0009",
         "name": "Lime",
         "binom": "",
         "nutrition": {
@@ -122,11 +130,12 @@
             "fat": ""
         },
         "vitamin": [],
-        "about": "",
-        "tips": []
+        "about": "Tart and fragrant limes are the key acidity in many cuisines. Just scratch and sniff the peel for a ticket to paradise, or a squirt a wedge to transform plain water into a tropical refreshment. Also known as Tahitian Lime or Persian lime, as they ripen, they turn noticeably lighter and even full-on yellow. They have an especially spicy and fragrant aroma.",
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 10,
+        "fruits_id": "f0010",
         "name": "Longan",
         "binom": "",
         "nutrition": {
@@ -137,10 +146,11 @@
         },
         "vitamin": [],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 11,
+        "fruits_id": "f0011",
         "name": "Mango",
         "binom": "",
         "nutrition": {
@@ -151,11 +161,12 @@
         },
         "vitamin": [],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 12,
-        "name": "Mamgosteen",
+        "fruits_id": "f0012",
+        "name": "Mangosteen",
         "binom": "",
         "nutrition": {
             "carbs": "",
@@ -165,10 +176,11 @@
         },
         "vitamin": [],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 13,
+        "fruits_id": "f0013",
         "name": "Melon",
         "binom": "",
         "nutrition": {
@@ -179,10 +191,11 @@
         },
         "vitamin": [],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 14,
+        "fruits_id": "f0014",
         "name": "Orange",
         "binom": "Citrus Sinensis",
         "nutrition": {
@@ -196,7 +209,7 @@
         "tips": ["Make sure the tip of the fruit is either pale white or yellowish brown. Avoid oranges with dark-looking tip", "Make sure the skin looks clear or have minimal blemishes"]
     },
     {
-        "id": 15,
+        "fruits_id": "f0015",
         "name": "Papaya",
         "binom": "",
         "nutrition": {
@@ -207,10 +220,11 @@
         },
         "vitamin": [],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 16,
+        "fruits_id": "f0016",
         "name": "Pineapple",
         "binom": "",
         "nutrition": {
@@ -221,10 +235,11 @@
         },
         "vitamin": [],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 17,
+        "fruits_id": "f0017",
         "name": "Pomegranate",
         "binom": "",
         "nutrition": {
@@ -235,10 +250,11 @@
         },
         "vitamin": [],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 18,
+        "fruits_id": "f0018",
         "name": "Rambutan",
         "binom": "",
         "nutrition": {
@@ -249,10 +265,11 @@
         },
         "vitamin": [],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 19,
+        "fruits_id": "f0019",
         "name": "Salak",
         "binom": "",
         "nutrition": {
@@ -263,10 +280,11 @@
         },
         "vitamin": [],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 20,
+        "fruits_id": "f0020",
         "name": "Strawberry",
         "binom": "",
         "nutrition": {
@@ -277,10 +295,11 @@
         },
         "vitamin": [],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 21,
+        "fruits_id": "f0021",
         "name": "Watermelon",
         "binom": "",
         "nutrition": {
@@ -291,10 +310,11 @@
         },
         "vitamin": [],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     },
     {
-        "id": 22,
+        "fruits_id": "f0022",
         "name": "Watery rose apple",
         "binom": "",
         "nutrition": {
@@ -305,6 +325,7 @@
         },
         "vitamin": [],
         "about": "",
-        "tips": []
+        "tips": [],
+        "image": ""
     }
 ]

@@ -1,10 +1,15 @@
-const { getDetails } = require("./handler");
+const { getDetails, getFOTD } = require("./handler");
 
 const routes = [
   {
     method: "GET",
-    path: "/details/{name}",
+    path: "/fruits/{id}/detail",
     handler: getDetails,
+  },
+  {
+    method: "GET",
+    path: "/fruits/fotd",
+    handler: getFOTD,
   },
 ];
 
