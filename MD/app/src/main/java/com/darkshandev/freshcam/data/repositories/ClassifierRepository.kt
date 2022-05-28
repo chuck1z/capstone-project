@@ -11,9 +11,9 @@ class ClassifierRepository @Inject constructor(private val dataSource: Classifie
         fun onError(error: String)
     }
 
-    fun classifyImage(value: File, any: ClassifierCallback) {
+    fun classifyImage(value: File, callback: ClassifierCallback) {
 
-        any.onSuccess(
+        callback.onSuccess(
             ScanResult(
                 "Orange_Fresh",
                 70.0f,
