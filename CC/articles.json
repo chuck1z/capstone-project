@@ -1,16 +1,38 @@
 [
     {
-        "tips_id": "td0001",
-        "name": "Apple",
-        "binom": "Malus domestica",
-        "nutrition": {
-            "carbs": "25g",
-            "protein": "0.5g",
-            "calories": "95",
-            "fat": "0.3g"
-        },
-        "vitamin": ["Vit B6",  "Vit C"],
-        "about": "",
-        "tips": []
+        "tips_id": "tf0001",
+        "title": "What is the rough brown texture on the top of some apples, and is it edible?",
+        "Author": "The FruitGuys",
+        "image": "https://fruitguys.com/wp-content/uploads/2016/09/Ask-TFG_apple-russeting_0.jpg",
+        "date_posted": "09/07/2016",
+        "content": "Known as “russeting,” it is a brownish corky or netlike texture that appears on certain varieties of apples and pears. Russeted patches are not only edible, but they also tend to have a nutty flavor. \nIn apples, russeting typically occurs in heirloom varieties, such as Gravensteins, Pippins, and Jonathans. You may also find it on Asian pears and certain European varieties, such as Bosc and D'Anjou pears. \nAside from naturally russeted varieties, russeting can be due to weather conditions, such as moisture that develops on the fruit as it grows, with factors such as a late frost and/or spring humidity playing a role. \nShakespeare and his contemporaries called russeted apple varieties “leather-coats,” and they were prized by the Victorians for their look, texture, and taste. We hope you enjoy them too!",
+        "short": "Known as “russeting,” it is a brownish corky or netlike texture that appears on certain varieties of apples and pears"
+    },
+    {
+        "tips_id": "tf0002",
+        "title": "How to Keep Avocados From Browning, Plus 3 Other Tips",
+        "Author": "McKenna Princing",
+        "image": "https://rightasrain.uwmedicine.org/sites/rar/files/styles/landscape_16x9_024000_960x540_100/public/images/2019/avocado-toast.jpg",
+        "date_posted": "30/04/2019",
+        "content": "What's not to love about avocados? They're healthy, packing a ton of nutrients and vitamins like copper, folate and vitamin K, plus good-for-you fats. They're versatile: Whether they're livening up a piece of toast or making up your favorite guacamole, avocados are easy to incorporate into just about any dish. And they carry an intriguing mystique: Are they a fruit? A vegetable? (Spoiler alert: They're actually a fruit.) \nIn short, avocados are great. (Just ask millennials.) But they're also, er, finicky. \nYou know the drill. You spend too much time in the grocery store selecting the perfect avos, carefully carry them home so they don't bruise and wait for that glorious day when they ripen enough to grace you with their deliciousness. \nThen, the unthinkable happens: That avocado you thought was perfectly ripe is actually rotten, much like your dream of eating the perfect piece of avocado toast for lunch that day. How pitiful.",
+        "short": "What's not to love about avocados? They're healthy, packing a ton of nutrients and vitamins like copper, folate and vitamin K, plus good-for-you fats"
+    },
+    {
+        "tips_id": "tf0003",
+        "title": "The One Major Way You're Eating Bananas Wrong",
+        "Author": "Olivia Tarantino",
+        "image": "https://www.eatthis.com/wp-content/uploads/sites/4/2021/03/banana.jpg",
+        "date_posted": "11/05/2021",
+        "content": "How many times have you tried to peel open a banana from the stem, only to be left with a bruised and bent fruit? Sometimes you can't even get it to open! If you're stuck with a mushy banana each time, it could be because you're eating bananas wrong. Here's how to properly peel a banana, so you don't end up in that situation again. (You might think there's no one right way to eat a banana, but it turns out there is.) \nAlthough a misshapen and browned banana isn't that big of a deal if you're tossing it in a smoothie or adding some slices to oatmeal, it doesn't look all that appetizing if you're nibbling on it raw as a snack. Luckily, you don't have to struggle any longer. We're about to reveal the proper way to eat a banana. And it all starts with how you peel it. (If you're looking for more helpful tips, check out the 21 Best Healthy Cooking Hacks of All Time.)\nYou see, the stem of the common Cavendish banana (the species that stocks supermarket shelves) is the toughest part of the fruit. When you stop to think about it, it certainly makes sense why it should be so sturdy. The stem is where the fruit attaches to the rest of the cluster, and it's what's responsible for keeping the bananas attached to the plant. \nTrying to open it by pinching the hardest part of the berry is going to be more difficult than breaking it from any other point. That's why there's a more efficient alternative. \nYou see the bananas growing on a tree here, but did you know what we consider to be the 'bottom' is actually the top? Bananas grow from the stem upwards! \nSo, contrary to how most of us have been doing it our entire lives, the best way to peel a banana is actually from upside down, which is really the right side up. By pinching the bottom tip, you can open the banana without struggling to snap the stubborn stem. (Now, do you believe us about eating bananas wrong?) \nDon't peel bananas from the stem. Pinch them at the tip, or what most people think of as the 'bottom.'",
+        "short": "How many times have you tried to peel open a banana from the stem, only to be left with a bruised and bent fruit?"
+    },
+    {
+        "tips_id": "tf0004",
+        "title": "6 easy hacks to keep bananas from ripening too fast",
+        "Author": "Katie Jackson",
+        "image": "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/newscms/2020_44/1626044/banana-hack-kb-main-201027.jpg",
+        "date_posted": "14/03/2019",
+        "content": "We've all been there. After buying a nice green bunch of bananas, you often think you have several days (maybe even a week) to use them all up before they turn brown. But we all know bananas have a tendency to ripen pretty quickly. \nPerhaps that's why 'Pioneer Woman' star Ree Drummond calls them 'evil.' \nFortunately, much like there are hacks for making produce ripen faster, there are simple ways to prolong a banana's yellow stage. Whether you're working with unpeeled bananas or their peeled counterparts, here are a few anti-ripening hacks to try. \n1. Hang them, away from other produce. \nUnless they're in fruit salad or smoothies, bananas don't play nicely with other fruits. This is especially true of fruits that release a lot of ethylene gas as they ripen. Ashley Roth MS, RDN at Common Threads told TODAY Food that the biggest culprits behind bananas ripening prematurely are avocados, peaches, tomatoes, apples and figs. So don't buy the fruit bowl with the banana hanger above. Get a separate banana hanger. \nWhy hang your bananas? It prevents bruising and it also decreases the chance of exposing the banana flesh to oxygen, which will only makes it ripen that much faster. \n2. Wrap the stems in plastic wrap. \nYou may have noticed that some bunches in the store come with their crown wrapped in plastic wrap. Keep it on. Or add plastic wrap at home, if you have to. According to Dawn Jackson Blatner, RDN — who also happens to work for Chiquita — much of the ethylene gas that increases the rate at which bananas ripen is released at the top of the bunch. 'Wrapping slows down the gas,' said Blatner, who is also the Chicago Cubs dietitian and has made thousands of banana-based smoothies over the years. 'For even better results, pull the bananas apart and wrap each top separately.' \n3. Once they ripen, pop them in the fridge. \nCooler temperatures also slow down the chemical ripening process. Once bananas are ripe to your likening, store them in the fridge. It's OK if the peel turns brown, or even black. This color change comes from pigment in the peel. It doesn't impact the fruit inside which should still have a good flavor and texture. \n4. If the bananas are peeled, add citrus. \nAs with apple slices, adding lemon or lime juice to peeled bananas can help preserve their freshness. Basically, the citrus slows down the oxidation process. You can also use lime orange juice or pineapple juice. If you've already sliced the banana, toss it with a teaspoon or two of citrus juice. If the banana is still whole or just halved, you can brush it with the juice. Feel free to dilute the juice with water if needed. Adding citrus will slightly affect the banana's flavor, making it a little tart. \n5. Give the bananas a vinegar bath. \nThis might sound strange but vinegar is another alternative to citrus. Claudia Sidoti, head chef at meal-kit delivery service HelloFresh and former Test Kitchen Director at Food Network, told TODAY that she uses vinegar to keep the fruit slices from 'turning into brown mush.' As with citrus juice, vinegar may also be diluted with water. If you're still getting a lingering taste of vinegar, simply rinse your bananas well before consuming. \n6. For longer periods of time, freeze. \nIf you're keeping bananas for longer than a few days, put them in the freezer instead of the refrigerator. According to Nicole Pomije, the pastry chef/owner behind The Cookie Cups, frozen bananas last at least 30 days. Pomije, who makes banana chocolate cookie cups and banana pancakes every day in her bakery, defrosts them on the counter at room temperature.",
+        "short": "We've all been there. After buying a nice green bunch of bananas, you often think you have several days (maybe even a week) to use them all up before they turn brown"
     }
 ]

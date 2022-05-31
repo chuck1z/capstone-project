@@ -4,12 +4,12 @@
         "name": "Apple",
         "binom": "Malus domestica",
         "nutrition": {
-            "carbs": "25g",
-            "protein": "0.5g",
-            "calories": "95",
-            "fat": "0.3g"
+            "carbs": "14g",
+            "protein": "0.3g",
+            "calories": "52",
+            "fat": "0.2g"
         },
-        "vitamin": ["Vit B6",  "Vit C"],
+        "vitamin": ["Vit C",  "Vit B6"],
         "about": "",
         "tips": [],
         "image": ""
@@ -19,10 +19,10 @@
         "name": "Avocado",
         "binom": "Persea americana",
         "nutrition": {
-            "carbs": "12g",
-            "protein": "2.9g",
-            "calories": "234",
-            "fat": "21g"
+            "carbs": "9g",
+            "protein": "2g",
+            "calories": "160",
+            "fat": "15g"
         },
         "vitamin": ["Vit C", "Vit B6"],
         "about": "",
@@ -32,12 +32,12 @@
     {
         "fruits_id": "f0003",
         "name": "Banana",
-        "binom": "",
+        "binom": "Musa paradisiaca",
         "nutrition": {
-            "carbs": "27g",
-            "protein": "1.3g",
-            "calories": "105",
-            "fat": "0.4g"
+            "carbs": "23g",
+            "protein": "1.1g",
+            "calories": "89",
+            "fat": "0.3g"
         },
         "vitamin": ["Vit C", "Vit B6"],
         "about": "",
@@ -47,12 +47,12 @@
     {
         "fruits_id": "f0004",
         "name": "Date Fruit",
-        "binom": "",
+        "binom": "Phoenix dactylifera",
         "nutrition": {
-            "carbs": "36g",
-            "protein": "0.8g",
-            "calories": "133",
-            "fat": "0g"
+            "carbs": "75g",
+            "protein": "2.5g",
+            "calories": "282",
+            "fat": "0.4g"
         },
         "vitamin": ["Vit B6"],
         "about": "",
@@ -62,14 +62,14 @@
     {
         "fruits_id": "f0005",
         "name": "Durian",
-        "binom": "",
+        "binom": "Durio zibethinus",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "27g",
+            "protein": "1.5g",
+            "calories": "147",
+            "fat": "5.3g"
         },
-        "vitamin": [],
+        "vitamin": ["Vit C"],
         "about": "",
         "tips": [],
         "image": ""
@@ -79,159 +79,159 @@
         "name": "Grape",
         "binom": "",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "16g",
+            "protein": "1.8g",
+            "calories": "97",
+            "fat": "0.3g"
         },
-        "vitamin": [],
+        "vitamin": ["Vit C", "Vit B6"],
         "about": "",
         "tips": [],
         "image": ""
     },
     {
         "fruits_id":"f0007",
-        "name": "Guanabana",
-        "binom": "",
+        "name": "Guava",
+        "binom": "Psidium guajava",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "14.3g",
+            "protein": "2.6g",
+            "calories": "68",
+            "fat": "0.95g"
         },
-        "vitamin": [],
+        "vitamin": ["Vit C", "Vit A"],
         "about": "",
         "tips": [],
         "image": ""
     },
     {
         "fruits_id":"f0008",
-        "name": "Guava",
-        "binom": "",
-        "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
-        },
-        "vitamin": [],
-        "about": "",
-        "tips": [],
-        "image": ""
-    },
-    {
-        "fruits_id":"f0009",
         "name": "Lime",
-        "binom": "",
+        "binom": "Citrus aurantifolia",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "11g",
+            "protein": "0.7g",
+            "calories": "30",
+            "fat": "0.2g"
         },
-        "vitamin": [],
+        "vitamin": ["Vit C"],
         "about": "Tart and fragrant limes are the key acidity in many cuisines. Just scratch and sniff the peel for a ticket to paradise, or a squirt a wedge to transform plain water into a tropical refreshment. Also known as Tahitian Lime or Persian lime, as they ripen, they turn noticeably lighter and even full-on yellow. They have an especially spicy and fragrant aroma.",
         "tips": [],
         "image": ""
     },
     {
-        "fruits_id": "f0010",
+        "fruits_id": "f0009",
         "name": "Longan",
-        "binom": "",
+        "binom": "Dimocarpus longan",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "15g",
+            "protein": "1.3g",
+            "calories": "60",
+            "fat": "0.1g"
         },
-        "vitamin": [],
+        "vitamin": ["Vit C"],
+        "about": "",
+        "tips": [],
+        "image": ""
+    },
+    {
+        "fruits_id": "f0010",
+        "name": "Mango",
+        "binom": "Magnifera indica",
+        "nutrition": {
+            "carbs": "17g",
+            "protein": "0.51g",
+            "calories": "65",
+            "fat": "0.27g"
+        },
+        "vitamin": ["Vit C", "Vit A"],
         "about": "",
         "tips": [],
         "image": ""
     },
     {
         "fruits_id": "f0011",
-        "name": "Mango",
-        "binom": "",
+        "name": "Mangosteen",
+        "binom": "Garcinia mangostana",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "18g",
+            "protein": "0.41g",
+            "calories": "73",
+            "fat": "0.58g"
         },
-        "vitamin": [],
+        "vitamin": ["Vit C", "Vit A", "Vit B9"],
         "about": "",
         "tips": [],
         "image": ""
     },
     {
         "fruits_id": "f0012",
-        "name": "Mangosteen",
-        "binom": "",
+        "name": "Melon",
+        "binom": "Cucumis melo",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "8g",
+            "protein": "0.8g",
+            "calories": "34",
+            "fat": "0.2g"
         },
-        "vitamin": [],
+        "vitamin": ["Vit C", "Vit B6"],
         "about": "",
         "tips": [],
         "image": ""
     },
     {
         "fruits_id": "f0013",
-        "name": "Melon",
-        "binom": "",
+        "name": "Orange",
+        "binom": "Citrus Sinensis",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "12g",
+            "protein": "0.9g",
+            "calories": "47",
+            "fat": "0.1g"
         },
-        "vitamin": [],
+        "vitamin": ["Vit C", "Vit B6"],
+        "about": "",
+        "tips": ["Make sure the tip of the fruit is either pale white or yellowish brown. Avoid oranges with dark-looking tip", "Make sure the skin looks clear or have minimal blemishes"]
+    },
+    {
+        "fruits_id": "f0014",
+        "name": "Papaya",
+        "binom": "Carica papaya",
+        "nutrition": {
+            "carbs": "9.8g",
+            "protein": "0.6g",
+            "calories": "39",
+            "fat": "0.14g"
+        },
+        "vitamin": ["Vit C", "Vit A"],
         "about": "",
         "tips": [],
         "image": ""
     },
     {
-        "fruits_id": "f0014",
-        "name": "Orange",
-        "binom": "Citrus Sinensis",
+        "fruits_id": "f0015",
+        "name": "Pineapple",
+        "binom": "Ananas comosus",
         "nutrition": {
-            "carbs": "11g",
-            "protein": "0.9g",
-            "calories": "45",
+            "carbs": "13g",
+            "protein": "0.5g",
+            "calories": "50",
             "fat": "0.1g"
         },
-        "vitamin": ["Vit C", "Vit D", "Vit B6"],
-        "about": "",
-        "tips": ["Make sure the tip of the fruit is either pale white or yellowish brown. Avoid oranges with dark-looking tip", "Make sure the skin looks clear or have minimal blemishes"]
-    },
-    {
-        "fruits_id": "f0015",
-        "name": "Papaya",
-        "binom": "",
-        "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
-        },
-        "vitamin": [],
+        "vitamin": ["Vit C", "Vit B6"],
         "about": "",
         "tips": [],
         "image": ""
     },
     {
         "fruits_id": "f0016",
-        "name": "Pineapple",
-        "binom": "",
+        "name": "Pomegranate",
+        "binom": "Punica granatum",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "19g",
+            "protein": "1.7g",
+            "calories": "83",
+            "fat": "1.2g"
         },
         "vitamin": [],
         "about": "",
@@ -240,28 +240,28 @@
     },
     {
         "fruits_id": "f0017",
-        "name": "Pomegranate",
-        "binom": "",
+        "name": "Rambutan",
+        "binom": "Nephelium lappaceum",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "21g",
+            "protein": "0.65g",
+            "calories": "82",
+            "fat": "0.21g"
         },
-        "vitamin": [],
+        "vitamin": ["Vit C", "Vit B6"],
         "about": "",
         "tips": [],
         "image": ""
     },
     {
         "fruits_id": "f0018",
-        "name": "Rambutan",
-        "binom": "",
+        "name": "Salak",
+        "binom": "Salacca zalacca",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "21g",
+            "protein": "0g",
+            "calories": "77",
+            "fat": "0g"
         },
         "vitamin": [],
         "about": "",
@@ -269,16 +269,16 @@
         "image": ""
     },
     {
-        "fruits_id": "f0019",
-        "name": "Salak",
-        "binom": "",
+        "fruits_id":"f0019",
+        "name": "Soursop",
+        "binom": "Annonaceae muricata",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "17g",
+            "protein": "1g",
+            "calories": "66",
+            "fat": "0.3g"
         },
-        "vitamin": [],
+        "vitamin": ["Vit C", "Vit B6"],
         "about": "",
         "tips": [],
         "image": ""
@@ -286,14 +286,14 @@
     {
         "fruits_id": "f0020",
         "name": "Strawberry",
-        "binom": "",
+        "binom": "Fragaria ananassa",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "7.7g",
+            "protein": "0.67g",
+            "calories": "32",
+            "fat": "0.3g"
         },
-        "vitamin": [],
+        "vitamin": ["Vit C"],
         "about": "",
         "tips": [],
         "image": ""
@@ -301,12 +301,12 @@
     {
         "fruits_id": "f0021",
         "name": "Watermelon",
-        "binom": "",
+        "binom": "Citrullus vulgaris",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "21g",
+            "protein": "1.7g",
+            "calories": "85",
+            "fat": "0.4g"
         },
         "vitamin": [],
         "about": "",
@@ -316,12 +316,12 @@
     {
         "fruits_id": "f0022",
         "name": "Watery rose apple",
-        "binom": "",
+        "binom": "Syzygium aqueum",
         "nutrition": {
-            "carbs": "",
-            "protein": "",
-            "calories": "",
-            "fat": ""
+            "carbs": "5.7g",
+            "protein": "0.6g",
+            "calories": "25",
+            "fat": "0.3g"
         },
         "vitamin": [],
         "about": "",

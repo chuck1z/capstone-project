@@ -1,4 +1,5 @@
 const almanac = require("./almanac.json");
+const articles = require("./articles.json");
 
 function rand_from_seed(x, iterations) {
   iterations = iterations || 100;
@@ -55,7 +56,13 @@ const getFOTD = (h) => {
   return response;
 };
 
-const getTips = (request, h) => {
+const getTips = (h) => {
+  const data = articles.map((x) => ({
+    tips_id: x.tips_id,
+    title: x.title,
+    image: x.image,
+    short_desc: x.short,
+  }));
 
   if (data !== undefined) {
     return {
@@ -75,6 +82,17 @@ const getTips = (request, h) => {
 
 const getTipsbyID = (request, h) => {
   const { id } = request.params;
+
+  const data = articles.map((x) => ({
+    tips_id: x.tips_id,
+    title: x.title,
+    image: x.image,
+    short_desc: x.short,
+    date_posted: x.date_posted,
+    full_desc: x.content,
+  }));
+
+  data = data.filter((n) => n.tips_id === id)[0];
 
   if (data !== undefined) {
     return {
@@ -140,9 +158,11 @@ const getModelLatest = (request, h) => {
   });
   response.code(404);
   return response;
-}
+};
 
 module.exports = {
   getDetails,
   getFOTD,
+  getTips,
+  getTipsbyID,
 };
