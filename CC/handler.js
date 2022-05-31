@@ -82,8 +82,9 @@ const getTips = (h) => {
 
 const getTipsbyID = (request, h) => {
   const { id } = request.params;
+  console.log(id);
 
-  const data = articles.map((x) => ({
+  let data = articles.map((x) => ({
     tips_id: x.tips_id,
     title: x.title,
     image: x.image,
@@ -92,6 +93,7 @@ const getTipsbyID = (request, h) => {
     full_desc: x.content,
   }));
 
+  console.log(data.filter((n) => n.tips_id === id)[0]);
   data = data.filter((n) => n.tips_id === id)[0];
 
   if (data !== undefined) {
