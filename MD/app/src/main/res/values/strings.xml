@@ -23,4 +23,14 @@
     <string name="pick_photo">pick photo</string>
     <string name="error_request">request failed, please try again</string>
     <string name="unable_fetch_stories">failed to fetch detail fruits, please try again</string>
+    <string name="history_scan">History Scan</string>
+    <string name="user_guide">User Guide</string>
+    <string name="carbs">Carbs</string>
+    <string name="protein">Protein</string>
+    <string name="calories">Calories</string>
+    <string name="nutritions">Nutritions :</string>
+    <string name="vitamin">Vitamin :</string>
+    <string name="choosing_tips">Choosing Tips :</string>
+    <string name="tips_decsription">Tips Decsription</string>
+    <string name="fat">Fat</string>
 </resources>

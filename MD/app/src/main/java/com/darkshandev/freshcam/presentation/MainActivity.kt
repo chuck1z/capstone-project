@@ -87,7 +87,6 @@ class MainActivity : AppCompatActivity() {
                     binding.fab.visibility = View.GONE
                     binding.bottomNavigationView.visibility = View.GONE
                     binding.bottomAppBar.visibility = View.GONE
-
                 }
             }
 
