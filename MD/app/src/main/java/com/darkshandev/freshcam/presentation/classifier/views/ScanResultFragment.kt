@@ -38,7 +38,7 @@ class ScanResultFragment : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-      setupCollector()
+        setupCollector()
         setupView()
         return binding?.root
     }
