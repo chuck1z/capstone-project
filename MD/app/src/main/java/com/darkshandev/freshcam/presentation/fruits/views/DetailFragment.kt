@@ -40,13 +40,6 @@ class DetailFragment : Fragment() {
                     }
                     is AppState.Success -> {
                         binding?.apply {
-<<<<<<< HEAD
-                            state.data?.let {
-                                tvFruitTitle.text = it.name
-                                tvAboutDesc.text = it.about
-                                tvScientificName.text = it.binom
-                            }
-=======
                            state.data?.let {
                                tvFruitTitle.text=it.name
                                tvAboutDesc.text=it.about
@@ -54,7 +47,6 @@ class DetailFragment : Fragment() {
                                itemVitamin.text = it.vitamin.toString()
                                tvTipsDescritions.text = it.tips.toString()
                            }
->>>>>>> eae2c95052c38d42865be5537857e7cceb06d792
                         }
                     }
                     is AppState.Error -> {
