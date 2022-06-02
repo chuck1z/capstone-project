@@ -20,15 +20,8 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import java.io.File
 import java.io.IOException
-import java.lang.Byte
-import java.lang.Float
 import java.nio.ByteOrder
 import javax.inject.Inject
-import kotlin.String
-import kotlin.Throwable
-import kotlin.intArrayOf
-import kotlin.let
-import kotlin.run
 
 
 class ClassifierDatasource @Inject constructor(
@@ -38,6 +31,22 @@ class ClassifierDatasource @Inject constructor(
 ) {
 
     private lateinit var interpreter: Interpreter;
+
+    suspend fun classifyImage(image: File): AppState<ClassifierResult> {
+        return try {
+            val input = image.asTensorInput()
+            val tensorBuffer = TensorBuffer.createFixedSize(intArrayOf(4, 32), DataType.FLOAT32)
+            val modelOutput = tensorBuffer.buffer.order(ByteOrder.nativeOrder())
+            interpreter.run(input, modelOutput)
+            modelOutput.rewind()
+            val probabilities = modelOutput.asFloatBuffer()
+            val index = probabilities.getIndexOfMax()
+            val result = ClassifierResult(index, probabilities.get(index))
+            AppState.Success(result)
+        } catch (e: IOException) {
+            AppState.Error(e.message ?: "error")
+        }
+    }
 
     suspend fun getLatestModel() {
         val conditions = CustomModelDownloadConditions.Builder()
