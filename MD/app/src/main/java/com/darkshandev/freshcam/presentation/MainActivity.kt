@@ -52,7 +52,10 @@ class MainActivity : AppCompatActivity() {
                 REQUIRED_PERMISSIONS,
                 REQUEST_CODE_PERMISSIONS
             )
+        } else {
+            classifierViewmodel.getLatestModel()
         }
+
     }
 
     private fun setupNavigation() {
