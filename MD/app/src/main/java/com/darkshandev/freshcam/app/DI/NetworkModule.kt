@@ -2,6 +2,7 @@ package com.darkshandev.freshcam.app.DI
 
 import com.darkshandev.freshcam.BuildConfig
 import com.darkshandev.freshcam.app.Config
+import com.google.firebase.ml.modeldownloader.FirebaseModelDownloader
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,6 +36,10 @@ object NetworkModule {
         .Builder()
         .addInterceptor(interceptor)
         .build()
+
+    @Singleton
+    @Provides
+    fun provideModelDownloader(): FirebaseModelDownloader = FirebaseModelDownloader.getInstance()
 
     @Singleton
     @Provides
