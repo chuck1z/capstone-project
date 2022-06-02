@@ -13,17 +13,18 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FruitsViewmodel @Inject constructor(private val repo: FruitsRepository) : ViewModel() {
-//    private val _fruits = MutableLiveData<List<FruitsTips>>()
+    //    private val _fruits = MutableLiveData<List<FruitsTips>>()
 //    val fruits: LiveData<List<FruitsTips>> = _fruits
 //    private val _isLoading = MutableLiveData<Boolean>()
     private val _fruits = MutableStateFlow<AppState<List<FruitsTips>>>(AppState.Initial())
-     val fruits = _fruits.asStateFlow()
+    val fruits = _fruits.asStateFlow()
     private val _selectedFruitsId = MutableStateFlow<String>("")
     fun setSelectedFruitsId(id: String) {
         _selectedFruitsId.value = id
     }
+
     @OptIn(ExperimentalCoroutinesApi::class)
-    val fruitsDetail:StateFlow<AppState<FruitsDetail>> =_selectedFruitsId
+    val fruitsDetail: StateFlow<AppState<FruitsDetail>> = _selectedFruitsId
         .distinctUntilChanged { old, new -> old == new && new == "" }
         .transformLatest { id ->
             repo.getFruitsDetail(id)
