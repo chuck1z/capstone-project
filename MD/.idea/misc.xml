@@ -10,6 +10,7 @@
         <entry key="..\:/BANGKIT 2022/capstone-project/MD/app/src/main/res/drawable/ic_baseline_camera_24.xml" value="0.154" />
         <entry key="..\:/BANGKIT 2022/capstone-project/MD/app/src/main/res/drawable/ic_baseline_home_24_inactive.xml" value="0.121" />
         <entry key="..\:/BANGKIT 2022/capstone-project/MD/app/src/main/res/drawable/ic_history.xml" value="0.2225" />
+        <entry key="..\:/BANGKIT 2022/capstone-project/MD/app/src/main/res/drawable/list_view_nutritions.xml" value="0.10400000000000001" />
         <entry key="..\:/BANGKIT 2022/capstone-project/MD/app/src/main/res/drawable/listview_nutritions.xml" value="0.1675" />
         <entry key="..\:/BANGKIT 2022/capstone-project/MD/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/BANGKIT 2022/capstone-project/MD/app/src/main/res/layout/fragment_detail.xml" value="0.25" />
@@ -18,6 +19,7 @@
         <entry key="..\:/BANGKIT 2022/capstone-project/MD/app/src/main/res/layout/fragment_scan_result.xml" value="0.10989583333333333" />
         <entry key="..\:/BANGKIT 2022/capstone-project/MD/app/src/main/res/layout/fragment_setting.xml" value="0.25" />
         <entry key="..\:/BANGKIT 2022/capstone-project/MD/app/src/main/res/layout/item_fruits_tips.xml" value="0.2453125" />
+        <entry key="..\:/BANGKIT 2022/capstone-project/MD/app/src/main/res/layout/list_vew_nutritions.xml" value="0.264" />
         <entry key="..\:/BANGKIT 2022/capstone-project/MD/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2085" />
         <entry key="app/src/main/res/drawable/home_icon.xml" value="0.2085" />

@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 
 class DetailFragment : Fragment() {
     private val fruitsViewmodel by activityViewModels<FruitsViewmodel>()
-private var binding: FragmentDetailBinding? = null
+    private var binding: FragmentDetailBinding? = null
     override fun onDestroy() {
         binding=null
         super.onDestroy()
@@ -45,6 +45,8 @@ private var binding: FragmentDetailBinding? = null
                                tvFruitTitle.text=it.name
                                tvAboutDesc.text=it.about
                                tvScientificName.text=it.binom
+                               itemVitamin.text = it.vitamin.toString()
+                               tvTipsDescritions.text = it.tips.toString()
                            }
                         }
                     }
