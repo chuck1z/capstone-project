@@ -3,7 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/back">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="14dp"
+        android:src="@drawable/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvFruit"
@@ -16,7 +26,7 @@
         app:cardCornerRadius="16dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -26,7 +36,8 @@
                 android:id="@+id/tvFruitOfTheDay"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="16dp"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
                 android:text="@string/fruit_of_the_day"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textStyle="bold"
@@ -52,11 +63,11 @@
                 android:id="@+id/ivFruitOfTheDay"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                app:layout_constraintStart_toEndOf="@id/tvDesc"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvDesc"
                 app:layout_constraintTop_toBottomOf="@+id/tvFruitOfTheDay"
                 tools:src="@tools:sample/avatars" />
 
@@ -65,10 +76,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="12dp"
                 android:backgroundTint="@color/secondary"
                 android:text="@string/more_info"
+                android:textAllCaps="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvDesc"
@@ -92,7 +104,7 @@
         android:text="@string/fruit_tips"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textStyle="bold"
-        android:padding="16dp"
+        android:padding="14dp"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/cvFruit" />
 
@@ -101,7 +113,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvFruitTips"

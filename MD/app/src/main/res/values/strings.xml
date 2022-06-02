@@ -23,4 +23,6 @@
     <string name="pick_photo">pick photo</string>
     <string name="error_request">request failed, please try again</string>
     <string name="unable_fetch_stories">failed to fetch detail fruits, please try again</string>
+    <string name="history_scan">History Scan</string>
+    <string name="user_guide">User Guide</string>
 </resources>

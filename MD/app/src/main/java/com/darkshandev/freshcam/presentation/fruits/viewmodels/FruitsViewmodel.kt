@@ -17,7 +17,7 @@ class FruitsViewmodel @Inject constructor(private val repo: FruitsRepository) : 
 //    val fruits: LiveData<List<FruitsTips>> = _fruits
 //    private val _isLoading = MutableLiveData<Boolean>()
     private val _fruits = MutableStateFlow<AppState<List<FruitsTips>>>(AppState.Initial())
-     val fruits = _fruits.asStateFlow()
+    val fruits = _fruits.asStateFlow()
     private val _selectedFruitsId = MutableStateFlow<String>("")
     fun setSelectedFruitsId(id: String) {
         _selectedFruitsId.value = id
