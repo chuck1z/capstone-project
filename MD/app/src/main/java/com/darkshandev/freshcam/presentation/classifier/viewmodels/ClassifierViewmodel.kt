@@ -1,12 +1,18 @@
 package com.darkshandev.freshcam.presentation.classifier.viewmodels
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.darkshandev.freshcam.data.models.AppState
 import com.darkshandev.freshcam.data.models.ScanResult
 import com.darkshandev.freshcam.data.repositories.ClassifierRepository
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import java.io.File
 import javax.inject.Inject
 
@@ -22,6 +28,14 @@ class ClassifierViewmodel @Inject constructor(private val repository: Classifier
 
     private val _result = MutableStateFlow<AppState<ScanResult>>(AppState.Initial())
     val result = _result.asStateFlow()
+    fun getLatestModel() {
+        _result.value = AppState.Loading()
+        viewModelScope.launch {
+            repository.getLatestModel()
+        }
+
+    }
+
     fun classifyImage() {
         _result.value = AppState.Loading()
         repository.classifyImage(image.value!!, object : ClassifierRepository.ClassifierCallback {
@@ -33,6 +47,7 @@ class ClassifierViewmodel @Inject constructor(private val repository: Classifier
                 _result.value = AppState.Error(error)
             }
         })
+
     }
 
 }
