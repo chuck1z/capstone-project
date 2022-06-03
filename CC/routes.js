@@ -1,6 +1,11 @@
-const { getDetails, getFOTD, getTips, getTipsbyID } = require("./handler");
+const { root, getDetails, getFOTD, getTips, getTipsbyID } = require("./handler");
 
 const routes = [
+  {
+    method: "GET",
+    path: "/",
+    handler: root,
+  },
   {
     method: "GET",
     path: "/fruits/{id}/detail",

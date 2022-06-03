@@ -7,6 +7,33 @@ function rand_from_seed(x, iterations) {
   return x;
 }
 
+const root = () => {
+  return {
+    data: [
+      {
+        method: "GET",
+        path: "/fruits/{id}/detail",
+        handler: getDetails,
+      },
+      {
+        method: "GET",
+        path: "/fruits/fotd",
+        handler: getFOTD,
+      },
+      {
+        method: "GET",
+        path: "/fruits/tips",
+        handler: getTips,
+      },
+      {
+        method: "GET",
+        path: "/fruits/tips/{id}",
+        handler: getTipsbyID,
+      },
+    ],
+  };
+};
+
 const getFOTD = (h) => {
   // date seed (daily -> 86400000 and %22 -> 22 fruits)
   var random = rand_from_seed(~~(new Date() / 86400000)) % 22;
@@ -163,6 +190,7 @@ const getModelLatest = (request, h) => {
 };
 
 module.exports = {
+  root,
   getDetails,
   getFOTD,
   getTips,
