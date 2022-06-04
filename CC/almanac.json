@@ -11,7 +11,7 @@
         },
         "vitamin": ["Vit C",  "Vit B6"],
         "about": "An incredibly nutritious fruit that offers multiple health benefits. They're rich in fiber and antioxidants. Eating them is linked to a lower risk of many chronic conditions, including diabetes, heart disease, and cancer. Apples may also promote weight loss and improve gut and brain health.",
-        "tips": [],
+        "tips": ["Hold the apply in your hand and press it slightly to check for firmness. If it sinks in, it's not fresh and is most likely overripe.", "Be on the lookout for blemishes, insect holes, any kind of crevices or brown spots. This could mean that the apple is old.", "Look for the shine. Rub the apple slightly and you'll figure if that's the fruit's natural shine or food-grade wax which vendors sometimes apply to make their produce look good."],
         "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/apple.jpg"
     },
     {
@@ -89,7 +89,7 @@
         },
         "vitamin": ["Vit C", "Vit B6"],
         "about": "They are chock-full of antioxidants and nutrients. They also contain fiber and are a low-calorie food. Eating a diet rich in fruits like grapes may reduce your risk of heart attack, stroke, diabetes, cancer, and obesity.",
-        "tips": [],
+        "tips": ["Check the colour: green grapes are sweetest and at their best flavour when they are yellow-green in colour. Red grapes are best when the grapes are predominantly red, and black grapes will be most flavourful when they have a full, rich colour.", "Check the condition of the grapes and stems: grapes should be firm, plump and tightly attached to the stems. Grapes that are wet, mouldy or shrivelled at the stem attachment should be avoided, as they indicate decay. If grapes are at their freshest, the stems will be green and flexible versus being dry and brittle when they're not so fresh.", "Check for bloom: if you see a powdery-white coating on your grapes, don't worry it's called bloom and it's a good sign! Bloom is a naturally occurring substance that protects grapes from moisture loss and decay. It may not wash off your grapes easily, but thankfully it is perfectly safe to eat."],
         "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/grape.jpg"
     },
     {
@@ -194,7 +194,7 @@
         },
         "vitamin": ["Vit C", "Vit B6"],
         "about": "They boast many impressive nutrients, such as vitamin C and fiber, which are associated with improved immune function and gut health, respectively. Store them at room temperature or in the refrigerator. Either way, they make a handy, scrumptious, and nutritious snack.",
-        "tips": ["Make sure the tip of the fruit is either pale white or yellowish brown. Avoid oranges with dark-looking tip", "Make sure the skin looks clear or have minimal blemishes"],
+        "tips": ["Give them a squeeze: the tastiest orange are mostly firm, full-colored, smooth and thin-skinned. Avoid oranges that are too soft, show even the smallest signs of mold, or feel as though they have bruises. Don't be afraid of slight scratches or marks on the skin; this is called “wind scarring,” which happens when fruit rubs against the tree branches during windy weather.", "Go for heft: good oranges should have a good amount of weight in your hand, like a small sports ball. This heaviness indicates how much juice is in your orange.", "Consider the color: look for oranges with bright color. On some varieties, vivid and solid orange hue are best while on others, greenish tinge are great as they reabsorb chlorophyll while hanging on the tree during warmer months."],
         "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/orange.jpg"
     },
     {
@@ -304,6 +304,21 @@
     },
     {
         "fruits_id": "f0020",
+        "name": "Tomato",
+        "binom": "Citrullus vulgaris",
+        "nutrition": {
+            "carbs": "21g",
+            "protein": "1.7g",
+            "calories": "85",
+            "fat": "0.4g"
+        },
+        "vitamin": ["Vit C", "Vit B9"],
+        "about": "It has a very high water content and provides nutrients like lycopene, citrulline, and vitamins A and C. Studies suggest that it may even boost heart health, reduce muscle soreness, and decrease inflammation, though more research is needed.",
+        "tips": ["Hold but do not squeeze. Smaller tomatoes should be firm but not hard; larger tomatoes should feel heavy for their size and neither too solid nor too soft or swollen.", "Seek out tomatoes that are uniformly ripe. Avoid tomatoes that have hard or pale spots near the stem as well as ones with large bruises or cracks that are too long or deep to trim away. They should be shiny, with a smooth, uniform skin.", "Take a whiff. If you're not getting much of an aroma, it's likely the tomato is underripe. A great tomato should smell floral and almost basil-y."],
+        "image": ""
+    },
+    {
+        "fruits_id": "f0021",
         "name": "Watermelon",
         "binom": "Citrullus vulgaris",
         "nutrition": {
@@ -314,26 +329,11 @@
         },
         "vitamin": [],
         "about": "It has a very high water content and provides nutrients like lycopene, citrulline, and vitamins A and C. Studies suggest that it may even boost heart health, reduce muscle soreness, and decrease inflammation, though more research is needed.",
-        "tips": [],
+        "tips": ["Find a watermelon that is a uniform size (oval or round) either is ok. You just want to watch out for irregular bumps.", "You want to find the melon that is heavy for its size. This usually means it will be sweeter and will have more water content.", "Look for an orange creamy field spot. The darker yellow field spot usually means it was on the vine longer and is full of flavor.", "If the field spot is white that's a sign that the melon is not quite ripe. Larger “webbing” or “sugar spots” means that the melon is seeping out sugar and is usually the sign of sweet melon.", "Look for dark & dull melons which is a sign that the melon is ripe. When the melon is shiny it is underripe."],
         "image": ""
     },
     {
-        "fruits_id": "f0021",
-        "name": "Watery rose apple",
-        "binom": "Syzygium aqueum",
-        "nutrition": {
-            "carbs": "5.7g",
-            "protein": "0.6g",
-            "calories": "25",
-            "fat": "0.3g"
-        },
-        "vitamin": [],
-        "about": "They should be consumed almost immediately as they would spoil quickly. They are known to have many benefits such as controlling sugar level, ease up constipation, boost heart health, and many more.",
-        "tips": [],
-        "image": ""
-    },
-    {
-        "fruits_id": "f0021",
+        "fruits_id": "f0022",
         "name": "Watery rose apple",
         "binom": "Syzygium aqueum",
         "nutrition": {
