@@ -141,7 +141,7 @@ const getTipsbyID = (request, h) => {
 
 const getDetails = (request, h) => {
   const { id } = request.params;
-
+  console.log(id);
   let data = almanac.map((x) => ({
     id: x.fruits_id,
     name: x.name,
@@ -153,7 +153,7 @@ const getDetails = (request, h) => {
     tips: x.tips,
   }));
 
-  data = data.filter((n) => n.fruits_id === id)[0];
+  data = data.filter((n) => n.id === id)[0];
 
   // Might need response code 200
   if (data !== undefined) {
