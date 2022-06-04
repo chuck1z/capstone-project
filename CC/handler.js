@@ -109,7 +109,6 @@ const getTips = (h) => {
 
 const getTipsbyID = (request, h) => {
   const { id } = request.params;
-  console.log(id);
 
   let data = articles.map((x) => ({
     tips_id: x.tips_id,
@@ -120,7 +119,6 @@ const getTipsbyID = (request, h) => {
     full_desc: x.content,
   }));
 
-  console.log(data.filter((n) => n.tips_id === id)[0]);
   data = data.filter((n) => n.tips_id === id)[0];
 
   if (data !== undefined) {
@@ -141,7 +139,7 @@ const getTipsbyID = (request, h) => {
 
 const getDetails = (request, h) => {
   const { id } = request.params;
-  console.log(id);
+
   let data = almanac.map((x) => ({
     id: x.fruits_id,
     name: x.name,
