@@ -35,4 +35,6 @@
     <string name="fat">Fat</string>
     <string name="fruit_name">Fruit Name</string>
     <string name="detection">Fresh or Rotten</string>
+    <string name="about_app">About App</string>
+    <string name="version">Version</string>
 </resources>

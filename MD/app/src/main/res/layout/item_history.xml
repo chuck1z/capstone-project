@@ -26,7 +26,7 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/tvTitleTips"
+            android:id="@+id/tvFruitName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -37,7 +37,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvDescTips"
+            android:id="@+id/tvDetection"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -48,7 +48,7 @@
             android:text="@string/detection"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivFruitsHistory"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitleTips" />
+            app:layout_constraintTop_toBottomOf="@+id/tvFruitName" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>
