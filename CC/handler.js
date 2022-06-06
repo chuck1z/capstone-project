@@ -187,10 +187,58 @@ const getModelLatest = (request, h) => {
   return response;
 };
 
+const getLabel = (h) => {
+  let temp = almanac.map((x) => ({
+    id: x.fruits_id,
+    name: x.name,
+    about: x.about,
+  }));
+
+  for (let i = 0; i < temp.length; i++) {
+    let ids = temp[i].id;
+    ids = ids.slice(-2);
+
+    id = parseInt(ids);
+
+    let short_desc = temp[i].about;
+    short_desc = short_desc.substr(0, 100);
+    short_desc = short_desc.concat("...");
+
+    // assign to data
+    Object.assign(temp[i], { index: id });
+    Object.assign(temp[i], { short_desc: short_desc });
+  }
+
+  const data = temp.map((x) => ({
+    id: x.id,
+    index: x.index,
+    name: x.name,
+    short_desc: x.short_desc,
+  }));
+
+  // console.log(Object.keys(data).length);
+  // console.log(Object.values(data)[0]);
+  if (data !== undefined) {
+    return {
+      error: false,
+      message: "Tips detail fetched successfully",
+      data,
+    };
+  }
+
+  const response = h.response({
+    status: "fail",
+    message: "Error not found",
+  });
+  response.code(404);
+  return response;
+};
+
 module.exports = {
   root,
   getDetails,
   getFOTD,
   getTips,
   getTipsbyID,
+  getLabel,
 };
