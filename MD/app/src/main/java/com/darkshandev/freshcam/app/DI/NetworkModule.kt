@@ -3,6 +3,7 @@ package com.darkshandev.freshcam.app.DI
 import com.darkshandev.freshcam.BuildConfig
 import com.darkshandev.freshcam.app.Config
 import com.darkshandev.freshcam.data.networks.ClassifierService
+import com.darkshandev.freshcam.data.networks.FruitsService
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.ml.modeldownloader.FirebaseModelDownloader
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
@@ -75,4 +76,10 @@ object NetworkModule {
         retrofit: Retrofit
     ): ClassifierService = retrofit
         .create(ClassifierService::class.java)
+    @Singleton
+    @Provides
+    fun provideFruitsService(
+        retrofit: Retrofit
+    ): FruitsService = retrofit
+        .create(FruitsService::class.java)
 }
