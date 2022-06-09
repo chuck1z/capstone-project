@@ -76,6 +76,7 @@ object NetworkModule {
         retrofit: Retrofit
     ): ClassifierService = retrofit
         .create(ClassifierService::class.java)
+
     @Singleton
     @Provides
     fun provideFruitsService(

@@ -27,14 +27,16 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ClassifierViewmodel @Inject constructor(
-     @ApplicationContext  context: Context,
+    @ApplicationContext context: Context,
     private val repository: ClassifierRepository
 ) : ViewModel() {
-    val connectivityManager = getSystemService(context,ConnectivityManager::class.java) as ConnectivityManager
+    val connectivityManager =
+        getSystemService(context, ConnectivityManager::class.java) as ConnectivityManager
 
-    val isFirstLaunch=repository.isFirstLaunch.stateIn(viewModelScope, SharingStarted.Eagerly,false)
+    val isFirstLaunch =
+        repository.isFirstLaunch.stateIn(viewModelScope, SharingStarted.Eagerly, false)
 
-    fun markAsLaunched()=viewModelScope.launch {
+    fun markAsLaunched() = viewModelScope.launch {
         repository.marksAsLaunched()
     }
 
@@ -99,14 +101,14 @@ class ClassifierViewmodel @Inject constructor(
         .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
         .build()
 
-    private val _isConnectionAvailable= MutableStateFlow(false)
-    val isConnectionAvailable=_isConnectionAvailable.asStateFlow()
+    private val _isConnectionAvailable = MutableStateFlow(false)
+    val isConnectionAvailable = _isConnectionAvailable.asStateFlow()
 
     private val networkCallback = object : ConnectivityManager.NetworkCallback() {
         // network is available for use
         override fun onAvailable(network: Network) {
             super.onAvailable(network)
-            _isConnectionAvailable.value=true
+            _isConnectionAvailable.value = true
         }
 
         // Network capabilities have changed for the network
@@ -115,18 +117,21 @@ class ClassifierViewmodel @Inject constructor(
             networkCapabilities: NetworkCapabilities
         ) {
             super.onCapabilitiesChanged(network, networkCapabilities)
-            val unMetered = networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)
-            val internet=networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-           _isConnectionAvailable.value=unMetered||internet
+            val unMetered =
+                networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)
+            val internet =
+                networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+            _isConnectionAvailable.value = unMetered || internet
         }
 
         // lost network connection
         override fun onLost(network: Network) {
             super.onLost(network)
-            _isConnectionAvailable.value= false
+            _isConnectionAvailable.value = false
         }
     }
-    fun requestNetwork(){
+
+    fun requestNetwork() {
         connectivityManager.requestNetwork(networkRequest, networkCallback)
     }
 }
