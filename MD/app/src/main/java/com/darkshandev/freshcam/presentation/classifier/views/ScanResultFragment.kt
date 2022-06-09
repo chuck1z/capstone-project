@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.flowWithLifecycle
@@ -16,6 +17,7 @@ import com.darkshandev.freshcam.data.models.getName
 import com.darkshandev.freshcam.databinding.FragmentScanResultBinding
 import com.darkshandev.freshcam.presentation.classifier.viewmodels.ClassifierViewmodel
 import com.darkshandev.freshcam.presentation.fruits.viewmodels.FruitsViewmodel
+import com.darkshandev.freshcam.utils.asPercentage
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.launch
 
@@ -66,8 +68,15 @@ class ScanResultFragment : BottomSheetDialogFragment() {
                     is AppState.Success -> {
                         binding?.apply {
                             state.data?.let {
+                                if (it.getFreshness().lowercase().contains("fresh")){
+                                    label.setTextColor(ContextCompat.getColor(requireContext(), R.color.fresh))
+                                    confidence.setTextColor(ContextCompat.getColor(requireContext(), R.color.fresh))
+                                }else{
+                                    label.setTextColor(ContextCompat.getColor(requireContext(), R.color.rotten))
+                                    confidence.setTextColor(ContextCompat.getColor(requireContext(), R.color.rotten))
+                                }
                                 label.text = it.getFreshness()
-                                confidence.text = "${it.confidence}%"
+                                confidence.text = it.confidence.asPercentage()
                                 descInfo.text = it.description
                                 name.text = it.getName()
 
