@@ -45,20 +45,61 @@ class ClassifierDatasource @Inject constructor(
 
     suspend fun classifyImage(image: File): AppState<ClassifierResult> {
         return try {
-         val input = image.asTensorInput()
-            val tensorBuffer = TensorBuffer.createFixedSize(intArrayOf(4, 32), DataType.FLOAT32)
-            val modelOutput = tensorBuffer.buffer.order(ByteOrder.nativeOrder())
-            interpreter.run(input, modelOutput)
-            modelOutput.rewind()
-            val probabilities = modelOutput.asFloatBuffer()
-            val index = probabilities.getIndexOfMax()
-            val result = ClassifierResult(index, probabilities.get(index))
-            AppState.Success(result)
+         return  if (remoteConfig.getBoolean("isSingleModelClassifier")){
+               classifyWithSingleModel(image)
+           }else{
+               classifyWithMultiModel(image)
+           }
         } catch (e: IOException) {
             AppState.Error(e.message ?: "error")
         }
     }
+   private suspend fun classifyWithSingleModel(image: File):AppState<ClassifierResult>{
+       return if(interpreterSingleClassifier!=null) {
+           val input = image.asTensorInput()
+           val tensorBuffer = TensorBuffer.createFixedSize(intArrayOf(4, 32), DataType.FLOAT32)
+           val modelOutput = tensorBuffer.buffer.order(ByteOrder.nativeOrder())
+           interpreterSingleClassifier?.run(input, modelOutput)
+           modelOutput.rewind()
+           val probabilities = modelOutput.asFloatBuffer()
+           val index = probabilities.getIndexOfMax()
+           val result = ClassifierResult(index, probabilities.get(index))
+           AppState.Success(result)
+       }else{
+           AppState.Error("model is not defined")
+       }
+    }
+    private suspend fun classifyWithMultiModel(image: File):AppState<ClassifierResult>{
+        suspend fun classifyFruits(input: ByteBuffer): FloatBuffer {
+            val tensorFruitsBuffer =
+                TensorBuffer.createFixedSize(intArrayOf(4, 32), DataType.FLOAT32)
+            val modelFruitsOutput = tensorFruitsBuffer.buffer.order(ByteOrder.nativeOrder())
+            interpreterFruitsClassifier?.run(input, modelFruitsOutput)
+            modelFruitsOutput.rewind()
+            return modelFruitsOutput.asFloatBuffer()
+        }
+        suspend fun classifyFreshness(input: ByteBuffer): FloatBuffer {
+            val tensorFreshnessBuffer =
+                TensorBuffer.createFixedSize(intArrayOf(4, 32), DataType.FLOAT32)
+            val modelFreshnessOutput = tensorFreshnessBuffer.buffer.order(ByteOrder.nativeOrder())
+            interpreterFreshnessClassifier?.run(input, modelFreshnessOutput)
+            modelFreshnessOutput.rewind()
+            return modelFreshnessOutput.asFloatBuffer()
+        }
 
+        return if(interpreterFruitsClassifier!=null && interpreterFreshnessClassifier!=null) {
+            val input = image.asTensorInput()
+            val fruitsProbabilities = classifyFruits(input)
+             val freshnessProbabilities = classifyFreshness(input)
+            val freshConfidence = ((freshnessProbabilities.getMax() - 0.5) / 5 ) * 1000
+
+            val index = fruitsProbabilities.getIndexOfMax()
+           val result = ClassifierResult(index, freshConfidence.absoluteValue.toFloat(),freshConfidence<0)
+            AppState.Success(result)
+        }else{
+            AppState.Error("model is not defined")
+        }
+    }
 suspend fun getLatestLabel():AppState<List<ClassifierLabel>> = getResponse(context.getString(R.string.cannot_get_labels)) {
     getDummiesLabel()
     }
