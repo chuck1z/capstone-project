@@ -4,6 +4,7 @@ import android.util.Log
 import com.darkshandev.freshcam.data.database.ClassifierLabelDao
 import com.darkshandev.freshcam.data.database.HistoryClassificationDao
 import com.darkshandev.freshcam.data.datasources.ClassifierDatasource
+import com.darkshandev.freshcam.data.datasources.PrefService
 import com.darkshandev.freshcam.data.models.*
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
@@ -17,11 +18,17 @@ class ClassifierRepository @Inject constructor(
     private val dataSource: ClassifierDatasource,
     private val dao: ClassifierLabelDao,
     private val historyDao: HistoryClassificationDao,
-
+    private val prefService: PrefService
     ) {
     interface ClassifierCallback {
         fun onSuccess(result: ScanResult)
         fun onError(error: String)
+    }
+
+    val isFirstLaunch=prefService.isFirstLaunch.flowOn(Dispatchers.IO)
+
+    suspend fun marksAsLaunched()= withContext(Dispatchers.IO){
+        prefService.marksAsLaunched()
     }
 
     val downloadStatus = dataSource.downloadStatus
