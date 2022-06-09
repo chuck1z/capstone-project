@@ -47,4 +47,7 @@
     <string name="see_guide">see guide</string>
     <string name="internet_disconnected">internet disconnected</string>
     <string name="retry">retry</string>
+    <string name="unable_fetch_fotd">unable to fetch fruits of the day, please try again later.</string>
+    <string name="unable_to_fetch_tips">unable to fetch tips, please try again later.</string>
+    <string name="unable_to_fetch_detail_tips">unable to fetch detail tips, please try again</string>
 </resources>
