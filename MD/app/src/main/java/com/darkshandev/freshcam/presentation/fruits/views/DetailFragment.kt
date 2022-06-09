@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import com.darkshandev.freshcam.data.models.AppState
 import com.darkshandev.freshcam.databinding.FragmentDetailBinding
 import com.darkshandev.freshcam.presentation.fruits.viewmodels.FruitsViewmodel
+import com.darkshandev.freshcam.utils.loadCircleImage
 import kotlinx.coroutines.launch
 
 class DetailFragment : Fragment() {
@@ -46,6 +47,7 @@ class DetailFragment : Fragment() {
                                tvScientificName.text=it.binom
                                itemVitamin.text = it.vitamin.toString()
                                tvTipsDescritions.text = it.tips.toString()
+                               ivFruits.loadCircleImage("https://media.istockphoto.com/photos/whole-cross-section-and-quarter-of-fresh-organic-navel-orange-with-picture-id1227301369?b=1&k=20&m=1227301369&s=170667a&w=0&h=7WdK1RQTLuCn5tuNe25Z999THYzj8yijmk0MaRE-SD0=")
                            }
                         }
                     }
