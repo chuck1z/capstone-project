@@ -97,7 +97,7 @@ class FruitsRepository @Inject constructor(private val dataSource: FruitsDatasou
                 emit(AppState.Error(message = "Unknown error"))
             }
         }.flowOn(Dispatchers.IO)
-    fun getFruitsOfTheDay(): Flow<AppState<FruitOfTheDay> =
+    fun getFruitsOfTheDay(): Flow<AppState<FruitOfTheDay>> =
         flow<AppState<FruitOfTheDay>> {
             emit(AppState.Loading())
             val result = dataSource.getFruitsOfTheDay()
