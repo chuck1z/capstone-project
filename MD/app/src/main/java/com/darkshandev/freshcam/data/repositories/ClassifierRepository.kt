@@ -29,6 +29,10 @@ class ClassifierRepository @Inject constructor(
 
     val histories=historyDao.getHistories()
 
+    suspend fun clearHistoryClassification() = withContext(Dispatchers.IO){
+        historyDao.clearHistories()
+    }
+
     suspend fun loadLatestLabel() {
         try {
             val result = dataSource.getLatestLabel()
