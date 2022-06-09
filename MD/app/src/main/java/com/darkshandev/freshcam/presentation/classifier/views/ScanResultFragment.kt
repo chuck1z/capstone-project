@@ -62,7 +62,7 @@ class ScanResultFragment : BottomSheetDialogFragment() {
                 }
             }
         }
-        lifecycleScope.launch {
+        lifecycleScope.launchWhenResumed {
             classifierViewmodel.result.flowWithLifecycle(lifecycle).collect { state ->
                 when (state) {
                     is AppState.Success -> {
