@@ -5,7 +5,9 @@ import android.animation.ObjectAnimator
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.AnticipateInterpolator
+import android.widget.Button
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
@@ -44,8 +46,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         setContentView(binding.root)
+        classifierViewmodel.getLatestLabel()
         setupNavigation()
-
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
                 this,
