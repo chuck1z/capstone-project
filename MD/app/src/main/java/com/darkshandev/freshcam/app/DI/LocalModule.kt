@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.darkshandev.freshcam.app.Config
 import com.darkshandev.freshcam.data.database.AppDatabase
 import com.darkshandev.freshcam.data.database.ClassifierLabelDao
+import com.darkshandev.freshcam.data.database.HistoryClassificationDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,4 +32,9 @@ object LocalModule {
     @Singleton
     fun provideClassifierLabelDao(appDatabase: AppDatabase): ClassifierLabelDao =
         appDatabase.classifierLabelDao()
+
+    @Provides
+    @Singleton
+    fun provideHistoryClassificationDao(appDatabase: AppDatabase): HistoryClassificationDao =
+        appDatabase.historyClassificationDao()
 }
