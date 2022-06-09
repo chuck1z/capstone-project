@@ -6,6 +6,8 @@ import com.darkshandev.freshcam.data.datasources.ClassifierDatasource
 import com.darkshandev.freshcam.data.models.*
 import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import java.io.File
 import javax.inject.Inject
@@ -27,7 +29,7 @@ class ClassifierRepository @Inject constructor(
         dataSource.getLatestModel()
     }
 
-    val histories=historyDao.getHistories()
+    val histories=historyDao.getHistories().flowOn(Dispatchers.IO)
 
     suspend fun clearHistoryClassification() = withContext(Dispatchers.IO){
         historyDao.clearHistories()
