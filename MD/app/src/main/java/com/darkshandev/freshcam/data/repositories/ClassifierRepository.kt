@@ -1,32 +1,58 @@
 package com.darkshandev.freshcam.data.repositories
 
+import com.darkshandev.freshcam.data.database.ClassifierLabelDao
 import com.darkshandev.freshcam.data.datasources.ClassifierDatasource
 import com.darkshandev.freshcam.data.models.AppState
 import com.darkshandev.freshcam.data.models.ScanResult
+import com.darkshandev.freshcam.data.models.toEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
 import javax.inject.Inject
 
-class ClassifierRepository @Inject constructor(private val dataSource: ClassifierDatasource) {
+class ClassifierRepository @Inject constructor(
+    private val dataSource: ClassifierDatasource,
+    private val dao: ClassifierLabelDao,
+) {
     interface ClassifierCallback {
         fun onSuccess(result: ScanResult)
         fun onError(error: String)
     }
+    val downloadStatus = dataSource.downloadStatus
 
     suspend fun getLatestModel() {
         dataSource.getLatestModel()
     }
 
-    fun classifyImage(value: File, callback: ClassifierCallback) {
-
-        callback.onSuccess(
-            ScanResult(
-                "Orange_Fresh",
-                70.0f,
-                "lorem ipsum dolor sit amet consectetur adipiscing elit"
-            )
-        )
-
+suspend fun loadLatestLabel(){
+    val result = dataSource.getLatestLabel()
+    if (result is AppState.Success) {
+        val rows=result.data?: emptyList()
+        if(rows.isNotEmpty()){
+            dao.update(rows.map { it.toEntity() })
+        }
     }
+}
+    suspend fun classifyImage(image: File, callback: ClassifierCallback) {
+        withContext(Dispatchers.IO) {
+            when (val result = dataSource.classifyImage(image = image)) {
+                is AppState.Success -> {
+                    result.data?.let {
+                        val label = dao.getLabel(it.classifiedIndex)
+                        val scanResult = ScanResult(
+                            label = label.label,
+                            confidence = it.confidence,
+                            description = label.shortDesc,
+                        )
+                        callback.onSuccess(
+                            scanResult
+                        )
+                    }?: callback.onError("No result")
+                }
+                is AppState.Error -> callback.onError(result.message ?: "")
+                else -> callback.onError("Unknown error")
+            }
+        }
+    }
+
 }
