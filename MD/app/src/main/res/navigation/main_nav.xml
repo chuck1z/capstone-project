@@ -82,7 +82,7 @@
         android:id="@+id/oneTimeSetUpFragment"
         android:name="com.darkshandev.freshcam.presentation.settings.views.OneTimeSetUpFragment"
         android:label="fragment_one_time_set_up"
-        tools:layout="@layout/fragment_one_time_set_up" >
+        tools:layout="@layout/fragment_one_time_set_up">
         <action
             android:id="@+id/action_oneTimeSetUpFragment_to_userGuideFragment"
             app:destination="@id/userGuideFragment"

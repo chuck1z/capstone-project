@@ -19,15 +19,15 @@ class ClassifierRepository @Inject constructor(
     private val dao: ClassifierLabelDao,
     private val historyDao: HistoryClassificationDao,
     private val prefService: PrefService
-    ) {
+) {
     interface ClassifierCallback {
         fun onSuccess(result: ScanResult)
         fun onError(error: String)
     }
 
-    val isFirstLaunch=prefService.isFirstLaunch.flowOn(Dispatchers.IO)
+    val isFirstLaunch = prefService.isFirstLaunch.flowOn(Dispatchers.IO)
 
-    suspend fun marksAsLaunched()= withContext(Dispatchers.IO){
+    suspend fun marksAsLaunched() = withContext(Dispatchers.IO) {
         prefService.marksAsLaunched()
     }
 

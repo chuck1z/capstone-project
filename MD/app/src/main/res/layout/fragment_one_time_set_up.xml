@@ -5,44 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.settings.views.OneTimeSetUpFragment">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/preparing"
 
-    tools:visibility="gone"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ImageView
-        android:id="@+id/ivLauncher"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:contentDescription="@string/app_logo"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/preparing"
 
-    <ProgressBar
-        android:id="@+id/linear_progress"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:padding="16dp"
+        <ImageView
+            android:id="@+id/ivLauncher"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:contentDescription="@string/app_logo"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/one_time"
-        app:layout_constraintBottom_toTopOf="@+id/linear_progress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ProgressBar
+            android:id="@+id/linear_progress"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:padding="16dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/one_time"
+            app:layout_constraintBottom_toTopOf="@+id/linear_progress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/on_success"
@@ -100,6 +102,7 @@
         tools:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <TextView
             android:padding="16dp"
             android:id="@+id/prepare_error"

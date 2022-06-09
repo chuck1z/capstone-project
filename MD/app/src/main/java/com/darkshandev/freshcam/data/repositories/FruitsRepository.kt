@@ -39,6 +39,7 @@ class FruitsRepository @Inject constructor(private val dataSource: FruitsDatasou
                 emit(AppState.Error(message = "Unknown error"))
             }
         }.flowOn(Dispatchers.IO)
+
     fun getTipsDetail(tipsId: String): Flow<AppState<TipsDetail>> =
         flow<AppState<TipsDetail>> {
             emit(AppState.Loading())
@@ -68,6 +69,7 @@ class FruitsRepository @Inject constructor(private val dataSource: FruitsDatasou
                 emit(AppState.Error(message = "Unknown error"))
             }
         }.flowOn(Dispatchers.IO)
+
     fun getTips(): Flow<AppState<List<Tips>>> =
         flow<AppState<List<Tips>>> {
             emit(AppState.Loading())
@@ -97,6 +99,7 @@ class FruitsRepository @Inject constructor(private val dataSource: FruitsDatasou
                 emit(AppState.Error(message = "Unknown error"))
             }
         }.flowOn(Dispatchers.IO)
+
     fun getFruitsOfTheDay(): Flow<AppState<FruitOfTheDay>> =
         flow<AppState<FruitOfTheDay>> {
             emit(AppState.Loading())

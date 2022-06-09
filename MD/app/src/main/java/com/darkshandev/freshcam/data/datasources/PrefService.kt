@@ -12,16 +12,18 @@ import javax.inject.Inject
 
 private val Context.dataStore by preferencesDataStore("preferences")
 
-class PrefService @Inject constructor(@ApplicationContext appContext: Context){
+class PrefService @Inject constructor(@ApplicationContext appContext: Context) {
     private val dataStore = appContext.dataStore
-    val isFirstLaunch: Flow<Boolean> =dataStore.data.map {
-        it[IS_FIRST_LAUNCH_KEY]?:true
+    val isFirstLaunch: Flow<Boolean> = dataStore.data.map {
+        it[IS_FIRST_LAUNCH_KEY] ?: true
     }
-    suspend fun marksAsLaunched(){
+
+    suspend fun marksAsLaunched() {
         dataStore.edit {
-            it[IS_FIRST_LAUNCH_KEY]=false
+            it[IS_FIRST_LAUNCH_KEY] = false
         }
     }
+
     companion object {
         private val IS_FIRST_LAUNCH_KEY = booleanPreferencesKey("IS_FIRST_LAUNCH")
 
