@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class ClassifierLabelEntity(
-    @PrimaryKey val id: Int,
+    @PrimaryKey val id: String,
     val index: Int,
     val label: String,
     val shortDesc: String
