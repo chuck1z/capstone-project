@@ -31,6 +31,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_settings_24_inactive.xml" value="0.2085" />
         <entry key="app/src/main/res/drawable/setting_icon.xml" value="0.1265" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26136363636363635" />
+        <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home_fruits.xml" value="0.15670289855072464" />
         <entry key="app/src/main/res/layout/fragment_scan_fruits.xml" value="0.15670289855072464" />
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.15670289855072464" />
