@@ -17,15 +17,14 @@ import java.io.File
 import javax.inject.Inject
 
 @HiltViewModel
-class ClassifierViewmodel @Inject constructor(private val repository: ClassifierRepository) :
-    ViewModel() {
+class ClassifierViewmodel @Inject constructor(
+    private val repository: ClassifierRepository
+    ) : ViewModel() {
     private val _image = MutableStateFlow<File?>(null)
     val image = _image.asStateFlow()
     fun setImage(image: File) {
-        _image.value?.delete()
         _image.value = image
     }
-
     val downloadStatus=repository.downloadStatus
     fun getLatestModel() {
         _result.value = AppState.Loading()
@@ -55,7 +54,6 @@ class ClassifierViewmodel @Inject constructor(private val repository: Classifier
                         }
                         _result.value = AppState.Success(result)
                     }
-
                     override fun onError(error: String) {
                         _result.value = AppState.Error(error)
                     }
