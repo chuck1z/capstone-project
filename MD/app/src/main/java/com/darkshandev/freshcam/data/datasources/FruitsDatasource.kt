@@ -31,7 +31,7 @@ class FruitsDatasource @Inject constructor(
     suspend fun getTipsDetail(tipsId :String):AppState<TipsDetailResponse> = getResponse(context.getString(R.string.unable_to_fetch_detail_tips)){
         fruitsService.getTipsDetail(tipsId)
     }
-    
+
     private suspend fun <T> getResponse(
         defaultErrorMessage: String,
         request: suspend () -> Response<T>
