@@ -12,5 +12,9 @@ interface FruitsService {
     suspend fun getFruitDetail(
         @Path("id") id:String
     ): Response<FruitDetailResponse>
-   
+    @GET("fruits/tips/{id}")
+    suspend fun getTipsDetail(
+        @Path("id") id:String
+    ): Response<FruitDetailResponse>
+
 }
