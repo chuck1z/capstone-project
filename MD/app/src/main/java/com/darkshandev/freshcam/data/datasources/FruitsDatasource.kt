@@ -22,9 +22,16 @@ class FruitsDatasource @Inject constructor(
         getResponse(context.getString(R.string.unable_fetch_stories)) {
             fruitsService.getFruitDetail(fruitsId)
         }
-
- 
-
+    suspend fun getFruitsOfTheDay():AppState<FruitOfTheDayResponse> = getResponse(context.getString(R.string.unable_fetch_fotd)){
+        fruitsService.getFOTD()
+    }
+    suspend fun getTips():AppState<TipsResponse> = getResponse(context.getString(R.string.unable_to_fetch_tips)){
+        fruitsService.getTips()
+    }
+    suspend fun getTipsDetail(tipsId :String):AppState<TipsDetailResponse> = getResponse(context.getString(R.string.unable_to_fetch_detail_tips)){
+        fruitsService.getTipsDetail(tipsId)
+    }
+    
     private suspend fun <T> getResponse(
         defaultErrorMessage: String,
         request: suspend () -> Response<T>
