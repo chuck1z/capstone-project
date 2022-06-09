@@ -27,6 +27,7 @@ class ClassifierRepository @Inject constructor(
         dataSource.getLatestModel()
     }
 
+    val histories=historyDao.getHistories()
 
     suspend fun loadLatestLabel() {
         try {
