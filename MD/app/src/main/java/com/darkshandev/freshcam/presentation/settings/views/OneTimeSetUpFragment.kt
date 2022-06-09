@@ -1,59 +1,105 @@
-package com.darkshandev.freshcam
+package com.darkshandev.freshcam.presentation.settings.views
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.darkshandev.freshcam.R
+import com.darkshandev.freshcam.data.models.AppState
+import com.darkshandev.freshcam.databinding.FragmentHistoryBinding
+import com.darkshandev.freshcam.databinding.FragmentOneTimeSetUpBinding
+import com.darkshandev.freshcam.presentation.classifier.viewmodels.ClassifierViewmodel
+import com.darkshandev.freshcam.presentation.fruits.HistoryAdapter
+import kotlinx.coroutines.flow.collect
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [OneTimeSetUpFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class OneTimeSetUpFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private val classifierViewmodel: ClassifierViewmodel by activityViewModels()
+    private var _binding: FragmentOneTimeSetUpBinding? = null
+    private var isSuccess=false
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        _binding = FragmentOneTimeSetUpBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_one_time_set_up, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment OneTimeSetUpFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            OneTimeSetUpFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        _binding?.apply {
+            closeButton.setOnClickListener {
+                findNavController().navigate(R.id.action_oneTimeSetUpFragment_to_homeFruitsFragment)
+            }
+            retry.setOnClickListener {
+                classifierViewmodel.getLatestModel()
+                classifierViewmodel.getLatestLabel()
+            }
+            goToGuide.setOnClickListener {
+                findNavController().navigate(R.id.action_oneTimeSetUpFragment_to_userGuideFragment)
+            }
+        }
+        lifecycleScope.launchWhenResumed {
+            classifierViewmodel.isConnectionAvailable.collect{
+                _binding?.apply {
+                    if(it){
+                        onInternetLost.visibility=View.GONE
+                        if (isSuccess){
+                            onSuccess.visibility=View.VISIBLE
+                        }else{
+                            preparing.visibility=View.VISIBLE
+                        }
+                    }else{
+                        onInternetLost.visibility=View.VISIBLE
+                        onSuccess.visibility=View.GONE
+                        preparing.visibility=View.GONE
+                    }
                 }
             }
+        }
+        lifecycleScope.launchWhenResumed {
+classifierViewmodel.downloadStatus.collect{
+    _binding?.apply {
+        when(it){
+            is AppState.Error -> {
+                onInternetLost.visibility=View.VISIBLE
+                onSuccess.visibility=View.GONE
+                preparing.visibility=View.GONE
+                activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+            }
+            is AppState.Initial -> {
+                classifierViewmodel.getLatestModel()
+                classifierViewmodel.getLatestLabel()
+            }
+            is AppState.Loading -> {
+                activity?.window?.setFlags(
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+                )
+                onInternetLost.visibility=View.GONE
+                onSuccess.visibility=View.GONE
+                preparing.visibility=View.VISIBLE
+            }
+            is AppState.Success -> {
+                classifierViewmodel.markAsLaunched()
+                onInternetLost.visibility=View.GONE
+                onSuccess.visibility=View.VISIBLE
+                preparing.visibility=View.GONE
+                activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+            }
+        }
+    }
+}
+        }
+        return _binding?.root
     }
 }
