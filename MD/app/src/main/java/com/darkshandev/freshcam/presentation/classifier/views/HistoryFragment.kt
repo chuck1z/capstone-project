@@ -1,4 +1,4 @@
-package com.darkshandev.freshcam.presentation.fruits.views
+package com.darkshandev.freshcam.presentation.classifier.views
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
