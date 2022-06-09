@@ -26,27 +26,41 @@ class ClassifierViewmodel @Inject constructor(private val repository: Classifier
         _image.value = image
     }
 
-    private val _result = MutableStateFlow<AppState<ScanResult>>(AppState.Initial())
-    val result = _result.asStateFlow()
+    val downloadStatus=repository.downloadStatus
     fun getLatestModel() {
         _result.value = AppState.Loading()
         viewModelScope.launch {
             repository.getLatestModel()
         }
-
+        _result.value = AppState.Initial()
     }
+
+    fun getLatestLabel(){
+        viewModelScope.launch {
+            repository.loadLatestLabel()
+        }
+    }
+    private val _result = MutableStateFlow<AppState<ScanResult>>(AppState.Initial())
+    val result = _result.asStateFlow()
 
     fun classifyImage() {
         _result.value = AppState.Loading()
-        repository.classifyImage(image.value!!, object : ClassifierRepository.ClassifierCallback {
-            override fun onSuccess(result: ScanResult) {
-                _result.value = AppState.Success(result)
-            }
+        viewModelScope.launch {
+            repository.classifyImage(
+                image.value!!,
+                object : ClassifierRepository.ClassifierCallback {
+                    override fun onSuccess(result: ScanResult) {
+                        Firebase.analytics.logEvent(FirebaseAnalytics.Event.UNLOCK_ACHIEVEMENT) {
+                            param(FirebaseAnalytics.Param.ACHIEVEMENT_ID, "freshcam_achievement")
+                        }
+                        _result.value = AppState.Success(result)
+                    }
 
-            override fun onError(error: String) {
-                _result.value = AppState.Error(error)
-            }
-        })
+                    override fun onError(error: String) {
+                        _result.value = AppState.Error(error)
+                    }
+                })
+        }
 
     }
 
