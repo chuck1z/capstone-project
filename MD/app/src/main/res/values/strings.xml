@@ -39,4 +39,12 @@
     <string name="about_app">About App</string>
     <string name="version">Version</string>
     <string name="date_posted">date posted</string>
+    <string name="app_logo">App Logo</string>
+    <string name="one_time_setup">"Preparing "</string>
+    <string name="one_time">Preparing...</string>
+    <string name="all_ready_to_go">All Ready to go</string>
+    <string name="close">close</string>
+    <string name="see_guide">see guide</string>
+    <string name="internet_disconnected">internet disconnected</string>
+    <string name="retry">retry</string>
 </resources>
