@@ -12,6 +12,7 @@ fun FloatBuffer.getIndexOfMax(): Int {
     }
     return indexOfMax
 }
+
 fun FloatBuffer.getMax(): Float {
     var indexOfMax = 0
     for (i in 0 until this.capacity()) {
@@ -22,7 +23,8 @@ fun FloatBuffer.getMax(): Float {
     }
     return this.get(indexOfMax)
 }
+
 fun Float.asPercentage(): String {
-    return String.format("%.2f", this)+"%"
+    return String.format("%.2f", this) + "%"
 
 }

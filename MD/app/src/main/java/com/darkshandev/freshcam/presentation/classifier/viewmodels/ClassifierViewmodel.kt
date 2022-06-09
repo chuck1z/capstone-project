@@ -11,7 +11,9 @@ import com.google.firebase.analytics.ktx.logEvent
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import java.io.File
 import javax.inject.Inject
@@ -19,13 +21,18 @@ import javax.inject.Inject
 @HiltViewModel
 class ClassifierViewmodel @Inject constructor(
     private val repository: ClassifierRepository
-    ) : ViewModel() {
+) : ViewModel() {
     private val _image = MutableStateFlow<File?>(null)
     val image = _image.asStateFlow()
     fun setImage(image: File) {
         _image.value = image
     }
-    val downloadStatus=repository.downloadStatus
+
+    val downloadStatus = repository.downloadStatus
+
+    fun clearHistory()=viewModelScope.launch {
+        repository.clearHistoryClassification()
+    }
     fun getLatestModel() {
         _result.value = AppState.Loading()
         viewModelScope.launch {
@@ -34,11 +41,12 @@ class ClassifierViewmodel @Inject constructor(
         _result.value = AppState.Initial()
     }
 
-    fun getLatestLabel(){
+    fun getLatestLabel() {
         viewModelScope.launch {
             repository.loadLatestLabel()
         }
     }
+
     private val _result = MutableStateFlow<AppState<ScanResult>>(AppState.Initial())
     val result = _result.asStateFlow()
 
@@ -54,12 +62,19 @@ class ClassifierViewmodel @Inject constructor(
                         }
                         _result.value = AppState.Success(result)
                     }
+
                     override fun onError(error: String) {
                         _result.value = AppState.Error(error)
                     }
-                })
+                }
+            )
         }
 
     }
+
+    val classificationHistory = repository.histories.stateIn(
+        viewModelScope, SharingStarted.Lazily,
+        emptyList()
+    )
 
 }

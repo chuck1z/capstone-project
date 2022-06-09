@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFruitsFragment_to_scanFruitsFragment"
             app:destination="@id/scanFruitsFragment" />
+        <action
+            android:id="@+id/action_homeFruitsFragment_to_tipsDetailFragment"
+            app:destination="@id/tipsDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/scanFruitsFragment"
@@ -31,6 +34,12 @@
         <action
             android:id="@+id/action_settingFragment_to_scanFruitsFragment"
             app:destination="@id/scanFruitsFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
     <dialog
         android:id="@+id/scanResultFragment"
@@ -46,4 +55,18 @@
         android:name="com.darkshandev.freshcam.presentation.fruits.views.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.darkshandev.freshcam.presentation.fruits.views.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.darkshandev.freshcam.presentation.classifier.views.HistoryFragment"
+        android:label="HistoryFragment" />
+    <fragment
+        android:id="@+id/tipsDetailFragment"
+        android:name="com.darkshandev.freshcam.presentation.fruits.views.TipsDetailFragment"
+        android:label="fragment_tips_detail"
+        tools:layout="@layout/fragment_tips_detail" />
 </navigation>

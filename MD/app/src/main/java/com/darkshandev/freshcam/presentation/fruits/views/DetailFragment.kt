@@ -41,14 +41,14 @@ class DetailFragment : Fragment() {
                     }
                     is AppState.Success -> {
                         binding?.apply {
-                           state.data?.let {
-                               tvFruitTitle.text=it.name
-                               tvAboutDesc.text=it.about
-                               tvScientificName.text=it.binom
-                               itemVitamin.text = it.vitamin.toString()
-                               tvTipsDescritions.text = it.tips.toString()
-                               ivFruits.loadCircleImage("https://media.istockphoto.com/photos/whole-cross-section-and-quarter-of-fresh-organic-navel-orange-with-picture-id1227301369?b=1&k=20&m=1227301369&s=170667a&w=0&h=7WdK1RQTLuCn5tuNe25Z999THYzj8yijmk0MaRE-SD0=")
-                           }
+                            state.data?.let {
+                                tvFruitTitle.text = it.name
+                                tvAboutDesc.text = it.about
+                                tvScientificName.text = it.binom
+                                itemVitamin.text = it.vitamin.toString()
+                                tvTipsDescritions.text = it.tips.toString()
+                                ivFruits.loadCircleImage("https://media.istockphoto.com/photos/whole-cross-section-and-quarter-of-fresh-organic-navel-orange-with-picture-id1227301369?b=1&k=20&m=1227301369&s=170667a&w=0&h=7WdK1RQTLuCn5tuNe25Z999THYzj8yijmk0MaRE-SD0=")
+                            }
                         }
                     }
                     is AppState.Error -> {

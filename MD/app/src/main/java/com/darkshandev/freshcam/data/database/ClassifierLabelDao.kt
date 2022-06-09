@@ -11,12 +11,16 @@ import kotlinx.coroutines.flow.Flow
 interface ClassifierLabelDao {
     @Query("SELECT * FROM ClassifierLabelEntity")
     fun getLabels(): Flow<List<ClassifierLabelEntity>>
-   @Query("SELECT * FROM ClassifierLabelEntity WHERE `index` = :index")
+
+    @Query("SELECT * FROM ClassifierLabelEntity WHERE `index` = :index")
     fun getLabel(index: Int): ClassifierLabelEntity
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(label: ClassifierLabelEntity)
+
     @Query("DELETE FROM ClassifierLabelEntity")
     suspend fun deleteAll()
-   @Insert(onConflict = OnConflictStrategy.REPLACE)
-   suspend fun update(rows: List<ClassifierLabelEntity>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun update(rows: List<ClassifierLabelEntity>)
 }
