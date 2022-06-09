@@ -25,12 +25,16 @@ class ClassifierRepository @Inject constructor(
     }
 
 suspend fun loadLatestLabel(){
-    val result = dataSource.getLatestLabel()
-    if (result is AppState.Success) {
-        val rows=result.data?: emptyList()
-        if(rows.isNotEmpty()){
-            dao.update(rows.map { it.toEntity() })
+    try {
+        val result = dataSource.getLatestLabel()
+        if (result is AppState.Success) {
+            val rows = result.data?.data ?: emptyList()
+            if (rows.isNotEmpty()) {
+                dao.update(rows.map { it.toEntity() })
+            }
         }
+    }catch (e:Exception){
+
     }
 }
     suspend fun classifyImage(image: File, callback: ClassifierCallback) {
@@ -39,8 +43,12 @@ suspend fun loadLatestLabel(){
                 is AppState.Success -> {
                     result.data?.let {
                         val label = dao.getLabel(it.classifiedIndex)
+                        var labelResult = label.label
+                        it.freshness?.let{isFresh->
+                            labelResult = "${if(isFresh) "FRESH_" else "ROTTEN_"}$labelResult" 
+                        }
                         val scanResult = ScanResult(
-                            label = label.label,
+                            label = labelResult,
                             confidence = it.confidence,
                             description = label.shortDesc,
                         )
