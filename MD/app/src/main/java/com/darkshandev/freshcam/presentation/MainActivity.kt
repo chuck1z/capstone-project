@@ -12,6 +12,9 @@ import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.darkshandev.freshcam.R
@@ -44,6 +47,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
         setContentView(binding.root)
+        lifecycleScope.launchWhenCreated {
+            classifierViewmodel.isFirstLaunch.collect{
+                if(it){
+                    navController.navigate(R.id.action_homeFruitsFragment_to_oneTimeSetUpFragment)
+                }
+            }
+        }
         classifierViewmodel.getLatestLabel()
         setupNavigation()
         if (!allPermissionsGranted()) {
@@ -68,31 +78,34 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.homeFruitsFragment -> {
-                    binding.fab.visibility = View.VISIBLE
-                    binding.bottomAppBar.visibility = View.VISIBLE
-                    binding.bottomNavigationView.visibility = View.VISIBLE
+                    showBottomNav()
                     binding.fab.setOnClickListener {
                         navController.navigate(R.id.action_homeFruitsFragment_to_scanFruitsFragment)
                     }
                 }
                 R.id.settingFragment -> {
-                    binding.fab.visibility = View.VISIBLE
-                    binding.bottomAppBar.visibility = View.VISIBLE
-                    binding.bottomNavigationView.visibility = View.VISIBLE
+                    showBottomNav()
                     binding.fab.setOnClickListener {
                         navController.navigate(R.id.action_settingFragment_to_scanFruitsFragment)
                     }
                 }
-                R.id.scanFruitsFragment -> {
-                    binding.fab.visibility = View.GONE
-                    binding.bottomNavigationView.visibility = View.GONE
-                    binding.bottomAppBar.visibility = View.GONE
+                R.id.scanFruitsFragment,R.id.userGuideFragment,R.id.oneTimeSetUpFragment,R.id.historyFragment,R.id.aboutFragment -> {
+                   hideBottomNav()
                 }
             }
 
         }
     }
-
+private fun hideBottomNav(){
+    binding.fab.visibility = View.GONE
+    binding.bottomNavigationView.visibility = View.GONE
+    binding.bottomAppBar.visibility = View.GONE
+}
+private fun showBottomNav(){
+    binding.fab.visibility = View.VISIBLE
+    binding.bottomAppBar.visibility = View.VISIBLE
+    binding.bottomNavigationView.visibility = View.VISIBLE
+}
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }

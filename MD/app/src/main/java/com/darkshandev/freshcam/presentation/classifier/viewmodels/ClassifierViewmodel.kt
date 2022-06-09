@@ -1,5 +1,11 @@
 package com.darkshandev.freshcam.presentation.classifier.viewmodels
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.Network
+import android.net.NetworkCapabilities
+import android.net.NetworkRequest
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.darkshandev.freshcam.data.models.AppState
@@ -10,6 +16,7 @@ import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.analytics.ktx.logEvent
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asStateFlow
@@ -20,8 +27,17 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ClassifierViewmodel @Inject constructor(
+     @ApplicationContext  context: Context,
     private val repository: ClassifierRepository
 ) : ViewModel() {
+    val connectivityManager = getSystemService(context,ConnectivityManager::class.java) as ConnectivityManager
+
+    val isFirstLaunch=repository.isFirstLaunch.stateIn(viewModelScope, SharingStarted.Eagerly,false)
+
+    fun markAsLaunched()=viewModelScope.launch {
+        repository.marksAsLaunched()
+    }
+
     private val _image = MutableStateFlow<File?>(null)
     val image = _image.asStateFlow()
     fun setImage(image: File) {
@@ -30,9 +46,10 @@ class ClassifierViewmodel @Inject constructor(
 
     val downloadStatus = repository.downloadStatus
 
-    fun clearHistory()=viewModelScope.launch {
+    fun clearHistory() = viewModelScope.launch {
         repository.clearHistoryClassification()
     }
+
     fun getLatestModel() {
         _result.value = AppState.Loading()
         viewModelScope.launch {
@@ -76,5 +93,40 @@ class ClassifierViewmodel @Inject constructor(
         viewModelScope, SharingStarted.Lazily,
         emptyList()
     )
+    val networkRequest = NetworkRequest.Builder()
+        .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+        .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
+        .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
+        .build()
 
+    private val _isConnectionAvailable= MutableStateFlow(false)
+    val isConnectionAvailable=_isConnectionAvailable.asStateFlow()
+
+    private val networkCallback = object : ConnectivityManager.NetworkCallback() {
+        // network is available for use
+        override fun onAvailable(network: Network) {
+            super.onAvailable(network)
+            _isConnectionAvailable.value=true
+        }
+
+        // Network capabilities have changed for the network
+        override fun onCapabilitiesChanged(
+            network: Network,
+            networkCapabilities: NetworkCapabilities
+        ) {
+            super.onCapabilitiesChanged(network, networkCapabilities)
+            val unMetered = networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)
+            val internet=networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+           _isConnectionAvailable.value=unMetered||internet
+        }
+
+        // lost network connection
+        override fun onLost(network: Network) {
+            super.onLost(network)
+            _isConnectionAvailable.value= false
+        }
+    }
+    fun requestNetwork(){
+        connectivityManager.requestNetwork(networkRequest, networkCallback)
+    }
 }

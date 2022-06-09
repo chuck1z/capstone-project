@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFruitsFragment_to_tipsDetailFragment"
             app:destination="@id/tipsDetailFragment" />
+        <action
+            android:id="@+id/action_homeFruitsFragment_to_oneTimeSetUpFragment"
+            app:destination="@id/oneTimeSetUpFragment" />
     </fragment>
     <fragment
         android:id="@+id/scanFruitsFragment"
@@ -40,6 +43,12 @@
         <action
             android:id="@+id/action_settingFragment_to_historyFragment"
             app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_userGuideFragment"
+            app:destination="@id/userGuideFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_userGuideFragment2"
+            app:destination="@id/userGuideFragment" />
     </fragment>
     <dialog
         android:id="@+id/scanResultFragment"
@@ -69,4 +78,25 @@
         android:name="com.darkshandev.freshcam.presentation.fruits.views.TipsDetailFragment"
         android:label="fragment_tips_detail"
         tools:layout="@layout/fragment_tips_detail" />
+    <fragment
+        android:id="@+id/oneTimeSetUpFragment"
+        android:name="com.darkshandev.freshcam.presentation.settings.views.OneTimeSetUpFragment"
+        android:label="fragment_one_time_set_up"
+        tools:layout="@layout/fragment_one_time_set_up" >
+        <action
+            android:id="@+id/action_oneTimeSetUpFragment_to_userGuideFragment"
+            app:destination="@id/userGuideFragment"
+            app:popUpTo="@id/main_nav"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_oneTimeSetUpFragment_to_homeFruitsFragment"
+            app:destination="@id/homeFruitsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userGuideFragment"
+        android:name="com.darkshandev.freshcam.presentation.settings.views.UserGuideFragment"
+        android:label="fragment_user_guide"
+        app:popUpTo="@id/main_nav"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_user_guide" />
 </navigation>

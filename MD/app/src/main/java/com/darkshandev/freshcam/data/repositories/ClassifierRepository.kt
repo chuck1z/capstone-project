@@ -4,13 +4,12 @@ import android.util.Log
 import com.darkshandev.freshcam.data.database.ClassifierLabelDao
 import com.darkshandev.freshcam.data.database.HistoryClassificationDao
 import com.darkshandev.freshcam.data.datasources.ClassifierDatasource
+import com.darkshandev.freshcam.data.datasources.PrefService
 import com.darkshandev.freshcam.data.models.*
-import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import java.io.File
 import javax.inject.Inject
@@ -19,11 +18,17 @@ class ClassifierRepository @Inject constructor(
     private val dataSource: ClassifierDatasource,
     private val dao: ClassifierLabelDao,
     private val historyDao: HistoryClassificationDao,
-
-) {
+    private val prefService: PrefService
+    ) {
     interface ClassifierCallback {
         fun onSuccess(result: ScanResult)
         fun onError(error: String)
+    }
+
+    val isFirstLaunch=prefService.isFirstLaunch.flowOn(Dispatchers.IO)
+
+    suspend fun marksAsLaunched()= withContext(Dispatchers.IO){
+        prefService.marksAsLaunched()
     }
 
     val downloadStatus = dataSource.downloadStatus
@@ -32,9 +37,9 @@ class ClassifierRepository @Inject constructor(
         dataSource.getLatestModel()
     }
 
-    val histories=historyDao.getHistories().flowOn(Dispatchers.IO)
+    val histories = historyDao.getHistories().flowOn(Dispatchers.IO)
 
-    suspend fun clearHistoryClassification() = withContext(Dispatchers.IO){
+    suspend fun clearHistoryClassification() = withContext(Dispatchers.IO) {
         historyDao.clearHistories()
     }
 
@@ -48,7 +53,7 @@ class ClassifierRepository @Inject constructor(
                 }
             }
         } catch (e: Exception) {
-           Firebase.analytics.logEvent(e.message ?: "unknown exception",null)
+            Firebase.analytics.logEvent(e.message ?: "unknown exception", null)
         }
     }
 
@@ -81,8 +86,8 @@ class ClassifierRepository @Inject constructor(
                             )
                         } ?: callback.onError("No result")
                     } catch (e: Exception) {
-                        Firebase.analytics.logEvent(e.message ?: "unknown exception",null)
-                        Log.d("exception",e.message?:"unknown")
+                        Firebase.analytics.logEvent(e.message ?: "unknown exception", null)
+                        Log.d("exception", e.message ?: "unknown")
                         callback.onError("please try again")
                     }
                 }

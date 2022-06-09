@@ -11,14 +11,14 @@ import com.darkshandev.freshcam.databinding.FragmentSettingBinding
 
 
 class SettingFragment : Fragment() {
-    private var _binding:FragmentSettingBinding? = null
+    private var _binding: FragmentSettingBinding? = null
     override fun onDestroy() {
-        _binding=null
+        _binding = null
         super.onDestroy()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        _binding=FragmentSettingBinding.inflate(layoutInflater)
+        _binding = FragmentSettingBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
     }
 
@@ -26,17 +26,17 @@ class SettingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-      _binding?.apply {
-          cvHistory.setOnClickListener {
-              findNavController().navigate(R.id.action_settingFragment_to_historyFragment)
-          }
-          cvAbout.setOnClickListener {
-              findNavController().navigate(R.id.action_settingFragment_to_aboutFragment)
-          }
-          cvGuide.setOnClickListener {
+        _binding?.apply {
+            cvHistory.setOnClickListener {
+                findNavController().navigate(R.id.action_settingFragment_to_historyFragment)
+            }
+            cvAbout.setOnClickListener {
+                findNavController().navigate(R.id.action_settingFragment_to_aboutFragment)
+            }
+            cvGuide.setOnClickListener {
 
-          }
-      }
+            }
+        }
         return _binding?.root
     }
 
