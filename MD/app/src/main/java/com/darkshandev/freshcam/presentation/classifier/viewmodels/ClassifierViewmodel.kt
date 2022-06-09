@@ -11,7 +11,9 @@ import com.google.firebase.analytics.ktx.logEvent
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import java.io.File
 import javax.inject.Inject
@@ -27,6 +29,7 @@ class ClassifierViewmodel @Inject constructor(
     }
 
     val downloadStatus = repository.downloadStatus
+
     fun getLatestModel() {
         _result.value = AppState.Loading()
         viewModelScope.launch {
@@ -60,9 +63,15 @@ class ClassifierViewmodel @Inject constructor(
                     override fun onError(error: String) {
                         _result.value = AppState.Error(error)
                     }
-                })
+                }
+            )
         }
 
     }
+
+    val classificationHistory = repository.histories.stateIn(
+        viewModelScope, SharingStarted.Lazily,
+        emptyList()
+    )
 
 }
