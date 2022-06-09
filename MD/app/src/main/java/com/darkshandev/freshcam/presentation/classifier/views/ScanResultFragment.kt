@@ -66,7 +66,11 @@ class ScanResultFragment : BottomSheetDialogFragment() {
             classifierViewmodel.result.flowWithLifecycle(lifecycle).collect { state ->
                 when (state) {
                     is AppState.Success -> {
+                        showContent()
+
                         binding?.apply {
+                            progressBar.visibility=View.GONE
+                            errorMessage.visibility=View.GONE
                             state.data?.let {
                                 if (it.getFreshness().lowercase().contains("fresh")){
                                     label.setTextColor(ContextCompat.getColor(requireContext(), R.color.fresh))
@@ -83,12 +87,49 @@ class ScanResultFragment : BottomSheetDialogFragment() {
                             }
                         }
                     }
-                    else -> {}
+                    is AppState.Loading->{
+                        hideContent()
+                        binding?.apply {
+                            progressBar.visibility=View.VISIBLE
+                            errorMessage.visibility=View.GONE
+                        }
+                    }
+                    is AppState.Error->{
+                        hideContent()
+                        binding?.apply {
+                            progressBar.visibility=View.GONE
+                            errorMessage.text=state.message
+                            errorMessage.visibility=View.VISIBLE
+
+                        }
+                    }
+                    else -> {
+                        hideContent()
+                    }
                 }
 
             }
         }
     }
-
+private fun hideContent(){
+    binding?.apply {
+        button.visibility=View.GONE
+        imageView3.visibility=View.GONE
+        label.visibility=View.GONE
+        confidence.visibility=View.GONE
+        descInfo.visibility=View.GONE
+        name.visibility=View.GONE
+    }
+}
+    private fun showContent(){
+        binding?.apply {
+            button.visibility=View.VISIBLE
+            imageView3.visibility=View.VISIBLE
+            label.visibility=View.VISIBLE
+            confidence.visibility=View.VISIBLE
+            descInfo.visibility=View.VISIBLE
+            name.visibility=View.VISIBLE
+        }
+    }
 
 }
