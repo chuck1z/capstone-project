@@ -11,8 +11,10 @@ import kotlinx.coroutines.flow.Flow
 interface HistoryClassificationDao {
     @Query("SELECT * from HistoryClassificationEntity")
     fun getHistories(): Flow<List<HistoryClassificationEntity>>
+
     @Insert()
-    suspend fun addHistory(newHistory:HistoryClassificationEntity)
+    suspend fun addHistory(newHistory: HistoryClassificationEntity)
+
     @Query("DELETE from HistoryClassificationEntity")
     suspend fun clearHistories()
 }

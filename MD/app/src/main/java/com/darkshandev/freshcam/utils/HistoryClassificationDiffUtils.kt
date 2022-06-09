@@ -1,7 +1,6 @@
 package com.darkshandev.freshcam.utils
 
 import androidx.recyclerview.widget.DiffUtil
-import com.darkshandev.freshcam.data.models.FruitsTips
 import com.darkshandev.freshcam.data.models.HistoryClassificationEntity
 
 class HistoryClassificationDiffUtils(

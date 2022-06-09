@@ -30,9 +30,10 @@ class ClassifierViewmodel @Inject constructor(
 
     val downloadStatus = repository.downloadStatus
 
-    fun clearHistory()=viewModelScope.launch {
+    fun clearHistory() = viewModelScope.launch {
         repository.clearHistoryClassification()
     }
+
     fun getLatestModel() {
         _result.value = AppState.Loading()
         viewModelScope.launch {
