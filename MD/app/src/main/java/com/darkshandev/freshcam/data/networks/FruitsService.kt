@@ -1,6 +1,7 @@
 package com.darkshandev.freshcam.data.networks
 
 import com.darkshandev.freshcam.data.models.FruitDetailResponse
+import com.darkshandev.freshcam.data.models.FruitOfTheDayResponse
 import com.darkshandev.freshcam.data.models.FruitsModel
 import retrofit2.Response
 import retrofit2.http.GET
@@ -16,5 +17,7 @@ interface FruitsService {
     suspend fun getTipsDetail(
         @Path("id") id:String
     ): Response<FruitDetailResponse>
+    @GET("fruits/fotd")
+    suspend fun getFOTD():Response<FruitOfTheDayResponse>
 
 }
