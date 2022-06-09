@@ -22,6 +22,13 @@ import javax.inject.Inject
 class ClassifierViewmodel @Inject constructor(
     private val repository: ClassifierRepository
 ) : ViewModel() {
+
+    val isFirstLaunch=repository.isFirstLaunch.stateIn(viewModelScope, SharingStarted.Eagerly,false)
+
+    fun markAsLaunched()=viewModelScope.launch {
+        repository.marksAsLaunched()
+    }
+
     private val _image = MutableStateFlow<File?>(null)
     val image = _image.asStateFlow()
     fun setImage(image: File) {
