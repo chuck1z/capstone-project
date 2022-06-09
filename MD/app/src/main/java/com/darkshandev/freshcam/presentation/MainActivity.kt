@@ -12,6 +12,9 @@ import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.darkshandev.freshcam.R
@@ -44,6 +47,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
         setContentView(binding.root)
+        lifecycleScope.launchWhenCreated {
+            classifierViewmodel.isFirstLaunch.collect{
+                if(it){
+                    navController.navigate(R.id.action_homeFruitsFragment_to_oneTimeSetUpFragment)
+                }
+            }
+        }
         classifierViewmodel.getLatestLabel()
         setupNavigation()
         if (!allPermissionsGranted()) {
@@ -79,7 +89,7 @@ class MainActivity : AppCompatActivity() {
                         navController.navigate(R.id.action_settingFragment_to_scanFruitsFragment)
                     }
                 }
-                R.id.scanFruitsFragment,R.id.historyFragment,R.id.aboutFragment -> {
+                R.id.scanFruitsFragment,R.id.userGuideFragment,R.id.oneTimeSetUpFragment,R.id.historyFragment,R.id.aboutFragment -> {
                    hideBottomNav()
                 }
             }
