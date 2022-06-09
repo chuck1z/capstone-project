@@ -68,31 +68,34 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.homeFruitsFragment -> {
-                    binding.fab.visibility = View.VISIBLE
-                    binding.bottomAppBar.visibility = View.VISIBLE
-                    binding.bottomNavigationView.visibility = View.VISIBLE
+                    showBottomNav()
                     binding.fab.setOnClickListener {
                         navController.navigate(R.id.action_homeFruitsFragment_to_scanFruitsFragment)
                     }
                 }
                 R.id.settingFragment -> {
-                    binding.fab.visibility = View.VISIBLE
-                    binding.bottomAppBar.visibility = View.VISIBLE
-                    binding.bottomNavigationView.visibility = View.VISIBLE
+                    showBottomNav()
                     binding.fab.setOnClickListener {
                         navController.navigate(R.id.action_settingFragment_to_scanFruitsFragment)
                     }
                 }
-                R.id.scanFruitsFragment -> {
-                    binding.fab.visibility = View.GONE
-                    binding.bottomNavigationView.visibility = View.GONE
-                    binding.bottomAppBar.visibility = View.GONE
+                R.id.scanFruitsFragment,R.id.historyFragment,R.id.aboutFragment -> {
+                   hideBottomNav()
                 }
             }
 
         }
     }
-
+private fun hideBottomNav(){
+    binding.fab.visibility = View.GONE
+    binding.bottomNavigationView.visibility = View.GONE
+    binding.bottomAppBar.visibility = View.GONE
+}
+private fun showBottomNav(){
+    binding.fab.visibility = View.VISIBLE
+    binding.bottomAppBar.visibility = View.VISIBLE
+    binding.bottomNavigationView.visibility = View.VISIBLE
+}
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
