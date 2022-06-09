@@ -69,15 +69,35 @@ class ScanResultFragment : BottomSheetDialogFragment() {
                         showContent()
 
                         binding?.apply {
-                            progressBar.visibility=View.GONE
-                            errorMessage.visibility=View.GONE
+                            progressBar.visibility = View.GONE
+                            errorMessage.visibility = View.GONE
                             state.data?.let {
-                                if (it.getFreshness().lowercase().contains("fresh")){
-                                    label.setTextColor(ContextCompat.getColor(requireContext(), R.color.fresh))
-                                    confidence.setTextColor(ContextCompat.getColor(requireContext(), R.color.fresh))
-                                }else{
-                                    label.setTextColor(ContextCompat.getColor(requireContext(), R.color.rotten))
-                                    confidence.setTextColor(ContextCompat.getColor(requireContext(), R.color.rotten))
+                                if (it.getFreshness().lowercase().contains("fresh")) {
+                                    label.setTextColor(
+                                        ContextCompat.getColor(
+                                            requireContext(),
+                                            R.color.fresh
+                                        )
+                                    )
+                                    confidence.setTextColor(
+                                        ContextCompat.getColor(
+                                            requireContext(),
+                                            R.color.fresh
+                                        )
+                                    )
+                                } else {
+                                    label.setTextColor(
+                                        ContextCompat.getColor(
+                                            requireContext(),
+                                            R.color.rotten
+                                        )
+                                    )
+                                    confidence.setTextColor(
+                                        ContextCompat.getColor(
+                                            requireContext(),
+                                            R.color.rotten
+                                        )
+                                    )
                                 }
                                 label.text = it.getFreshness()
                                 confidence.text = it.confidence.asPercentage()
@@ -87,19 +107,19 @@ class ScanResultFragment : BottomSheetDialogFragment() {
                             }
                         }
                     }
-                    is AppState.Loading->{
+                    is AppState.Loading -> {
                         hideContent()
                         binding?.apply {
-                            progressBar.visibility=View.VISIBLE
-                            errorMessage.visibility=View.GONE
+                            progressBar.visibility = View.VISIBLE
+                            errorMessage.visibility = View.GONE
                         }
                     }
-                    is AppState.Error->{
+                    is AppState.Error -> {
                         hideContent()
                         binding?.apply {
-                            progressBar.visibility=View.GONE
-                            errorMessage.text=state.message
-                            errorMessage.visibility=View.VISIBLE
+                            progressBar.visibility = View.GONE
+                            errorMessage.text = state.message
+                            errorMessage.visibility = View.VISIBLE
 
                         }
                     }
@@ -111,24 +131,26 @@ class ScanResultFragment : BottomSheetDialogFragment() {
             }
         }
     }
-private fun hideContent(){
-    binding?.apply {
-        button.visibility=View.GONE
-        imageView3.visibility=View.GONE
-        label.visibility=View.GONE
-        confidence.visibility=View.GONE
-        descInfo.visibility=View.GONE
-        name.visibility=View.GONE
-    }
-}
-    private fun showContent(){
+
+    private fun hideContent() {
         binding?.apply {
-            button.visibility=View.VISIBLE
-            imageView3.visibility=View.VISIBLE
-            label.visibility=View.VISIBLE
-            confidence.visibility=View.VISIBLE
-            descInfo.visibility=View.VISIBLE
-            name.visibility=View.VISIBLE
+            button.visibility = View.GONE
+            imageView3.visibility = View.GONE
+            label.visibility = View.GONE
+            confidence.visibility = View.GONE
+            descInfo.visibility = View.GONE
+            name.visibility = View.GONE
+        }
+    }
+
+    private fun showContent() {
+        binding?.apply {
+            button.visibility = View.VISIBLE
+            imageView3.visibility = View.VISIBLE
+            label.visibility = View.VISIBLE
+            confidence.visibility = View.VISIBLE
+            descInfo.visibility = View.VISIBLE
+            name.visibility = View.VISIBLE
         }
     }
 

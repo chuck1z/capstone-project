@@ -19,13 +19,14 @@ import javax.inject.Inject
 @HiltViewModel
 class ClassifierViewmodel @Inject constructor(
     private val repository: ClassifierRepository
-    ) : ViewModel() {
+) : ViewModel() {
     private val _image = MutableStateFlow<File?>(null)
     val image = _image.asStateFlow()
     fun setImage(image: File) {
         _image.value = image
     }
-    val downloadStatus=repository.downloadStatus
+
+    val downloadStatus = repository.downloadStatus
     fun getLatestModel() {
         _result.value = AppState.Loading()
         viewModelScope.launch {
@@ -34,11 +35,12 @@ class ClassifierViewmodel @Inject constructor(
         _result.value = AppState.Initial()
     }
 
-    fun getLatestLabel(){
+    fun getLatestLabel() {
         viewModelScope.launch {
             repository.loadLatestLabel()
         }
     }
+
     private val _result = MutableStateFlow<AppState<ScanResult>>(AppState.Initial())
     val result = _result.asStateFlow()
 
@@ -54,6 +56,7 @@ class ClassifierViewmodel @Inject constructor(
                         }
                         _result.value = AppState.Success(result)
                     }
+
                     override fun onError(error: String) {
                         _result.value = AppState.Error(error)
                     }

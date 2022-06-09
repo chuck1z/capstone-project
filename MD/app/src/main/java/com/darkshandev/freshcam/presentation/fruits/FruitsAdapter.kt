@@ -10,12 +10,12 @@ import com.darkshandev.freshcam.data.models.FruitsTips
 import com.darkshandev.freshcam.databinding.ItemFruitsTipsBinding
 import com.darkshandev.freshcam.utils.FruitTipsDiffUtils
 
-class FruitsAdapter() : RecyclerView.Adapter<FruitsAdapter.ViewHolder>() {
+class FruitsAdapter : RecyclerView.Adapter<FruitsAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     private lateinit var binding: ItemFruitsTipsBinding
-    private var currentList = emptyList<FruitsTips>();
+    private var currentList = emptyList<FruitsTips>()
     fun updateList(newList: List<FruitsTips>) {
         //update currentList with newList using FruitTipsDiffUtils
         val diff = DiffUtil

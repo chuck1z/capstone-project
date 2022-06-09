@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Log
 import com.darkshandev.freshcam.R
 import com.darkshandev.freshcam.data.models.AppState
-import com.darkshandev.freshcam.data.models.ClassifierLabel
 import com.darkshandev.freshcam.data.models.ClassifierResult
 import com.darkshandev.freshcam.data.models.LatestLabelResponse
 import com.darkshandev.freshcam.data.networks.ClassifierService
@@ -42,37 +41,39 @@ class ClassifierDatasource @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
 
-    private  var interpreterSingleClassifier: Interpreter? = null
+    private var interpreterSingleClassifier: Interpreter? = null
     private var interpreterFruitsClassifier: Interpreter? = null
     private var interpreterFreshnessClassifier: Interpreter? = null
 
     suspend fun classifyImage(image: File): AppState<ClassifierResult> {
         return try {
-         return  if (remoteConfig.getBoolean("isSingleModelClassifier")){
-               classifyWithSingleModel(image)
-           }else{
-               classifyWithMultiModel(image)
-           }
+            return if (remoteConfig.getBoolean("isSingleModelClassifier")) {
+                classifyWithSingleModel(image)
+            } else {
+                classifyWithMultiModel(image)
+            }
         } catch (e: IOException) {
             AppState.Error(e.message ?: "error")
         }
     }
-   private suspend fun classifyWithSingleModel(image: File):AppState<ClassifierResult>{
-       return if(interpreterSingleClassifier!=null) {
-           val input = image.asTensorInput()
-           val tensorBuffer = TensorBuffer.createFixedSize(intArrayOf(4, 32), DataType.FLOAT32)
-           val modelOutput = tensorBuffer.buffer.order(ByteOrder.nativeOrder())
-           interpreterSingleClassifier?.run(input, modelOutput)
-           modelOutput.rewind()
-           val probabilities = modelOutput.asFloatBuffer()
-           val index = probabilities.getIndexOfMax()
-           val result = ClassifierResult(index, (probabilities.get(index)*100))
-           AppState.Success(result)
-       }else{
-           AppState.Error("wait a moment model is not completely downloaded")
-       }
+
+    private suspend fun classifyWithSingleModel(image: File): AppState<ClassifierResult> {
+        return if (interpreterSingleClassifier != null) {
+            val input = image.asTensorInput()
+            val tensorBuffer = TensorBuffer.createFixedSize(intArrayOf(4, 32), DataType.FLOAT32)
+            val modelOutput = tensorBuffer.buffer.order(ByteOrder.nativeOrder())
+            interpreterSingleClassifier?.run(input, modelOutput)
+            modelOutput.rewind()
+            val probabilities = modelOutput.asFloatBuffer()
+            val index = probabilities.getIndexOfMax()
+            val result = ClassifierResult(index, (probabilities.get(index) * 100))
+            AppState.Success(result)
+        } else {
+            AppState.Error("wait a moment model is not completely downloaded")
+        }
     }
-    private suspend fun classifyWithMultiModel(image: File):AppState<ClassifierResult>{
+
+    private suspend fun classifyWithMultiModel(image: File): AppState<ClassifierResult> {
         suspend fun classifyFruits(input: ByteBuffer): FloatBuffer {
             val tensorFruitsBuffer =
                 TensorBuffer.createFixedSize(intArrayOf(4, 32), DataType.FLOAT32)
@@ -81,6 +82,7 @@ class ClassifierDatasource @Inject constructor(
             modelFruitsOutput.rewind()
             return modelFruitsOutput.asFloatBuffer()
         }
+
         suspend fun classifyFreshness(input: ByteBuffer): FloatBuffer {
             val tensorFreshnessBuffer =
                 TensorBuffer.createFixedSize(intArrayOf(4, 32), DataType.FLOAT32)
@@ -90,36 +92,41 @@ class ClassifierDatasource @Inject constructor(
             return modelFreshnessOutput.asFloatBuffer()
         }
 
-        return if(interpreterFruitsClassifier!=null && interpreterFreshnessClassifier!=null) {
+        return if (interpreterFruitsClassifier != null && interpreterFreshnessClassifier != null) {
             val input = image.asTensorInput()
             val fruitsProbabilities = classifyFruits(input)
-             val freshnessProbabilities = classifyFreshness(input)
-            val freshConfidence = ((freshnessProbabilities.getMax() - 0.5) / 5 ) * 1000
+            val freshnessProbabilities = classifyFreshness(input)
+            val freshConfidence = ((freshnessProbabilities.getMax() - 0.5) / 5) * 1000
 
             val index = fruitsProbabilities.getIndexOfMax()
-           val result = ClassifierResult(index, freshConfidence.absoluteValue.toFloat(),freshConfidence<0)
+            val result = ClassifierResult(
+                index,
+                freshConfidence.absoluteValue.toFloat(),
+                freshConfidence < 0
+            )
             AppState.Success(result)
-        }else{
+        } else {
             AppState.Error("wait a moment model is not completely downloaded")
         }
     }
-suspend fun getLatestLabel():AppState<LatestLabelResponse> = getResponse(context.getString(R.string.cannot_get_labels)) {
-    classifierService.getLatestLabels()
-    }
 
+    suspend fun getLatestLabel(): AppState<LatestLabelResponse> =
+        getResponse(context.getString(R.string.cannot_get_labels)) {
+            classifierService.getLatestLabels()
+        }
 
 
     private val _downloadStatus = MutableStateFlow<AppState<String>>(AppState.Initial())
-    val downloadStatus= _downloadStatus.asStateFlow()
+    val downloadStatus = _downloadStatus.asStateFlow()
 
     suspend fun getLatestModel() {
         val conditions = CustomModelDownloadConditions.Builder()
             // Also possible: .requireCharging() and .requireDeviceIdle()
             .build()
-       val isSingle=remoteConfig.getBoolean("isSingleModelClassifier")
+        val isSingle = remoteConfig.getBoolean("isSingleModelClassifier")
         if (isSingle) {
             _downloadStatus.value = AppState.Loading()
-            modelDownloader.run{
+            modelDownloader.run {
                 deleteDownloadedModel("fruits-classifier")
                 deleteDownloadedModel("freshness-classifier")
                 getModel(
@@ -137,12 +144,13 @@ suspend fun getLatestLabel():AppState<LatestLabelResponse> = getResponse(context
                         _downloadStatus.value = AppState.Error(it.message ?: "unknown error")
                     }
             }
-        }else{
+        } else {
             modelDownloader.run {
                 _downloadStatus.value = AppState.Loading()
                 deleteDownloadedModel("converted_model")
 
-                getModel("fruits-classifier", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND,
+                getModel(
+                    "fruits-classifier", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND,
                     conditions
                 )
                     .addOnSuccessListener { model: CustomModel? ->
@@ -156,7 +164,8 @@ suspend fun getLatestLabel():AppState<LatestLabelResponse> = getResponse(context
                         _downloadStatus.value = AppState.Error(it.message ?: "unknown error")
                     }
                 _downloadStatus.value = AppState.Loading()
-                getModel("freshness-classifier", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND,
+                getModel(
+                    "freshness-classifier", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND,
                     conditions
                 )
                     .addOnSuccessListener { model: CustomModel? ->

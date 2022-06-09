@@ -45,9 +45,10 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideModelDownloader(): FirebaseModelDownloader = FirebaseModelDownloader.getInstance()
+
     @Singleton
     @Provides
-    fun provideRemoteConfig():FirebaseRemoteConfig {
+    fun provideRemoteConfig(): FirebaseRemoteConfig {
         val remoteConfig: FirebaseRemoteConfig = Firebase.remoteConfig
         val configSettings = remoteConfigSettings {
             minimumFetchIntervalInSeconds = 3600
@@ -56,6 +57,7 @@ object NetworkModule {
         remoteConfig.fetchAndActivate()
         return remoteConfig
     }
+
     @Singleton
     @Provides
     fun provideRetrofitClient(
@@ -66,10 +68,11 @@ object NetworkModule {
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()
+
     @Singleton
     @Provides
     fun provideClassifierService(
         retrofit: Retrofit
-    ):ClassifierService=retrofit
+    ): ClassifierService = retrofit
         .create(ClassifierService::class.java)
 }

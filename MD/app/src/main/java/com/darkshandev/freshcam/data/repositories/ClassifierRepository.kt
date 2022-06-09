@@ -18,25 +18,27 @@ class ClassifierRepository @Inject constructor(
         fun onSuccess(result: ScanResult)
         fun onError(error: String)
     }
+
     val downloadStatus = dataSource.downloadStatus
 
     suspend fun getLatestModel() {
         dataSource.getLatestModel()
     }
 
-suspend fun loadLatestLabel(){
-    try {
-        val result = dataSource.getLatestLabel()
-        if (result is AppState.Success) {
-            val rows = result.data?.data ?: emptyList()
-            if (rows.isNotEmpty()) {
-                dao.update(rows.map { it.toEntity() })
+    suspend fun loadLatestLabel() {
+        try {
+            val result = dataSource.getLatestLabel()
+            if (result is AppState.Success) {
+                val rows = result.data?.data ?: emptyList()
+                if (rows.isNotEmpty()) {
+                    dao.update(rows.map { it.toEntity() })
+                }
             }
-        }
-    }catch (e:Exception){
+        } catch (e: Exception) {
 
+        }
     }
-}
+
     suspend fun classifyImage(image: File, callback: ClassifierCallback) {
         withContext(Dispatchers.IO) {
             when (val result = dataSource.classifyImage(image = image)) {
@@ -44,8 +46,8 @@ suspend fun loadLatestLabel(){
                     result.data?.let {
                         val label = dao.getLabel(it.classifiedIndex)
                         var labelResult = label.label
-                        it.freshness?.let{isFresh->
-                            labelResult = "${if(isFresh) "FRESH_" else "ROTTEN_"}$labelResult" 
+                        it.freshness?.let { isFresh ->
+                            labelResult = "${if (isFresh) "FRESH_" else "ROTTEN_"}$labelResult"
                         }
                         val scanResult = ScanResult(
                             label = labelResult,
@@ -55,7 +57,7 @@ suspend fun loadLatestLabel(){
                         callback.onSuccess(
                             scanResult
                         )
-                    }?: callback.onError("No result")
+                    } ?: callback.onError("No result")
                 }
                 is AppState.Error -> callback.onError(result.message ?: "")
                 else -> callback.onError("Unknown error")

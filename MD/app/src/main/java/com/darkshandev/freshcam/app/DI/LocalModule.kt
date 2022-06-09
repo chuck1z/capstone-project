@@ -26,7 +26,9 @@ object LocalModule {
             AppDatabase::class.java,
             Config.DB_Name
         ).build()
+
     @Provides
     @Singleton
-    fun provideClassifierLabelDao(appDatabase: AppDatabase): ClassifierLabelDao = appDatabase.classifierLabelDao()
+    fun provideClassifierLabelDao(appDatabase: AppDatabase): ClassifierLabelDao =
+        appDatabase.classifierLabelDao()
 }
