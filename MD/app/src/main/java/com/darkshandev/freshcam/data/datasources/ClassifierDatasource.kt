@@ -127,8 +127,7 @@ class ClassifierDatasource @Inject constructor(
         if (isSingle) {
             _downloadStatus.value = AppState.Loading()
             modelDownloader.run {
-                deleteDownloadedModel("fruits-classifier")
-                deleteDownloadedModel("freshness-classifier")
+
                 getModel(
                     "converted_model", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND,
                     conditions
@@ -139,6 +138,8 @@ class ClassifierDatasource @Inject constructor(
                             Log.d("model", "model downloaded ${modelFile.absolutePath}")
                             interpreterSingleClassifier = Interpreter(modelFile)
                             _downloadStatus.value = AppState.Success("model downloaded")
+                            deleteDownloadedModel("fruits-classifier")
+                            deleteDownloadedModel("freshness-classifier")
                         }
                     }.addOnFailureListener {
                         _downloadStatus.value = AppState.Error(it.message ?: "unknown error")
@@ -147,7 +148,6 @@ class ClassifierDatasource @Inject constructor(
         } else {
             modelDownloader.run {
                 _downloadStatus.value = AppState.Loading()
-                deleteDownloadedModel("converted_model")
 
                 getModel(
                     "fruits-classifier", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND,
@@ -174,6 +174,7 @@ class ClassifierDatasource @Inject constructor(
                             Log.d("model", "model downloaded ${modelFile.absolutePath}")
                             interpreterFreshnessClassifier = Interpreter(modelFile)
                             _downloadStatus.value = AppState.Success("model downloaded")
+                            deleteDownloadedModel("converted_model")
                         }
                     }.addOnFailureListener {
                         _downloadStatus.value = AppState.Error(it.message ?: "unknown error")
