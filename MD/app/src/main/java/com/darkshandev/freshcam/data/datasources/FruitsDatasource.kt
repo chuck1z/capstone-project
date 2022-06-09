@@ -12,31 +12,42 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import javax.inject.Inject
 
-class FruitsDatasource @Inject constructor(private val retrofit: Retrofit,    @ApplicationContext private val context: Context){
+class FruitsDatasource @Inject constructor(
+    private val retrofit: Retrofit,
+    @ApplicationContext private val context: Context
+) {
 
-     suspend fun getFruitsDetail(
-        fruitsId:String,
+    suspend fun getFruitsDetail(
+        fruitsId: String,
     ): AppState<FruitsDetailResponse> =
         getResponse(context.getString(R.string.unable_fetch_stories)) {
 //            service.getDetail(fruitsId)
             dummyDetail()
         }
-private suspend fun dummyDetail():Response<FruitsDetailResponse>{
-    val fruitsDetailResponseDummy= FruitsDetailResponse(error = false, message = "success",
-        FruitsDetail(
-            id = "1",
-            name = "Apple",
-            about = "Apple is a fruit",
-            image = "test.png",
-            vitamin = listOf("vit B"),
-            binom = "10",
-            tips = listOf(),
-            nutrition = Nutrition(calories = "100kkal", fat = "10g", protein = "10g", carbs = "10g"),
 
+    private suspend fun dummyDetail(): Response<FruitsDetailResponse> {
+        val fruitsDetailResponseDummy = FruitsDetailResponse(
+            error = false, message = "success",
+            FruitsDetail(
+                id = "1",
+                name = "Apple",
+                about = "Apple is a fruit",
+                image = "test.png",
+                vitamin = listOf("vit B"),
+                binom = "10",
+                tips = listOf(),
+                nutrition = Nutrition(
+                    calories = "100kkal",
+                    fat = "10g",
+                    protein = "10g",
+                    carbs = "10g"
+                ),
+
+                )
         )
-    )
-  return  Response.success(fruitsDetailResponseDummy)
-}
+        return Response.success(fruitsDetailResponseDummy)
+    }
+
     private suspend fun <T> getResponse(
         defaultErrorMessage: String,
         request: suspend () -> Response<T>
@@ -53,8 +64,8 @@ private suspend fun dummyDetail():Response<FruitsDetailResponse>{
                 }
             } else {
 
-                    val errorResponse = ErrorUtils.parseError(result, retrofit)
-                    error(errorResponse?.localizedMessage ?: defaultErrorMessage)
+                val errorResponse = ErrorUtils.parseError(result, retrofit)
+                error(errorResponse?.localizedMessage ?: defaultErrorMessage)
 
             }
         } catch (e: Throwable) {

@@ -33,6 +33,7 @@
     <string name="choosing_tips">Choosing Tips :</string>
     <string name="tips_decsription">Tips Decsription</string>
     <string name="fat">Fat</string>
+    <string name="cannot_get_labels">cannot fetch labels</string>
     <string name="fruit_name">Fruit Name</string>
     <string name="detection">Fresh or Rotten</string>
     <string name="about_app">About App</string>

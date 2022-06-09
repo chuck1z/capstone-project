@@ -17,9 +17,9 @@ class FruitsRepository @Inject constructor(private val dataSource: FruitsDatasou
             when (result) {
                 is AppState.Success -> {
                     result.data?.let {
-                        if(it.error) {
+                        if (it.error) {
                             emit(AppState.Error(it.message))
-                        }else{
+                        } else {
                             emit(AppState.Success(it.data))
                         }
                     } ?: run {

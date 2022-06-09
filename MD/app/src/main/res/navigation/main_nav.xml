@@ -36,7 +36,7 @@
         android:id="@+id/scanResultFragment"
         android:name="com.darkshandev.freshcam.presentation.classifier.views.ScanResultFragment"
         android:label="fragment_scan_result"
-        tools:layout="@layout/fragment_scan_result" >
+        tools:layout="@layout/fragment_scan_result">
         <action
             android:id="@+id/action_scanResultFragment_to_detailFragment"
             app:destination="@id/detailFragment" />

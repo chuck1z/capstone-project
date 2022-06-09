@@ -131,29 +131,30 @@ class ScanFruitsFragment : Fragment() {
     }
 
     private fun captureImage() {
-        try{
-        val imageCapture = imageCapture ?: return
-        val photoFile = createFile(requireActivity().application)
-        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
-        imageCapture.takePicture(
-            outputOptions,
-            ContextCompat.getMainExecutor(requireContext()),
-            object : ImageCapture.OnImageSavedCallback {
-                override fun onError(exc: ImageCaptureException) {
-                    Toast.makeText(
-                        requireContext(),
-                        getString(R.string.failed_pick_photo),
-                        Toast.LENGTH_SHORT
-                    ).show()
+        try {
+            val imageCapture = imageCapture ?: return
+            val photoFile = createFile(requireActivity().application)
+            val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+            imageCapture.takePicture(
+                outputOptions,
+                ContextCompat.getMainExecutor(requireContext()),
+                object : ImageCapture.OnImageSavedCallback {
+                    override fun onError(exc: ImageCaptureException) {
+                        Toast.makeText(
+                            requireContext(),
+                            getString(R.string.failed_pick_photo),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
+                    override fun onImageSaved(output: ImageCapture.OutputFileResults) {
+                        output.savedUri
+                        classifyFruitsByThis(image = photoFile)
+                    }
                 }
-                override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    output.savedUri
-                    classifyFruitsByThis(image = photoFile)
-                }
-            }
-        )
-        }catch (e:java.lang.Exception){
-            Toast.makeText(requireContext(),e.message,Toast.LENGTH_SHORT).show()
+            )
+        } catch (e: java.lang.Exception) {
+            Toast.makeText(requireContext(), e.message, Toast.LENGTH_SHORT).show()
         }
     }
 
