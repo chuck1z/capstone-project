@@ -1,10 +1,13 @@
 package com.darkshandev.freshcam.data.repositories
 
+import android.util.Log
 import com.darkshandev.freshcam.data.database.ClassifierLabelDao
 import com.darkshandev.freshcam.data.database.HistoryClassificationDao
 import com.darkshandev.freshcam.data.datasources.ClassifierDatasource
 import com.darkshandev.freshcam.data.models.*
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
@@ -16,7 +19,7 @@ class ClassifierRepository @Inject constructor(
     private val dataSource: ClassifierDatasource,
     private val dao: ClassifierLabelDao,
     private val historyDao: HistoryClassificationDao,
-    private val analytics: FirebaseAnalytics
+
 ) {
     interface ClassifierCallback {
         fun onSuccess(result: ScanResult)
@@ -45,7 +48,7 @@ class ClassifierRepository @Inject constructor(
                 }
             }
         } catch (e: Exception) {
-            analytics.logEvent(e.message ?: "unknown exception",null)
+           Firebase.analytics.logEvent(e.message ?: "unknown exception",null)
         }
     }
 
@@ -78,7 +81,8 @@ class ClassifierRepository @Inject constructor(
                             )
                         } ?: callback.onError("No result")
                     } catch (e: Exception) {
-                        analytics.logEvent(e.message ?: "unknown exception",null)
+                        Firebase.analytics.logEvent(e.message ?: "unknown exception",null)
+                        Log.d("exception",e.message?:"unknown")
                         callback.onError("please try again")
                     }
                 }
