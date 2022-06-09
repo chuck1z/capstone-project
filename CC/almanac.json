@@ -1,6 +1,6 @@
 [
     {
-        "fruits_id": "f0001",
+        "fruits_id": "f0000",
         "name": "Apple",
         "binom": "Malus domestica",
         "nutrition": {
@@ -10,12 +10,12 @@
             "fat": "0.2g"
         },
         "vitamin": ["Vit C",  "Vit B6"],
-        "about": "",
-        "tips": [],
-        "image": ""
+        "about": "An incredibly nutritious fruit that offers multiple health benefits. They're rich in fiber and antioxidants. Eating them is linked to a lower risk of many chronic conditions, including diabetes, heart disease, and cancer. Apples may also promote weight loss and improve gut and brain health.",
+        "tips": ["Hold the apply in your hand and press it slightly to check for firmness. If it sinks in, it's not fresh and is most likely overripe.", "Be on the lookout for blemishes, insect holes, any kind of crevices or brown spots. This could mean that the apple is old.", "Look for the shine. Rub the apple slightly and you'll figure if that's the fruit's natural shine or food-grade wax which vendors sometimes apply to make their produce look good."],
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/apple.jpg"
     },
     {
-        "fruits_id": "f0002",
+        "fruits_id": "f0001",
         "name": "Avocado",
         "binom": "Persea americana",
         "nutrition": {
@@ -25,12 +25,12 @@
             "fat": "15g"
         },
         "vitamin": ["Vit C", "Vit B6"],
-        "about": "",
-        "tips": [],
-        "image": ""
+        "about": "They contain an impressive amount of nutrients and are especially rich in fiber, B6, vitamin C, potassium, vitamin E, folate, and copper. Eating avocados regularly may benefit health in several ways, including protecting against heart disease, improving overall diet quality, improving satiety, and promoting gut health. Plus, they're versatile and delicious.",
+        "tips": ["Press down by the stem. If it gives easily and retains its shape, the avocado is ready to eat. If your finger leaves a dent, the avocado is likely overripe and could be brown inside.", "Don't rely on color, There are hundreds of different varieties of avocados which turn to different colors as they ripen.", "Avoid dark blemishes. localized discoloration is a sign the fruit is past its prime."],
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/avocado.jpg"
     },
     {
-        "fruits_id": "f0003",
+        "fruits_id": "f0002",
         "name": "Banana",
         "binom": "Musa paradisiaca",
         "nutrition": {
@@ -40,12 +40,15 @@
             "fat": "0.3g"
         },
         "vitamin": ["Vit C", "Vit B6"],
-        "about": "",
-        "tips": [],
-        "image": ""
+        "about": "They are a popular fruit with many potential health benefits. They may boost your digestion and heart health thanks to their fiber and antioxidant contents. Plus, they may support weight loss because they're relatively low in calories, nutrient dense, and filling.",
+        "tips": ["Sniff the banana. Mildewy, moldy or fermented scent could mean something bad and the banana could be rotten inside, outside or both.", 
+        "Check the banana for browning. Extensive browning or mold on the skin (especially near the stem) may mean that it's best not to eat.", 
+        "Press the banana for firmness. Unripe bananas will feel hard, overripe bananas will feel mushy and good bananas will feel soft but not squishy.", 
+        "Check for leakage. If it starts oozing liquid, it has probably gone rotten."],
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/banana.jpg"
     },
     {
-        "fruits_id": "f0004",
+        "fruits_id": "f0003",
         "name": "Date Fruit",
         "binom": "Phoenix dactylifera",
         "nutrition": {
@@ -55,12 +58,12 @@
             "fat": "0.4g"
         },
         "vitamin": ["Vit B6"],
-        "about": "",
+        "about": "They are a very healthy fruit to include in your diet. They are high in several nutrients, fiber and antioxidants, all of which may provide health benefits ranging from improved digestion to a reduced risk of disease.",
         "tips": [],
         "image": ""
     },
     {
-        "fruits_id": "f0005",
+        "fruits_id": "f0004",
         "name": "Durian",
         "binom": "Durio zibethinus",
         "nutrition": {
@@ -70,12 +73,12 @@
             "fat": "5.3g"
         },
         "vitamin": ["Vit C"],
-        "about": "",
+        "about": "If you can get past the intense aroma, durian fruit can be beneficial. It can help decrease cholesterol, cardiovascular disease, and oxidative stress while supporting weight loss and healthy insulin responses. Look for ripe varieties for the best flavor and benefits.",
         "tips": [],
         "image": ""
     },
     {
-        "fruits_id":"f0006",
+        "fruits_id":"f0005",
         "name": "Grape",
         "binom": "",
         "nutrition": {
@@ -85,12 +88,12 @@
             "fat": "0.3g"
         },
         "vitamin": ["Vit C", "Vit B6"],
-        "about": "",
-        "tips": [],
-        "image": ""
+        "about": "They are chock-full of antioxidants and nutrients. They also contain fiber and are a low-calorie food. Eating a diet rich in fruits like grapes may reduce your risk of heart attack, stroke, diabetes, cancer, and obesity.",
+        "tips": ["Check the colour: green grapes are sweetest and at their best flavour when they are yellow-green in colour. Red grapes are best when the grapes are predominantly red, and black grapes will be most flavourful when they have a full, rich colour.", "Check the condition of the grapes and stems: grapes should be firm, plump and tightly attached to the stems. Grapes that are wet, mouldy or shrivelled at the stem attachment should be avoided, as they indicate decay. If grapes are at their freshest, the stems will be green and flexible versus being dry and brittle when they're not so fresh.", "Check for bloom: if you see a powdery-white coating on your grapes, don't worry it's called bloom and it's a good sign! Bloom is a naturally occurring substance that protects grapes from moisture loss and decay. It may not wash off your grapes easily, but thankfully it is perfectly safe to eat."],
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/grape.jpg"
     },
     {
-        "fruits_id":"f0007",
+        "fruits_id":"f0006",
         "name": "Guava",
         "binom": "Psidium guajava",
         "nutrition": {
@@ -100,12 +103,12 @@
             "fat": "0.95g"
         },
         "vitamin": ["Vit C", "Vit A"],
-        "about": "",
+        "about": "They are incredibly delicious and packed with nutrients. This tropical fruit is low in calories, loaded with fiber, and an excellent addition to a healthy diet.",
         "tips": [],
         "image": ""
     },
     {
-        "fruits_id":"f0008",
+        "fruits_id":"f0007",
         "name": "Lime",
         "binom": "Citrus aurantifolia",
         "nutrition": {
@@ -115,12 +118,12 @@
             "fat": "0.2g"
         },
         "vitamin": ["Vit C"],
-        "about": "Tart and fragrant limes are the key acidity in many cuisines. Just scratch and sniff the peel for a ticket to paradise, or a squirt a wedge to transform plain water into a tropical refreshment. Also known as Tahitian Lime or Persian lime, as they ripen, they turn noticeably lighter and even full-on yellow. They have an especially spicy and fragrant aroma.",
+        "about": "They are high in vitamin C and antioxidants. Eating limes or drinking the juice may improve immunity, reduce heart disease risk factors, prevent kidney stones, aid iron absorption, and promote healthy skin.",
         "tips": [],
-        "image": ""
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/lime.jpg"
     },
     {
-        "fruits_id": "f0009",
+        "fruits_id": "f0008",
         "name": "Longan",
         "binom": "Dimocarpus longan",
         "nutrition": {
@@ -135,7 +138,7 @@
         "image": ""
     },
     {
-        "fruits_id": "f0010",
+        "fruits_id": "f0009",
         "name": "Mango",
         "binom": "Magnifera indica",
         "nutrition": {
@@ -147,10 +150,10 @@
         "vitamin": ["Vit C", "Vit A"],
         "about": "",
         "tips": [],
-        "image": ""
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/mango.jpg"
     },
     {
-        "fruits_id": "f0011",
+        "fruits_id": "f0010",
         "name": "Mangosteen",
         "binom": "Garcinia mangostana",
         "nutrition": {
@@ -160,12 +163,12 @@
             "fat": "0.58g"
         },
         "vitamin": ["Vit C", "Vit A", "Vit B9"],
-        "about": "",
+        "about": "They are easy to prepare and eat. The rind is inedible but can be easily removed with a serrated knife. The inner flesh is white and very juicy when ripe. Studies have suggested that the fruit has antioxidant and anti-inflammatory properties. However, there is not yet enough evidence to conclusively prove this.",
         "tips": [],
         "image": ""
     },
     {
-        "fruits_id": "f0012",
+        "fruits_id": "f0011",
         "name": "Melon",
         "binom": "Cucumis melo",
         "nutrition": {
@@ -180,7 +183,7 @@
         "image": ""
     },
     {
-        "fruits_id": "f0013",
+        "fruits_id": "f0012",
         "name": "Orange",
         "binom": "Citrus Sinensis",
         "nutrition": {
@@ -190,11 +193,12 @@
             "fat": "0.1g"
         },
         "vitamin": ["Vit C", "Vit B6"],
-        "about": "",
-        "tips": ["Make sure the tip of the fruit is either pale white or yellowish brown. Avoid oranges with dark-looking tip", "Make sure the skin looks clear or have minimal blemishes"]
+        "about": "They boast many impressive nutrients, such as vitamin C and fiber, which are associated with improved immune function and gut health, respectively. Store them at room temperature or in the refrigerator. Either way, they make a handy, scrumptious, and nutritious snack.",
+        "tips": ["Give them a squeeze: the tastiest orange are mostly firm, full-colored, smooth and thin-skinned. Avoid oranges that are too soft, show even the smallest signs of mold, or feel as though they have bruises. Don't be afraid of slight scratches or marks on the skin; this is called “wind scarring,” which happens when fruit rubs against the tree branches during windy weather.", "Go for heft: good oranges should have a good amount of weight in your hand, like a small sports ball. This heaviness indicates how much juice is in your orange.", "Consider the color: look for oranges with bright color. On some varieties, vivid and solid orange hue are best while on others, greenish tinge are great as they reabsorb chlorophyll while hanging on the tree during warmer months."],
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/orange.jpg"
     },
     {
-        "fruits_id": "f0014",
+        "fruits_id": "f0013",
         "name": "Papaya",
         "binom": "Carica papaya",
         "nutrition": {
@@ -204,12 +208,12 @@
             "fat": "0.14g"
         },
         "vitamin": ["Vit C", "Vit A"],
-        "about": "",
+        "about": "It is one of the most widely cultivated plants in the world, and its fruit, seeds, and leaves are used for a variety of culinary and medicinal purposes.",
         "tips": [],
         "image": ""
     },
     {
-        "fruits_id": "f0015",
+        "fruits_id": "f0014",
         "name": "Pineapple",
         "binom": "Ananas comosus",
         "nutrition": {
@@ -224,7 +228,7 @@
         "image": ""
     },
     {
-        "fruits_id": "f0016",
+        "fruits_id": "f0015",
         "name": "Pomegranate",
         "binom": "Punica granatum",
         "nutrition": {
@@ -234,12 +238,12 @@
             "fat": "1.2g"
         },
         "vitamin": [],
-        "about": "",
+        "about": "They are juicy, sweet fruits with edible seeds called arils packed tightly inside. They're rich in fiber, vitamins, and minerals and even contain some protein. They're also full of antioxidants and anti-inflammatory compounds such as punicalagins. ",
         "tips": [],
         "image": ""
     },
     {
-        "fruits_id": "f0017",
+        "fruits_id": "f0016",
         "name": "Rambutan",
         "binom": "Nephelium lappaceum",
         "nutrition": {
@@ -249,12 +253,12 @@
             "fat": "0.21g"
         },
         "vitamin": ["Vit C", "Vit B6"],
-        "about": "",
+        "about": "It is nutritious yet low in calories and may aid your digestion, immune system and weight loss. Though some people eat the peel and seed, they're generally considered inedible.",
         "tips": [],
         "image": ""
     },
     {
-        "fruits_id": "f0018",
+        "fruits_id": "f0017",
         "name": "Salak",
         "binom": "Salacca zalacca",
         "nutrition": {
@@ -266,10 +270,10 @@
         "vitamin": [],
         "about": "",
         "tips": [],
-        "image": ""
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/salak.jpg"
     },
     {
-        "fruits_id":"f0019",
+        "fruits_id":"f0018",
         "name": "Soursop",
         "binom": "Annonaceae muricata",
         "nutrition": {
@@ -279,12 +283,12 @@
             "fat": "0.3g"
         },
         "vitamin": ["Vit C", "Vit B6"],
-        "about": "",
+        "about": "It is delicious, versatile and can be a beneficial addition to your diet. When combined with a balanced diet and a healthy lifestyle, this fruit may have some impressive benefits for your health.",
         "tips": [],
         "image": ""
     },
     {
-        "fruits_id": "f0020",
+        "fruits_id": "f0019",
         "name": "Strawberry",
         "binom": "Fragaria ananassa",
         "nutrition": {
@@ -294,8 +298,23 @@
             "fat": "0.3g"
         },
         "vitamin": ["Vit C"],
-        "about": "",
+        "about": "They are a good source of many vitamins, minerals and plant compounds. The health benefits include reduced cholesterol, blood pressure, inflammation, and oxidative stress. Furthermore, these berries may help prevent big spikes in both blood sugar and insulin levels.",
         "tips": [],
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/strawberry.jpg"
+    },
+    {
+        "fruits_id": "f0020",
+        "name": "Tomato",
+        "binom": "Citrullus vulgaris",
+        "nutrition": {
+            "carbs": "21g",
+            "protein": "1.7g",
+            "calories": "85",
+            "fat": "0.4g"
+        },
+        "vitamin": ["Vit C", "Vit B9"],
+        "about": "It has a very high water content and provides nutrients like lycopene, citrulline, and vitamins A and C. Studies suggest that it may even boost heart health, reduce muscle soreness, and decrease inflammation, though more research is needed.",
+        "tips": ["Hold but do not squeeze. Smaller tomatoes should be firm but not hard; larger tomatoes should feel heavy for their size and neither too solid nor too soft or swollen.", "Seek out tomatoes that are uniformly ripe. Avoid tomatoes that have hard or pale spots near the stem as well as ones with large bruises or cracks that are too long or deep to trim away. They should be shiny, with a smooth, uniform skin.", "Take a whiff. If you're not getting much of an aroma, it's likely the tomato is underripe. A great tomato should smell floral and almost basil-y."],
         "image": ""
     },
     {
@@ -309,8 +328,8 @@
             "fat": "0.4g"
         },
         "vitamin": [],
-        "about": "",
-        "tips": [],
+        "about": "It has a very high water content and provides nutrients like lycopene, citrulline, and vitamins A and C. Studies suggest that it may even boost heart health, reduce muscle soreness, and decrease inflammation, though more research is needed.",
+        "tips": ["Find a watermelon that is a uniform size (oval or round) either is ok. You just want to watch out for irregular bumps.", "You want to find the melon that is heavy for its size. This usually means it will be sweeter and will have more water content.", "Look for an orange creamy field spot. The darker yellow field spot usually means it was on the vine longer and is full of flavor.", "If the field spot is white that's a sign that the melon is not quite ripe. Larger “webbing” or “sugar spots” means that the melon is seeping out sugar and is usually the sign of sweet melon.", "Look for dark & dull melons which is a sign that the melon is ripe. When the melon is shiny it is underripe."],
         "image": ""
     },
     {
@@ -324,7 +343,7 @@
             "fat": "0.3g"
         },
         "vitamin": [],
-        "about": "",
+        "about": "They should be consumed almost immediately as they would spoil quickly. They are known to have many benefits such as controlling sugar level, ease up constipation, boost heart health, and many more.",
         "tips": [],
         "image": ""
     }
