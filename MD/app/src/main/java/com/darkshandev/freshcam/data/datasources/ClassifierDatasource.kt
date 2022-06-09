@@ -6,6 +6,8 @@ import com.darkshandev.freshcam.R
 import com.darkshandev.freshcam.data.models.AppState
 import com.darkshandev.freshcam.data.models.ClassifierLabel
 import com.darkshandev.freshcam.data.models.ClassifierResult
+import com.darkshandev.freshcam.data.models.LatestLabelResponse
+import com.darkshandev.freshcam.data.networks.ClassifierService
 import com.darkshandev.freshcam.utils.ErrorUtils
 import com.darkshandev.freshcam.utils.asTensorInput
 import com.darkshandev.freshcam.utils.getIndexOfMax
@@ -34,6 +36,7 @@ import kotlin.math.absoluteValue
 
 class ClassifierDatasource @Inject constructor(
     private val retrofit: Retrofit,
+    private val classifierService: ClassifierService,
     private val modelDownloader: FirebaseModelDownloader,
     private val remoteConfig: FirebaseRemoteConfig,
     @ApplicationContext private val context: Context
@@ -63,10 +66,10 @@ class ClassifierDatasource @Inject constructor(
            modelOutput.rewind()
            val probabilities = modelOutput.asFloatBuffer()
            val index = probabilities.getIndexOfMax()
-           val result = ClassifierResult(index, probabilities.get(index))
+           val result = ClassifierResult(index, (probabilities.get(index)*100))
            AppState.Success(result)
        }else{
-           AppState.Error("model is not defined")
+           AppState.Error("wait a moment model is not completely downloaded")
        }
     }
     private suspend fun classifyWithMultiModel(image: File):AppState<ClassifierResult>{
@@ -97,19 +100,14 @@ class ClassifierDatasource @Inject constructor(
            val result = ClassifierResult(index, freshConfidence.absoluteValue.toFloat(),freshConfidence<0)
             AppState.Success(result)
         }else{
-            AppState.Error("model is not defined")
+            AppState.Error("wait a moment model is not completely downloaded")
         }
     }
-suspend fun getLatestLabel():AppState<List<ClassifierLabel>> = getResponse(context.getString(R.string.cannot_get_labels)) {
-    getDummiesLabel()
+suspend fun getLatestLabel():AppState<LatestLabelResponse> = getResponse(context.getString(R.string.cannot_get_labels)) {
+    classifierService.getLatestLabels()
     }
 
-    private fun getDummiesLabel():Response<List<ClassifierLabel>>{
-        val labels = List(44){
-            ClassifierLabel(it, it, "${if(it%2!=1)"FRESH" else "ROTTEN"}_LABEL${it+1}", "description $it lorem ipsum dolor sit amet, consectetur adipiscing elit")
-        }
-        return Response.success(labels)
-    }
+
 
     private val _downloadStatus = MutableStateFlow<AppState<String>>(AppState.Initial())
     val downloadStatus= _downloadStatus.asStateFlow()
