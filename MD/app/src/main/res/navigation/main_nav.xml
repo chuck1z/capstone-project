@@ -98,5 +98,9 @@
         android:label="fragment_user_guide"
         app:popUpTo="@id/main_nav"
         app:popUpToInclusive="true"
-        tools:layout="@layout/fragment_user_guide" />
+        tools:layout="@layout/fragment_user_guide" >
+        <action
+            android:id="@+id/action_userGuideFragment_to_homeFruitsFragment"
+            app:destination="@id/homeFruitsFragment" />
+    </fragment>
 </navigation>
