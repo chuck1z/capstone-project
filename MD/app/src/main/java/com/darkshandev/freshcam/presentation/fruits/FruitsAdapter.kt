@@ -5,9 +5,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.darkshandev.freshcam.R
 import com.darkshandev.freshcam.data.models.FruitsTips
 import com.darkshandev.freshcam.data.models.Tips
 import com.darkshandev.freshcam.databinding.ItemFruitsTipsBinding
@@ -39,6 +42,9 @@ class FruitsAdapter : RecyclerView.Adapter<FruitsAdapter.ViewHolder>() {
                 .into(ivFruitTips)
             tvTitleTips.text = fruitsTips.title
             tvDescTips.text = fruitsTips.short_desc
+        }
+        holder.itemView.setOnClickListener{ view ->
+            view.findNavController().navigate(R.id.action_homeFruitsFragment_to_tipsDetailFragment)
         }
     }
 

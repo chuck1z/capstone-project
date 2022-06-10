@@ -5,29 +5,31 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.darkshandev.freshcam.R
+import com.darkshandev.freshcam.data.models.AppState
+import com.darkshandev.freshcam.databinding.FragmentHomeFruitsBinding
+import com.darkshandev.freshcam.databinding.FragmentTipsDetailBinding
+import com.darkshandev.freshcam.presentation.fruits.viewmodels.FruitsViewmodel
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [TipsDetailFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TipsDetailFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private val fruitsViewmodel by activityViewModels<FruitsViewmodel>()
+    private var binding: FragmentTipsDetailBinding? = null
+
+    override fun onDestroy() {
+        binding = null
+        super.onDestroy()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        binding = FragmentTipsDetailBinding.inflate(layoutInflater)
     }
 
     override fun onCreateView(
@@ -35,26 +37,37 @@ class TipsDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tips_detail, container, false)
-    }
+        lifecycleScope.launch {
+            fruitsViewmodel.tipssDetail.flowWithLifecycle(lifecycle).collect { state ->
+                when (state) {
+                    is AppState.Loading -> {
+                        //activate loading view
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TipsDetailFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TipsDetailFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    }
+                    is AppState.Success -> {
+                        binding?.apply {
+                            state.data?.let {
+                                titleTipsDetail.text = it.title
+                                tvDate.text = it.date_posted
+                                tvShortDesc.text = it.short_desc
+                                tvFullDesc.text = it.full_desc
+                                Glide.with(root.context)
+                                    .load(it.image)
+                                    .into(ivFruitsTipsDetail)
+                            }
+
+                        }
+                    }
+                    is AppState.Error -> {
+                        //activate error view
+                    }
+                    is AppState.Initial -> {
+
+                    }
                 }
             }
+        }
+        return binding?.root
     }
+
 }
