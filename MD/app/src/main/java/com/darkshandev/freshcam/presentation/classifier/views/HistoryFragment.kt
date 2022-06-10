@@ -42,6 +42,9 @@ class HistoryFragment : Fragment() {
 
     private fun setUpView() {
         _binding?.apply {
+            backButton.setOnClickListener {
+                activity?.onBackPressed()
+            }
             rvHistory.apply {
                 layoutManager = LinearLayoutManager(requireActivity())
                 adapter = historyAdapter
