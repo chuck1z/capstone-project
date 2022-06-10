@@ -2,9 +2,7 @@ package com.darkshandev.freshcam.presentation.fruits.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.darkshandev.freshcam.data.models.AppState
-import com.darkshandev.freshcam.data.models.FruitsDetail
-import com.darkshandev.freshcam.data.models.TipsDetail
+import com.darkshandev.freshcam.data.models.*
 import com.darkshandev.freshcam.data.repositories.FruitsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -18,9 +16,43 @@ class FruitsViewmodel @Inject constructor(private val repo: FruitsRepository) : 
 //    val fruits = _fruits.asStateFlow()
 //    private val _tips = MutableStateFlow<AppState<List<Tips>>>(AppState.Initial())
 //    val tips = _tips.asStateFlow()
-    val tips = repo.getTips().stateIn(viewModelScope, SharingStarted.Lazily, AppState.Initial())
-    val fruitsOfTheDay =
-        repo.getFruitsOfTheDay().stateIn(viewModelScope, SharingStarted.Lazily, AppState.Initial())
+//    val tips = repo.getTips().stateIn(viewModelScope, SharingStarted.Lazily, AppState.Initial())
+//    val fruitsOfTheDay =
+//        repo.getFruitsOfTheDay().stateIn(viewModelScope, SharingStarted.Lazily, AppState.Initial())
+
+    private val _selectedFruitsTips = MutableStateFlow<String>("")
+
+//    @OptIn(ExperimentalCoroutinesApi::class)
+//    val tips: StateFlow<AppState<FruitsTips>> = _selectedFruitsTips
+//        .distinctUntilChanged { old, new -> old == new && new == "" }
+//        .transformLatest { id ->
+//            repo.getTips()
+//                .collect { result ->
+//                    emit(result)
+//                }
+//        }.stateIn(
+//            viewModelScope,
+//            SharingStarted.Lazily,
+//            AppState.Initial()
+//        )
+
+    private val _selectedFruitsOfTheDay = MutableStateFlow<String>("")
+
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    val fruitsOfTheDay: StateFlow<AppState<FruitOfTheDay>> = _selectedFruitsOfTheDay
+        .distinctUntilChanged { old, new -> old == new && new == "" }
+        .transformLatest { id ->
+            repo.getFruitsOfTheDay()
+                .collect { result ->
+                    emit(result)
+                }
+        }.stateIn(
+            viewModelScope,
+            SharingStarted.Lazily,
+            AppState.Loading()
+        )
+
 
     private val _selectedFruitsId = MutableStateFlow<String>("")
     fun setSelectedFruitsId(id: String) {
