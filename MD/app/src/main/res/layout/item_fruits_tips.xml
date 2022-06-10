@@ -28,12 +28,16 @@
 
         <TextView
             android:id="@+id/tvTitleTips"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="12dp"
+            android:textSize="12sp"
             android:text="@string/title"
+            android:maxLines="3"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivFruitTips"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,9 +47,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
             android:layout_marginEnd="16dp"
             android:ellipsize="end"
             android:maxLines="2"
+            android:textSize="11sp"
             android:text="@string/Description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivFruitTips"
