@@ -53,7 +53,7 @@ class HomeFruitsFragment : Fragment() {
                                 tvFruitOfTheDay.text = it.name
                                 tvDesc.text = it.short_desc
                                 tvFruitTitle.text = it.name
-                                ivFruitOfTheDay.loadCircleImage("https://media.istockphoto.com/photos/whole-cross-section-and-quarter-of-fresh-organic-navel-orange-with-picture-id1227301369?b=1&k=20&m=1227301369&s=170667a&w=0&h=7WdK1RQTLuCn5tuNe25Z999THYzj8yijmk0MaRE-SD0=")
+                                ivFruitOfTheDay.loadCircleImage("https://solidstarts.com/wp-content/uploads/introducing-avocado-to-babies-480x320.webp")
                             }
                         }
                     }
