@@ -20,24 +20,7 @@ class FruitsViewmodel @Inject constructor(private val repo: FruitsRepository) : 
 //    val fruitsOfTheDay =
 //        repo.getFruitsOfTheDay().stateIn(viewModelScope, SharingStarted.Lazily, AppState.Initial())
 
-    private val _selectedFruitsTips = MutableStateFlow<String>("")
-
-//    @OptIn(ExperimentalCoroutinesApi::class)
-//    val tips: StateFlow<AppState<FruitsTips>> = _selectedFruitsTips
-//        .distinctUntilChanged { old, new -> old == new && new == "" }
-//        .transformLatest { id ->
-//            repo.getTips()
-//                .collect { result ->
-//                    emit(result)
-//                }
-//        }.stateIn(
-//            viewModelScope,
-//            SharingStarted.Lazily,
-//            AppState.Initial()
-//        )
-
     private val _selectedFruitsOfTheDay = MutableStateFlow<String>("")
-
 
     @OptIn(ExperimentalCoroutinesApi::class)
     val fruitsOfTheDay: StateFlow<AppState<FruitOfTheDay>> = _selectedFruitsOfTheDay
@@ -77,6 +60,20 @@ class FruitsViewmodel @Inject constructor(private val repo: FruitsRepository) : 
     fun setSelectedTipsId(id: String) {
         _selectedTipsId.value = id
     }
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    val tips: StateFlow<AppState<List<Tips>>> = _selectedTipsId
+        .distinctUntilChanged { old, new -> old == new && new == "" }
+        .transformLatest { id ->
+            repo.getTips()
+                .collect { result ->
+                    emit(result)
+                }
+        }.stateIn(
+            viewModelScope,
+            SharingStarted.Lazily,
+            AppState.Loading()
+        )
 
     @OptIn(ExperimentalCoroutinesApi::class)
     val tipssDetail: StateFlow<AppState<TipsDetail>> = _selectedTipsId

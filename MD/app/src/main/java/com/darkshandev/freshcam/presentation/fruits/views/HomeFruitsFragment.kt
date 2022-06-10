@@ -1,6 +1,8 @@
 package com.darkshandev.freshcam.presentation.fruits.views
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +25,7 @@ class HomeFruitsFragment : Fragment() {
 
     private val fruitsViewmodel by activityViewModels<FruitsViewmodel>()
     private var binding: FragmentHomeFruitsBinding? = null
-    private val adapter = FruitsAdapter()
+    private val fruitsAdapter = FruitsAdapter()
     override fun onDestroy() {
         binding = null
         super.onDestroy()
@@ -64,19 +66,53 @@ class HomeFruitsFragment : Fragment() {
                 }
             }
         }
-        binding?.apply {
-            rvFruitsTips.adapter = adapter
-            rvFruitsTips.layoutManager = LinearLayoutManager(requireContext())
+
+
+        lifecycleScope.launch {
+            fruitsViewmodel.tips.flowWithLifecycle(lifecycle).collect { state ->
+                when (state) {
+                    is AppState.Loading -> {
+                        //activate loading view
+
+                    }
+                    is AppState.Success -> {
+                        binding?.apply {
+                            state.data?.let {
+                                fruitsAdapter.updateList(it)
+                                binding?.rvFruitsTips?.layoutManager = LinearLayoutManager(requireContext())
+                                fruitsAdapter.notifyDataSetChanged()
+                                binding?.rvFruitsTips?.adapter = fruitsAdapter
+
+                            }
+                        }
+                    }
+                    is AppState.Error -> {
+                        //activate error view
+                    }
+                    is AppState.Initial -> {
+
+                    }
+                }
+            }
         }
-        val dummyList = List(10) {
-            FruitsTips(
-                title = "Fruits Tips #$it",
-                description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                photoUrl = "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-            )
-        }
-        adapter.updateList(dummyList)
+
+
+//        binding?.apply {
+//            rvFruitsTips.adapter = fruitsAdapter
+//            rvFruitsTips.layoutManager = LinearLayoutManager(requireContext())
+//        }
+//        val dummyList = List(10) {
+//            FruitsTips(
+//                title = "Fruits Tips #$it",
+//                description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+//                photoUrl = "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+//            )
+//        }
+//        fruitsAdapter.updateList(dummyList)
 
         return binding?.root
     }
 }
+
+
+

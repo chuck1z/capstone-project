@@ -1,5 +1,7 @@
 package com.darkshandev.freshcam.presentation.fruits
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.darkshandev.freshcam.data.models.FruitsTips
+import com.darkshandev.freshcam.data.models.Tips
 import com.darkshandev.freshcam.databinding.ItemFruitsTipsBinding
 import com.darkshandev.freshcam.utils.FruitTipsDiffUtils
 
@@ -15,14 +18,10 @@ class FruitsAdapter : RecyclerView.Adapter<FruitsAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     private lateinit var binding: ItemFruitsTipsBinding
-    private var currentList = emptyList<FruitsTips>()
-    fun updateList(newList: List<FruitsTips>) {
+    private var currentList : List<Tips> = ArrayList()
+    fun updateList(newList: List<Tips>) {
         //update currentList with newList using FruitTipsDiffUtils
-        val diff = DiffUtil
-            .calculateDiff(FruitTipsDiffUtils(currentList, newList))
         this.currentList = newList
-
-        diff.dispatchUpdatesTo(this)
 
     }
 
@@ -33,12 +32,13 @@ class FruitsAdapter : RecyclerView.Adapter<FruitsAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val fruitsTips = currentList[position]
+        Log.d(TAG, "onBindViewHolder: $fruitsTips")
         with(binding) {
             Glide.with(binding.root.context)
-                .load(fruitsTips.photoUrl)
+                .load(fruitsTips.image)
                 .into(ivFruitTips)
             tvTitleTips.text = fruitsTips.title
-            tvDescTips.text = fruitsTips.description
+            tvDescTips.text = fruitsTips.short_desc
         }
     }
 
