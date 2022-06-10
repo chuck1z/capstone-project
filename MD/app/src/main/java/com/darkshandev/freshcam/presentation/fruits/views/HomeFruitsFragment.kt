@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.darkshandev.freshcam.data.models.AppState
 import com.darkshandev.freshcam.data.models.FruitsTips
 import com.darkshandev.freshcam.databinding.FragmentHomeFruitsBinding
@@ -53,7 +54,9 @@ class HomeFruitsFragment : Fragment() {
                                 tvFruitOfTheDay.text = it.name
                                 tvDesc.text = it.short_desc
                                 tvFruitTitle.text = it.name
-                                ivFruitOfTheDay.loadCircleImage("https://solidstarts.com/wp-content/uploads/introducing-avocado-to-babies-480x320.webp")
+                                Glide.with(root.context)
+                                    .load(it.image)
+                                    .into(ivFruitOfTheDay)
                             }
                         }
                     }
