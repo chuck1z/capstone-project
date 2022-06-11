@@ -67,9 +67,7 @@ class HomeFruitsFragment : Fragment(),FruitsAdapter.Listener {
                                 tvFruitOfTheDay.text = fotd.name
                                 tvDesc.text = fotd.short_desc
                                 tvFruitTitle.text = fotd.name
-                                Glide.with(root.context)
-                                    .load(fotd.image)
-                                    .into(ivFruitOfTheDay)
+                                ivFruitOfTheDay.loadCircleImage(fotd.image)
                                 btnInfo.setOnClickListener {
                                     fruitsViewmodel.setSelectedFruitsId(fotd.fruits_id)
                                     findNavController().navigate(R.id.action_homeFruitsFragment_to_detailFragment)
