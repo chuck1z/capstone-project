@@ -63,7 +63,7 @@ class DetailFragment : Fragment() {
                                 tvScientificName.text = it.binom
                                 it.vitamin.forEach { vit ->
                                     val chip = Chip(requireContext())
-                                    chip.setText(vit)
+                                    chip.text = vit
                                     chips.addView(chip)
                                 }
                                 simpleTipsAdapter.updateList(it.tips)

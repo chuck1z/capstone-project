@@ -17,7 +17,7 @@
         <item name="colorButtonNormal">@color/secondary</item>
         <item name="android:colorButtonNormal">@color/secondary
         </item>
-<!--        <item name="android:textColor">@color/primary</item>-->
+        <!--        <item name="android:textColor">@color/primary</item>-->
     </style>
 
     <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">

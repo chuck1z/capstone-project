@@ -1,7 +1,7 @@
 package com.darkshandev.freshcam.data.models
 
 data class ScanResult(
-    val fruitsId:String,
+    val fruitsId: String,
     val label: String,
     val confidence: Float,
     val description: String
