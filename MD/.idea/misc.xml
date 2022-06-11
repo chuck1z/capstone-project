@@ -41,6 +41,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_settings_24_inactive.xml" value="0.2085" />
         <entry key="app/src/main/res/drawable/setting_icon.xml" value="0.1265" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26136363636363635" />
+        <entry key="app/src/main/res/layout/fragment_about.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_history.xml" value="0.22209695603156707" />
         <entry key="app/src/main/res/layout/fragment_home_fruits.xml" value="0.15670289855072464" />
@@ -48,8 +49,12 @@
         <entry key="app/src/main/res/layout/fragment_scan_fruits.xml" value="0.15670289855072464" />
         <entry key="app/src/main/res/layout/fragment_scan_result.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.15670289855072464" />
-        <entry key="app/src/main/res/layout/fragment_user_guide.xml" value="0.20199275362318841" />
+        <entry key="app/src/main/res/layout/fragment_tips_detail.xml" value="0.20199275362318841" />
+        <entry key="app/src/main/res/layout/fragment_user_guide.xml" value="0.2535384689552197" />
+        <entry key="app/src/main/res/layout/item_fruits_tips.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_history.xml" value="0.10260416666666666" />
+        <entry key="app/src/main/res/layout/list_vew_nutritions.xml" value="0.20199275362318841" />
+        <entry key="app/src/main/res/layout/simple_tips_item.xml" value="0.3140807663185009" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.21388888888888888" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2085" />
       </map>

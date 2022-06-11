@@ -1,24 +1,18 @@
 package com.darkshandev.freshcam.presentation.fruits.views
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
 import com.darkshandev.freshcam.R
 import com.darkshandev.freshcam.data.models.AppState
-import com.darkshandev.freshcam.data.models.FruitsTips
 import com.darkshandev.freshcam.data.models.Tips
 import com.darkshandev.freshcam.databinding.FragmentHomeFruitsBinding
 import com.darkshandev.freshcam.presentation.fruits.FruitsAdapter
@@ -27,7 +21,7 @@ import com.darkshandev.freshcam.utils.loadCircleImage
 import kotlinx.coroutines.launch
 
 
-class HomeFruitsFragment : Fragment(),FruitsAdapter.Listener {
+class HomeFruitsFragment : Fragment(), FruitsAdapter.Listener {
 
     private val fruitsViewmodel by activityViewModels<FruitsViewmodel>()
     private var binding: FragmentHomeFruitsBinding? = null
@@ -63,13 +57,11 @@ class HomeFruitsFragment : Fragment(),FruitsAdapter.Listener {
                     }
                     is AppState.Success -> {
                         binding?.apply {
-                            state.data?.let {fotd->
+                            state.data?.let { fotd ->
                                 tvFruitOfTheDay.text = fotd.name
                                 tvDesc.text = fotd.short_desc
                                 tvFruitTitle.text = fotd.name
-                                Glide.with(root.context)
-                                    .load(fotd.image)
-                                    .into(ivFruitOfTheDay)
+                                ivFruitOfTheDay.loadCircleImage(fotd.image)
                                 btnInfo.setOnClickListener {
                                     fruitsViewmodel.setSelectedFruitsId(fotd.fruits_id)
                                     findNavController().navigate(R.id.action_homeFruitsFragment_to_detailFragment)
@@ -91,10 +83,10 @@ class HomeFruitsFragment : Fragment(),FruitsAdapter.Listener {
             fruitsViewmodel.tips.flowWithLifecycle(lifecycle).collect { state ->
                 when (state) {
                     is AppState.Loading -> {
-                    binding?.progressBar2?.visibility=View.VISIBLE
+                        binding?.progressBar2?.visibility = View.VISIBLE
                     }
                     is AppState.Success -> {
-                        binding?.progressBar2?.visibility=View.GONE
+                        binding?.progressBar2?.visibility = View.GONE
                         binding?.apply {
                             state.data?.let {
                                 fruitsAdapter.updateList(it)
@@ -102,7 +94,7 @@ class HomeFruitsFragment : Fragment(),FruitsAdapter.Listener {
                         }
                     }
                     is AppState.Error -> {
-                        binding?.progressBar2?.visibility=View.GONE
+                        binding?.progressBar2?.visibility = View.GONE
                         //activate error view
                         Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
                     }

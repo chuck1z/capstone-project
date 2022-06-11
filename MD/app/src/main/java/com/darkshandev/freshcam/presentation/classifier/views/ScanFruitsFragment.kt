@@ -14,7 +14,6 @@ import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
-import androidx.camera.core.TorchState.ON
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -25,9 +24,12 @@ import com.darkshandev.freshcam.databinding.FragmentScanFruitsBinding
 import com.darkshandev.freshcam.presentation.classifier.viewmodels.ClassifierViewmodel
 import com.darkshandev.freshcam.utils.createFile
 import com.darkshandev.freshcam.utils.uriToFile
+import uk.co.deanwild.materialshowcaseview.MaterialShowcaseSequence
+import uk.co.deanwild.materialshowcaseview.ShowcaseConfig
 import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+
 
 class ScanFruitsFragment : Fragment() {
     private var binding: FragmentScanFruitsBinding? = null
@@ -35,6 +37,8 @@ class ScanFruitsFragment : Fragment() {
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     private var imageCapture: ImageCapture? = null
     private val classifierViewmodel: ClassifierViewmodel by activityViewModels()
+    private var flashMode: Boolean = false
+    var timestamp = ""
     override fun onDestroyView() {
         binding = null
         cameraExecutor?.shutdown()
@@ -42,14 +46,57 @@ class ScanFruitsFragment : Fragment() {
         super.onDestroyView()
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        timestamp = System.currentTimeMillis().toString()
+        binding = FragmentScanFruitsBinding.inflate(layoutInflater)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentScanFruitsBinding.inflate(inflater, container, false)
+        val backStackLabel = findNavController().previousBackStackEntry?.destination?.label
+        val isUserGuideFragment = backStackLabel == requireContext().getString(R.string.user_guide)
+
 
         prepareCamera()
         setupView()
+        binding?.apply {
+            if (isUserGuideFragment) {
+                val config = ShowcaseConfig()
+                config.delay = 500 // half second between each showcase view
+                //get current timestamp
+
+                val sequence =
+                    MaterialShowcaseSequence(requireActivity(), timestamp)
+
+                sequence.setConfig(config)
+                sequence.addSequenceItem(
+                    textView3,
+                    "This is camera preview, put your fruits on center frame then capture the image",
+                    "GOT IT"
+                )
+                sequence.addSequenceItem(
+                    flashButton,
+                    "This is flash button, control your flash to on or off", "GOT IT"
+                )
+                sequence.addSequenceItem(
+                    captureImage,
+                    "Capture Your Fruits,this is the capture button, tap to capture your fruits and wait the results",
+                    "GOT IT"
+                )
+                sequence.addSequenceItem(
+                    galleryButton,
+                    "Pick Your Fruits image,his is the gallery button, tap to pick your fruits image from gallery and wait the results",
+                    "GOT IT"
+                )
+
+                sequence.start()
+
+
+            }
+        }
         return binding?.root
     }
 
@@ -83,12 +130,36 @@ class ScanFruitsFragment : Fragment() {
                 imageCapture = ImageCapture.Builder().build()
                 try {
                     cameraProvider.unbindAll()
-                    cameraProvider.bindToLifecycle(
+                    val cam = cameraProvider.bindToLifecycle(
                         viewLifecycleOwner,
                         cameraSelector,
                         preview,
                         imageCapture
                     )
+                    flashButton.setOnClickListener {
+                        if (cam.cameraInfo.hasFlashUnit()) {
+                            if (flashMode) {
+                                cam.cameraControl.enableTorch(false)
+                                flashMode = false
+                                flashButton.setImageDrawable(
+                                    ContextCompat.getDrawable(
+                                        requireContext(),
+                                        R.drawable.ic_baseline_flash_off_24
+                                    )
+                                )
+                            } else {
+                                cam.cameraControl.enableTorch(true)
+                                flashMode = true
+                                flashButton.setImageDrawable(
+                                    ContextCompat.getDrawable(
+                                        requireContext(),
+                                        R.drawable.ic_baseline_flash_on_24
+                                    )
+                                )
+                            }
+                        }
+
+                    }
                 } catch (exc: Exception) {
                     Toast.makeText(
                         requireContext(),
@@ -109,17 +180,7 @@ class ScanFruitsFragment : Fragment() {
             captureImage.setOnClickListener {
                 captureImage()
             }
-            flashButton.setOnClickListener {
-                imageCapture?.apply {
-                    if (flashMode == ON) {
-                        flashMode = ImageCapture.FLASH_MODE_OFF
-                        flashButton.setImageResource(R.drawable.ic_baseline_flash_off_24)
-                    } else {
-                        flashMode = ImageCapture.FLASH_MODE_ON
-                        flashButton.setImageResource(R.drawable.ic_baseline_flash_on_24)
-                    }
-                }
-            }
+
             galleryButton.setOnClickListener {
                 val intent = Intent()
                 intent.action = Intent.ACTION_GET_CONTENT

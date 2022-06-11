@@ -53,4 +53,5 @@
     <string name="title_guide">You can detect fruit via camera or input images in your gallery</string>
     <string name="back_button">back button</string>
     <string name="scan_history">Scan History</string>
+    <string name="fruit_image">fruit image</string>
 </resources>

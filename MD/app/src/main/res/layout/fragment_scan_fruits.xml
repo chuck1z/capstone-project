@@ -48,6 +48,15 @@
         app:layout_constraintTop_toTopOf="@+id/preview"
         android:contentDescription="@string/frame_capture" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
     <ImageButton
         android:id="@+id/gallery_button"
         android:layout_width="wrap_content"
@@ -78,7 +87,7 @@
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:padding="8dp"
-        android:src="@drawable/ic_outline_image_24"
+        android:src="@drawable/ic_baseline_flash_off_24"
         app:layout_constraintBottom_toBottomOf="@+id/captureImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/captureImage"

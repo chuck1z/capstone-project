@@ -27,8 +27,13 @@ class UserGuideFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding?.btnGuide?.setOnClickListener {
-            findNavController().navigate(R.id.action_userGuideFragment_to_homeFruitsFragment)
+        binding?.apply {
+            btnGuide.setOnClickListener {
+                findNavController().navigate(R.id.action_userGuideFragment_to_scanFruitsFragment)
+            }
+            backButton.setOnClickListener {
+                requireActivity().onBackPressed()
+            }
         }
         // Inflate the layout for this fragment
         return binding?.root

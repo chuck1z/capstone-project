@@ -63,7 +63,7 @@ class FruitsViewmodel @Inject constructor(private val repo: FruitsRepository) : 
 
     @OptIn(ExperimentalCoroutinesApi::class)
     val tips: StateFlow<AppState<List<Tips>>> = repo.getTips()
-              .stateIn(
+        .stateIn(
             viewModelScope,
             SharingStarted.Lazily,
             AppState.Initial()

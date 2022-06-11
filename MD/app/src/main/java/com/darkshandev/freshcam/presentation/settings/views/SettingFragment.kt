@@ -34,7 +34,7 @@ class SettingFragment : Fragment() {
                 findNavController().navigate(R.id.action_settingFragment_to_aboutFragment)
             }
             cvGuide.setOnClickListener {
-            findNavController().navigate(R.id.action_settingFragment_to_userGuideFragment)
+                findNavController().navigate(R.id.action_settingFragment_to_userGuideFragment)
             }
         }
         return _binding?.root
