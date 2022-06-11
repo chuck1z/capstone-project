@@ -96,12 +96,15 @@
     <fragment
         android:id="@+id/userGuideFragment"
         android:name="com.darkshandev.freshcam.presentation.settings.views.UserGuideFragment"
-        android:label="fragment_user_guide"
+        android:label="@string/user_guide"
         app:popUpTo="@id/main_nav"
         app:popUpToInclusive="true"
         tools:layout="@layout/fragment_user_guide" >
         <action
             android:id="@+id/action_userGuideFragment_to_homeFruitsFragment"
             app:destination="@id/homeFruitsFragment" />
+        <action
+            android:id="@+id/action_userGuideFragment_to_scanFruitsFragment"
+            app:destination="@id/scanFruitsFragment" />
     </fragment>
 </navigation>
