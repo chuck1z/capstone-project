@@ -8,11 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.darkshandev.freshcam.R
 import com.darkshandev.freshcam.data.models.AppState
-import com.darkshandev.freshcam.databinding.FragmentHomeFruitsBinding
 import com.darkshandev.freshcam.databinding.FragmentTipsDetailBinding
 import com.darkshandev.freshcam.presentation.fruits.viewmodels.FruitsViewmodel
 import kotlinx.coroutines.launch
@@ -37,15 +34,29 @@ class TipsDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        binding?.apply {
+            backButton.setOnClickListener {
+                requireActivity().onBackPressed()
+            }
+        }
         lifecycleScope.launch {
             fruitsViewmodel.tipssDetail.flowWithLifecycle(lifecycle).collect { state ->
                 when (state) {
                     is AppState.Loading -> {
                         //activate loading view
-
+                        binding?.apply {
+                            progressTipsDetail.visibility = View.VISIBLE
+                            detailView.visibility = View.GONE
+                            errorTipsMessage.visibility = View.GONE
+                        }
                     }
                     is AppState.Success -> {
+
                         binding?.apply {
+                            progressTipsDetail.visibility = View.GONE
+                            detailView.visibility = View.VISIBLE
+                            errorTipsMessage.visibility = View.GONE
+
                             state.data?.let {
                                 titleTipsDetail.text = it.title
                                 tvDate.text = it.date_posted
@@ -60,6 +71,12 @@ class TipsDetailFragment : Fragment() {
                     }
                     is AppState.Error -> {
                         //activate error view
+                        binding?.apply {
+                            progressTipsDetail.visibility = View.GONE
+                            detailView.visibility = View.GONE
+                            errorTipsMessage.text = state.message
+                            errorTipsMessage.visibility = View.VISIBLE
+                        }
                     }
                     is AppState.Initial -> {
 
