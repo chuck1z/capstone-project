@@ -127,7 +127,6 @@ class ClassifierDatasource @Inject constructor(
         if (isSingle) {
             _downloadStatus.value = AppState.Loading()
             modelDownloader.run {
-
                 getModel(
                     "converted_model", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND,
                     conditions

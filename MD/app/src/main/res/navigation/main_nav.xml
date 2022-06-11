@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeFruitsFragment_to_oneTimeSetUpFragment"
             app:destination="@id/oneTimeSetUpFragment" />
+        <action
+            android:id="@+id/action_homeFruitsFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/scanFruitsFragment"
@@ -46,9 +49,7 @@
         <action
             android:id="@+id/action_settingFragment_to_userGuideFragment"
             app:destination="@id/userGuideFragment" />
-        <action
-            android:id="@+id/action_settingFragment_to_userGuideFragment2"
-            app:destination="@id/userGuideFragment" />
+
     </fragment>
     <dialog
         android:id="@+id/scanResultFragment"

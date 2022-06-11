@@ -8,39 +8,29 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/preparing"
-
-        tools:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:visibility="gone">
 
-        <ImageView
-            android:id="@+id/ivLauncher"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:contentDescription="@string/app_logo"
-            android:src="@mipmap/ic_launcher"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ProgressBar
-            android:id="@+id/linear_progress"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/setting_up_animation" />
 
         <TextView
             android:id="@+id/textView2"
-            android:padding="16dp"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="16dp"
             android:text="@string/one_time"
-            app:layout_constraintBottom_toTopOf="@+id/linear_progress"
+            app:layout_constraintBottom_toTopOf="@+id/animation_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent" />
@@ -48,16 +38,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/on_success"
-        tools:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="gone">
 
         <TextView
-            android:padding="16dp"
             android:id="@+id/prepare_success"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="16dp"
             android:text="@string/all_ready_to_go"
             app:layout_constraintBottom_toTopOf="@+id/ivLauncherSuccess"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,8 +55,8 @@
 
         <ImageView
             android:id="@+id/ivLauncherSuccess"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             android:contentDescription="@string/app_logo"
             android:src="@mipmap/ic_launcher"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -99,15 +89,15 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/on_internet_lost"
-        tools:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:visibility="gone">
 
         <TextView
-            android:padding="16dp"
             android:id="@+id/prepare_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="16dp"
             android:text="@string/internet_disconnected"
             app:layout_constraintBottom_toTopOf="@+id/ivLauncherError"
             app:layout_constraintEnd_toEndOf="parent"
@@ -126,9 +116,9 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/retry"
-            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:backgroundTint="@color/grey"
             android:text="@string/retry"
             app:layout_constraintEnd_toEndOf="@+id/ivLauncherError"

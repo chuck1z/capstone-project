@@ -15,12 +15,25 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/round_button"
+        android:contentDescription="@string/back_button"
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:padding="8dp"
         android:src="@drawable/ic_baseline_chevron_left_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvHistory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/scan_history"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/back_button"
+        app:layout_constraintStart_toEndOf="@+id/back_button"
+        app:layout_constraintTop_toTopOf="@+id/back_button" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHistory"

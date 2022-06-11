@@ -41,18 +41,11 @@ class ScanResultFragment : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         setupCollector()
-        setupView()
+
         return binding?.root
     }
 
-    private fun setupView() {
-        binding?.apply {
-            button.setOnClickListener {
-                fruitsViewmodel.setSelectedFruitsId("name")
-                findNavController().navigate(R.id.action_scanResultFragment_to_detailFragment)
-            }
-        }
-    }
+
 
     private fun setupCollector() {
         lifecycleScope.launch {
@@ -103,7 +96,10 @@ class ScanResultFragment : BottomSheetDialogFragment() {
                                 confidence.text = it.confidence.asPercentage()
                                 descInfo.text = it.description
                                 name.text = it.getName()
-
+                                button.setOnClickListener {v->
+                                    fruitsViewmodel.setSelectedFruitsId(it.fruitsId)
+                                    findNavController().navigate(R.id.action_scanResultFragment_to_detailFragment)
+                                }
                             }
                         }
                     }

@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                         navController.navigate(R.id.action_settingFragment_to_scanFruitsFragment)
                     }
                 }
-                R.id.scanFruitsFragment, R.id.userGuideFragment, R.id.oneTimeSetUpFragment, R.id.historyFragment, R.id.aboutFragment -> {
+                R.id.scanFruitsFragment,R.id.detailFragment,R.id.tipsDetailFragment, R.id.userGuideFragment, R.id.oneTimeSetUpFragment, R.id.historyFragment, R.id.aboutFragment -> {
                     hideBottomNav()
                 }
             }

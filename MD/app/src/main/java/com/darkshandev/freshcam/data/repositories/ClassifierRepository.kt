@@ -69,6 +69,7 @@ class ClassifierRepository @Inject constructor(
                                 labelResult = "${if (isFresh) "FRESH_" else "ROTTEN_"}$labelResult"
                             }
                             val scanResult = ScanResult(
+                                fruitsId = label.id,
                                 label = labelResult,
                                 confidence = it.confidence,
                                 description = label.shortDesc,

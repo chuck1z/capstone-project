@@ -73,6 +73,9 @@ dependencies {
     implementation 'org.tensorflow:tensorflow-lite-gpu:2.9.0'
     implementation 'org.tensorflow:tensorflow-lite-support:0.4.1'
 
+    //lottie animation
+    implementation 'com.airbnb.android:lottie:5.2.0'
+
 
     //
     testImplementation 'junit:junit:4.13.2'

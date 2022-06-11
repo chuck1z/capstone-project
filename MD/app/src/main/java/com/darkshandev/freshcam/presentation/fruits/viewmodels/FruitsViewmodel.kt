@@ -62,17 +62,11 @@ class FruitsViewmodel @Inject constructor(private val repo: FruitsRepository) : 
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)
-    val tips: StateFlow<AppState<List<Tips>>> = _selectedTipsId
-        .distinctUntilChanged { old, new -> old == new && new == "" }
-        .transformLatest { id ->
-            repo.getTips()
-                .collect { result ->
-                    emit(result)
-                }
-        }.stateIn(
+    val tips: StateFlow<AppState<List<Tips>>> = repo.getTips()
+              .stateIn(
             viewModelScope,
             SharingStarted.Lazily,
-            AppState.Loading()
+            AppState.Initial()
         )
 
     @OptIn(ExperimentalCoroutinesApi::class)
