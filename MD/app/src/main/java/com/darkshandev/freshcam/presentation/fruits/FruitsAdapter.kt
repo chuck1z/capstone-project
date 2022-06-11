@@ -16,7 +16,7 @@ import com.darkshandev.freshcam.data.models.Tips
 import com.darkshandev.freshcam.databinding.ItemFruitsTipsBinding
 import com.darkshandev.freshcam.utils.FruitTipsDiffUtils
 
-class FruitsAdapter : RecyclerView.Adapter<FruitsAdapter.ViewHolder>() {
+class FruitsAdapter constructor(private val listener:Listener?=null) : RecyclerView.Adapter<FruitsAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
@@ -24,7 +24,9 @@ class FruitsAdapter : RecyclerView.Adapter<FruitsAdapter.ViewHolder>() {
     private var currentList : List<Tips> = ArrayList()
     fun updateList(newList: List<Tips>) {
         //update currentList with newList using FruitTipsDiffUtils
+        val diffaUtils=FruitTipsDiffUtils(currentList,newList)
         this.currentList = newList
+        DiffUtil.calculateDiff(diffaUtils).dispatchUpdatesTo(this)
 
     }
 
@@ -44,10 +46,12 @@ class FruitsAdapter : RecyclerView.Adapter<FruitsAdapter.ViewHolder>() {
             tvDescTips.text = fruitsTips.short_desc
         }
         holder.itemView.setOnClickListener{ view ->
-            view.findNavController().navigate(R.id.action_homeFruitsFragment_to_tipsDetailFragment)
+            listener?.onClickListener(fruitsTips)
         }
     }
 
     override fun getItemCount(): Int = currentList.size
-
+interface Listener{
+    fun onClickListener(tips:Tips)
+}
 }
