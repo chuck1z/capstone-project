@@ -1,4 +1,4 @@
-const almanac = require("./almanac.json");
+const almanac = require("./almanac_small.json");
 const articles = require("./articles.json");
 
 function rand_from_seed(x, iterations) {
@@ -35,8 +35,16 @@ const root = () => {
 };
 
 const getFOTD = (h) => {
-  // date seed (daily -> 86400000 and %22 -> 22 fruits)
-  var random = rand_from_seed(~~(new Date() / 86400000)) % 22;
+    // map needed response
+    let data = almanac.map((x) => ({
+      fruits_id: x.fruits_id,
+      name: x.name,
+      image: x.image,
+    }));
+
+  // date seed (daily -> 86400000)
+  const len = data.length;
+  var random = rand_from_seed(~~(new Date() / 86400000)) % len;
 
   // int to string
   random = random.toLocaleString("en-US", {
@@ -47,12 +55,7 @@ const getFOTD = (h) => {
   // add "f" in front
   random = "f".concat(random);
 
-  // map needed response
-  let data = almanac.map((x) => ({
-    fruits_id: x.fruits_id,
-    name: x.name,
-    image: x.image,
-  }));
+
 
   // filter by id
   data = data.filter((n) => n.fruits_id === random)[0];
@@ -84,6 +87,7 @@ const getFOTD = (h) => {
 };
 
 const getTips = (h) => {
+  // direct access to almanac.json
   const data = articles.map((x) => ({
     tips_id: x.tips_id,
     title: x.title,
@@ -170,22 +174,22 @@ const getDetails = (request, h) => {
   return response;
 };
 
-const getModelLatest = (request, h) => {
-  if (data !== undefined) {
-    return {
-      error: false,
-      message: "Tips detail fetched successfully",
-      data,
-    };
-  }
+// const getModelLatest = (request, h) => {
+//   if (data !== undefined) {
+//     return {
+//       error: false,
+//       message: "Tips detail fetched successfully",
+//       data,
+//     };
+//   }
 
-  const response = h.response({
-    status: "fail",
-    message: "Error not found",
-  });
-  response.code(404);
-  return response;
-};
+//   const response = h.response({
+//     status: "fail",
+//     message: "Error not found",
+//   });
+//   response.code(404);
+//   return response;
+// };
 
 const getLabel = (h) => {
   let temp = almanac.map((x) => ({
