@@ -46,7 +46,6 @@ class ScanResultFragment : BottomSheetDialogFragment() {
     }
 
 
-
     private fun setupCollector() {
         lifecycleScope.launch {
             classifierViewmodel.image.flowWithLifecycle(lifecycle).collect {
@@ -96,7 +95,7 @@ class ScanResultFragment : BottomSheetDialogFragment() {
                                 confidence.text = it.confidence.asPercentage()
                                 descInfo.text = it.description
                                 name.text = it.getName()
-                                button.setOnClickListener {v->
+                                button.setOnClickListener { v ->
                                     fruitsViewmodel.setSelectedFruitsId(it.fruitsId)
                                     findNavController().navigate(R.id.action_scanResultFragment_to_detailFragment)
                                 }

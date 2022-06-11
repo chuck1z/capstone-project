@@ -5,26 +5,23 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.darkshandev.freshcam.R
-import com.darkshandev.freshcam.data.models.FruitsTips
 import com.darkshandev.freshcam.data.models.Tips
 import com.darkshandev.freshcam.databinding.ItemFruitsTipsBinding
 import com.darkshandev.freshcam.utils.FruitTipsDiffUtils
 
-class FruitsAdapter constructor(private val listener:Listener?=null) : RecyclerView.Adapter<FruitsAdapter.ViewHolder>() {
+class FruitsAdapter constructor(private val listener: Listener? = null) :
+    RecyclerView.Adapter<FruitsAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     private lateinit var binding: ItemFruitsTipsBinding
-    private var currentList : List<Tips> = ArrayList()
+    private var currentList: List<Tips> = ArrayList()
     fun updateList(newList: List<Tips>) {
         //update currentList with newList using FruitTipsDiffUtils
-        val diffaUtils=FruitTipsDiffUtils(currentList,newList)
+        val diffaUtils = FruitTipsDiffUtils(currentList, newList)
         this.currentList = newList
         DiffUtil.calculateDiff(diffaUtils).dispatchUpdatesTo(this)
 
@@ -45,13 +42,13 @@ class FruitsAdapter constructor(private val listener:Listener?=null) : RecyclerV
             tvTitleTips.text = fruitsTips.title
             tvDescTips.text = fruitsTips.short_desc
         }
-        holder.itemView.setOnClickListener{ view ->
+        holder.itemView.setOnClickListener { view ->
             listener?.onClickListener(fruitsTips)
         }
     }
 
     override fun getItemCount(): Int = currentList.size
-interface Listener{
-    fun onClickListener(tips:Tips)
-}
+    interface Listener {
+        fun onClickListener(tips: Tips)
+    }
 }

@@ -5,17 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.darkshandev.freshcam.R
-import com.darkshandev.freshcam.data.models.FruitsTips
-import com.darkshandev.freshcam.data.models.Tips
-import com.darkshandev.freshcam.databinding.ItemFruitsTipsBinding
 import com.darkshandev.freshcam.databinding.SimpleTipsItemBinding
-import com.darkshandev.freshcam.utils.FruitTipsDiffUtils
 import com.darkshandev.freshcam.utils.SimpleTipsDiffUtils
 
 class SimpleTipsAdapter : RecyclerView.Adapter<SimpleTipsAdapter.ViewHolder>() {
@@ -23,10 +15,10 @@ class SimpleTipsAdapter : RecyclerView.Adapter<SimpleTipsAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     private lateinit var binding: SimpleTipsItemBinding
-    private var currentList : List<String> = ArrayList()
+    private var currentList: List<String> = ArrayList()
     fun updateList(newList: List<String>) {
         //update currentList with newList using SimpleTipsDiffUtils
-        val diffaUtils= SimpleTipsDiffUtils(currentList,newList)
+        val diffaUtils = SimpleTipsDiffUtils(currentList, newList)
         this.currentList = newList
         DiffUtil.calculateDiff(diffaUtils).dispatchUpdatesTo(this)
 
@@ -41,7 +33,7 @@ class SimpleTipsAdapter : RecyclerView.Adapter<SimpleTipsAdapter.ViewHolder>() {
         val fruitsTips = currentList[position]
         Log.d(TAG, "onBindViewHolder: $fruitsTips")
         with(binding) {
-            textView.text=fruitsTips
+            textView.text = fruitsTips
         }
 
     }

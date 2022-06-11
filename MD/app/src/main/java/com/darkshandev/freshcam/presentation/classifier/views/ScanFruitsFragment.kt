@@ -49,8 +49,9 @@ class ScanFruitsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         timestamp = System.currentTimeMillis().toString()
-        binding= FragmentScanFruitsBinding.inflate(layoutInflater)
+        binding = FragmentScanFruitsBinding.inflate(layoutInflater)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -138,7 +139,7 @@ class ScanFruitsFragment : Fragment() {
                     flashButton.setOnClickListener {
                         if (cam.cameraInfo.hasFlashUnit()) {
                             if (flashMode) {
-                                cam.cameraControl.enableTorch(false);
+                                cam.cameraControl.enableTorch(false)
                                 flashMode = false
                                 flashButton.setImageDrawable(
                                     ContextCompat.getDrawable(
@@ -147,7 +148,7 @@ class ScanFruitsFragment : Fragment() {
                                     )
                                 )
                             } else {
-                                cam.cameraControl.enableTorch(true);
+                                cam.cameraControl.enableTorch(true)
                                 flashMode = true
                                 flashButton.setImageDrawable(
                                     ContextCompat.getDrawable(

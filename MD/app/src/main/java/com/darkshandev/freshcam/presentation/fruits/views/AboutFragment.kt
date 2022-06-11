@@ -5,22 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.darkshandev.freshcam.R
 import com.darkshandev.freshcam.databinding.FragmentAboutBinding
 
 
 class AboutFragment : Fragment() {
     private var binding: FragmentAboutBinding? = null
     override fun onDestroy() {
-        binding=null
+        binding = null
         super.onDestroy()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding=FragmentAboutBinding.inflate(layoutInflater)
+        binding = FragmentAboutBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
 
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
