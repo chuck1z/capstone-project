@@ -41,7 +41,7 @@
     <string name="date_posted">date posted</string>
     <string name="app_logo">App Logo</string>
     <string name="one_time_setup">"Preparing "</string>
-    <string name="one_time">Preparing...</string>
+    <string name="one_time">wait a moment, we are preparing all the features to be ready.</string>
     <string name="all_ready_to_go">All Ready to go</string>
     <string name="close">close</string>
     <string name="see_guide">see guide</string>
@@ -51,4 +51,6 @@
     <string name="unable_to_fetch_tips">unable to fetch tips, please try again later.</string>
     <string name="unable_to_fetch_detail_tips">unable to fetch detail tips, please try again</string>
     <string name="title_guide">You can detect fruit via camera or input images in your gallery</string>
+    <string name="back_button">back button</string>
+    <string name="scan_history">Scan History</string>
 </resources>
