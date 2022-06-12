@@ -52,7 +52,7 @@ class ClassifierDatasource @Inject constructor(
             } else {
                 classifyWithMultiModel(image)
             }
-        } catch (e: IOException) {
+        } catch (e: Exception) {
             AppState.Error(e.message ?: "error")
         }
     }
