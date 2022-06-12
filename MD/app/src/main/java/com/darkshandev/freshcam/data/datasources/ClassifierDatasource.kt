@@ -11,14 +11,10 @@ import com.darkshandev.freshcam.utils.ErrorUtils
 import com.darkshandev.freshcam.utils.asTensorInput
 import com.darkshandev.freshcam.utils.getIndexOfMax
 import com.darkshandev.freshcam.utils.getMax
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.ktx.app
 import com.google.firebase.ml.modeldownloader.CustomModel
 import com.google.firebase.ml.modeldownloader.CustomModelDownloadConditions
 import com.google.firebase.ml.modeldownloader.DownloadType
 import com.google.firebase.ml.modeldownloader.FirebaseModelDownloader
-import com.google.firebase.ml.modeldownloader.internal.FirebaseMlLogEvent
-import com.google.firebase.ml.modeldownloader.internal.FirebaseMlLogger
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -29,7 +25,6 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import retrofit2.Response
 import retrofit2.Retrofit
 import java.io.File
-import java.io.IOException
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import java.nio.FloatBuffer
@@ -48,7 +43,7 @@ class ClassifierDatasource @Inject constructor(
     private var interpreterSingleClassifier: Interpreter? = null
     private var interpreterFruitsClassifier: Interpreter? = null
     private var interpreterFreshnessClassifier: Interpreter? = null
-    private var modelHash:String? = null
+    private var modelHash: String? = null
 
     suspend fun classifyImage(image: File): AppState<ClassifierResult> {
         return try {

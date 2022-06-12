@@ -67,31 +67,35 @@ class ClassifierRepository @Inject constructor(
                     try {
                         result.data?.let {
                             val findLabel = dao.getLabel(it.classifiedIndex)
-                            findLabel?.let {label->
-                            var labelResult = label.label
-                            it.freshness?.let { isFresh ->
-                                labelResult = "${if (isFresh) "FRESH_" else "ROTTEN_"}$labelResult"
-                            }
-                            val scanResult = ScanResult(
-                                fruitsId = label.id,
-                                label = labelResult,
-                                confidence = it.confidence,
-                                description = label.shortDesc,
-                            )
-                            historyDao.addHistory(
-                                HistoryClassificationEntity(
-                                    fruitsName = scanResult.getName(),
-                                    photo = image.path,
-                                    freshness = labelResult.lowercase().contains("fresh"),
-                                    confidence = it.confidence
+                            findLabel?.let { label ->
+                                var labelResult = label.label
+                                it.freshness?.let { isFresh ->
+                                    labelResult =
+                                        "${if (isFresh) "FRESH_" else "ROTTEN_"}$labelResult"
+                                }
+                                val scanResult = ScanResult(
+                                    fruitsId = label.id,
+                                    label = labelResult,
+                                    confidence = it.confidence,
+                                    description = label.shortDesc,
                                 )
-                            )
-                            callback.onSuccess(
-                                scanResult
-                            )
-                            }?: run{
+                                historyDao.addHistory(
+                                    HistoryClassificationEntity(
+                                        fruitsName = scanResult.getName(),
+                                        photo = image.path,
+                                        freshness = labelResult.lowercase().contains("fresh"),
+                                        confidence = it.confidence
+                                    )
+                                )
+                                callback.onSuccess(
+                                    scanResult
+                                )
+                            } ?: run {
                                 val params = Bundle()
-                                params.putString("exception", "exception :"+"label missmatch no label with index ${result.data.classifiedIndex} found ")
+                                params.putString(
+                                    "exception",
+                                    "exception :" + "label missmatch no label with index ${result.data.classifiedIndex} found "
+                                )
                                 params.putParcelable("result", result.data)
                                 Firebase.analytics.logEvent("classifier_exception", params)
                                 callback.onError("missmatch result, please try again")
@@ -99,7 +103,7 @@ class ClassifierRepository @Inject constructor(
                         } ?: callback.onError("No result")
                     } catch (e: Exception) {
                         val params = Bundle()
-                        params.putString("exception", "exception :"+e.message)
+                        params.putString("exception", "exception :" + e.message)
                         params.putParcelable("result", result.data)
                         Firebase.analytics.logEvent("classifier_exception", params)
 
