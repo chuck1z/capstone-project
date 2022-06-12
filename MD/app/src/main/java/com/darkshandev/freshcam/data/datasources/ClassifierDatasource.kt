@@ -25,6 +25,7 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import retrofit2.Response
 import retrofit2.Retrofit
 import java.io.File
+import java.io.IOException
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import java.nio.FloatBuffer
@@ -43,7 +44,6 @@ class ClassifierDatasource @Inject constructor(
     private var interpreterSingleClassifier: Interpreter? = null
     private var interpreterFruitsClassifier: Interpreter? = null
     private var interpreterFreshnessClassifier: Interpreter? = null
-    private var modelHash: String? = null
 
     suspend fun classifyImage(image: File): AppState<ClassifierResult> {
         return try {
@@ -52,7 +52,7 @@ class ClassifierDatasource @Inject constructor(
             } else {
                 classifyWithMultiModel(image)
             }
-        } catch (e: Exception) {
+        } catch (e: IOException) {
             AppState.Error(e.message ?: "error")
         }
     }
@@ -120,21 +120,13 @@ class ClassifierDatasource @Inject constructor(
     val downloadStatus = _downloadStatus.asStateFlow()
 
     suspend fun getLatestModel() {
-        modelDownloader.setModelDownloaderCollectionEnabled(true)
         val conditions = CustomModelDownloadConditions.Builder()
             // Also possible: .requireCharging() and .requireDeviceIdle()
             .build()
         val isSingle = remoteConfig.getBoolean("isSingleModelClassifier")
         if (isSingle) {
             _downloadStatus.value = AppState.Loading()
-
             modelDownloader.run {
-//                listDownloadedModels().addOnSuccessListener {
-//                    if (it.isNotEmpty()){
-//                        modelHash = it.elementAt(0).modelHash
-//                    }
-//                }
-//                listDownloadedModels()
                 getModel(
                     "converted_model", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND,
                     conditions
@@ -145,13 +137,6 @@ class ClassifierDatasource @Inject constructor(
                             Log.d("model", "model downloaded ${modelFile.absolutePath}")
                             interpreterSingleClassifier = Interpreter(modelFile)
                             _downloadStatus.value = AppState.Success("model downloaded")
-//                            if(modelHash == null){
-//                                _downloadStatus.value = AppState.Success("model downloaded")
-//                            } else if(modelHash != null && modelHash!=model.modelHash){
-//                                modelHash=model.modelHash
-//                                _downloadStatus.value = AppState.Success("model downloaded")
-//                            }
-
                             deleteDownloadedModel("fruits-classifier")
                             deleteDownloadedModel("freshness-classifier")
                         }

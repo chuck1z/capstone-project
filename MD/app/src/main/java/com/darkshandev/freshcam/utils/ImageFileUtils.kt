@@ -37,17 +37,10 @@ fun createFile(application: Application): File {
 fun File.asTensorInput(): ByteBuffer {
     val imagebitmap = BitmapFactory.decodeFile(this.path)
 
-    //input shape is (100, 100, 3)
-    val inputShape = intArrayOf(100, 100, 3)
-    val bitmap = Bitmap.createScaledBitmap(imagebitmap, inputShape[0], inputShape[1], true)
-
-    val input = ByteBuffer.allocateDirect(inputShape[0] * inputShape[1] * inputShape[2] * 4)
-        .order(ByteOrder.nativeOrder())
-//    val input = ByteBuffer.allocateDirect(100 * 100 * 3 * 4).order(ByteOrder.nativeOrder())
-
-    for (x in 0 until inputShape[0]) {
-        for (y in 0 until inputShape[1]) {
-
+    val bitmap = Bitmap.createScaledBitmap(imagebitmap, 150, 150, true)
+    val input = ByteBuffer.allocateDirect(150 * 150 * 3 * 4).order(ByteOrder.nativeOrder())
+    for (y in 0 until 150) {
+        for (x in 0 until 150) {
             val px = bitmap.getPixel(x, y)
 
             // Get channel values from the pixel value.
@@ -65,7 +58,6 @@ fun File.asTensorInput(): ByteBuffer {
             input.putFloat(rf)
             input.putFloat(gf)
             input.putFloat(bf)
-
         }
     }
     return input

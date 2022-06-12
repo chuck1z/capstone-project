@@ -26,7 +26,7 @@ object LocalModule {
             appContext,
             AppDatabase::class.java,
             Config.DB_Name
-        ).fallbackToDestructiveMigration().build()
+        ).build()
 
     @Provides
     @Singleton
