@@ -1,0 +1,86 @@
+[
+    {
+        "fruits_id": "f0000",
+        "name": "Fresh_Apple",
+        "binom": "Malus domestica",
+        "about": "An incredibly nutritious fruit that offers multiple health benefits. They're rich in fiber and antioxidants. Eating them is linked to a lower risk of many chronic conditions, including diabetes, heart disease, and cancer. Apples may also promote weight loss and improve gut and brain health.",
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/apple.jpg"
+    },
+    {
+        "fruits_id": "f0001",
+        "name": "Fresh_Banana",
+        "binom": "Musa paradisiaca",
+        "about": "They are a popular fruit with many potential health benefits. They may boost your digestion and heart health thanks to their fiber and antioxidant contents. Plus, they may support weight loss because they're relatively low in calories, nutrient dense, and filling.",
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/banana.jpg"
+    },
+    {
+        "fruits_id": "f0002",
+        "name": "Fresh_Mango",
+        "binom": "Magnifera indica",
+        "about": "Mango is rich in vitamins, minerals, and antioxidants, and it has been associated with many health benefits, including potential anticancer effects, as well as improved immunity and digestive and eye health.",
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/mango.jpg"
+    },
+    {
+        "fruits_id": "f0003",
+        "name": "Fresh_Orange",
+        "binom": "Citrus Sinensis",
+        "about": "They boast many impressive nutrients, such as vitamin C and fiber, which are associated with improved immune function and gut health, respectively. Store them at room temperature or in the refrigerator. Either way, they make a handy, scrumptious, and nutritious snack.",
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/orange.jpg"
+    },
+    {
+        "fruits_id": "f0004",
+        "name": "Fresh_Strawberry",
+        "binom": "Fragaria ananassa",
+        "about": "They are a good source of many vitamins, minerals and plant compounds. The health benefits include reduced cholesterol, blood pressure, inflammation, and oxidative stress. Furthermore, these berries may help prevent big spikes in both blood sugar and insulin levels.",
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/strawberry.jpg"
+    },
+    {
+        "fruits_id": "f0005",
+        "name": "Fresh_Tomato",
+        "binom": "Citrullus vulgaris",
+        "about": "It has a very high water content and provides nutrients like lycopene, citrulline, and vitamins A and C. Studies suggest that it may even boost heart health, reduce muscle soreness, and decrease inflammation, though more research is needed.",
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/tomato.jpg"
+    },
+    {
+        "fruits_id": "f0006",
+        "name": "Rotten_Apple",
+        "binom": "Malus domestica",
+        "about": "An incredibly nutritious fruit that offers multiple health benefits. They're rich in fiber and antioxidants. Eating them is linked to a lower risk of many chronic conditions, including diabetes, heart disease, and cancer. Apples may also promote weight loss and improve gut and brain health.",
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/apple.jpg"
+    },
+    {
+        "fruits_id": "f0007",
+        "name": "Rotten_Banana",
+        "binom": "Musa paradisiaca",
+        "about": "They are a popular fruit with many potential health benefits. They may boost your digestion and heart health thanks to their fiber and antioxidant contents. Plus, they may support weight loss because they're relatively low in calories, nutrient dense, and filling.",
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/banana.jpg"
+    },
+    {
+        "fruits_id": "f0008",
+        "name": "Rotten_Mango",
+        "binom": "Magnifera indica",
+        "about": "Mango is rich in vitamins, minerals, and antioxidants, and it has been associated with many health benefits, including potential anticancer effects, as well as improved immunity and digestive and eye health.",
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/mango.jpg"
+    },
+    {
+        "fruits_id": "f0009",
+        "name": "Rotten_Orange",
+        "binom": "Citrus Sinensis",
+        "about": "They boast many impressive nutrients, such as vitamin C and fiber, which are associated with improved immune function and gut health, respectively. Store them at room temperature or in the refrigerator. Either way, they make a handy, scrumptious, and nutritious snack.",
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/orange.jpg"
+    },
+    {
+        "fruits_id": "f0010",
+        "name": "Rotten_Strawberry",
+        "binom": "Fragaria ananassa",
+        "about": "They are a good source of many vitamins, minerals and plant compounds. The health benefits include reduced cholesterol, blood pressure, inflammation, and oxidative stress. Furthermore, these berries may help prevent big spikes in both blood sugar and insulin levels.",
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/strawberry.jpg"
+    },
+    {
+        "fruits_id": "f0011",
+        "name": "Rotten_Tomato",
+        "binom": "Citrullus vulgaris",
+        "about": "It has a very high water content and provides nutrients like lycopene, citrulline, and vitamins A and C. Studies suggest that it may even boost heart health, reduce muscle soreness, and decrease inflammation, though more research is needed.",
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/tomato.jpg"
+    }
+]

@@ -148,7 +148,7 @@
             "fat": "0.27g"
         },
         "vitamin": ["Vit C", "Vit A"],
-        "about": "",
+        "about": "Mango is rich in vitamins, minerals, and antioxidants, and it has been associated with many health benefits, including potential anticancer effects, as well as improved immunity and digestive and eye health.",
         "tips": [],
         "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/mango.jpg"
     },
@@ -299,7 +299,7 @@
         },
         "vitamin": ["Vit C"],
         "about": "They are a good source of many vitamins, minerals and plant compounds. The health benefits include reduced cholesterol, blood pressure, inflammation, and oxidative stress. Furthermore, these berries may help prevent big spikes in both blood sugar and insulin levels.",
-        "tips": [],
+        "tips": ["Look for bright red berries. Strawberries don’t continue to ripen after they are picked, so what you see is what you get.", "Look for fresh green leaves. After the berries are picked, the green leaves will start to dry and wilt. Fresh green leaves mean that the berries are fresh, too.", "Look for mold. If you can see one moldy berry in the box, there are probably a few more. Even if most of the berries in the box aren’t moldy, they are all probably starting to go bad."],
         "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/strawberry.jpg"
     },
     {
@@ -315,7 +315,7 @@
         "vitamin": ["Vit C", "Vit B9"],
         "about": "It has a very high water content and provides nutrients like lycopene, citrulline, and vitamins A and C. Studies suggest that it may even boost heart health, reduce muscle soreness, and decrease inflammation, though more research is needed.",
         "tips": ["Hold but do not squeeze. Smaller tomatoes should be firm but not hard; larger tomatoes should feel heavy for their size and neither too solid nor too soft or swollen.", "Seek out tomatoes that are uniformly ripe. Avoid tomatoes that have hard or pale spots near the stem as well as ones with large bruises or cracks that are too long or deep to trim away. They should be shiny, with a smooth, uniform skin.", "Take a whiff. If you're not getting much of an aroma, it's likely the tomato is underripe. A great tomato should smell floral and almost basil-y."],
-        "image": ""
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/tomato.jpg"
     },
     {
         "fruits_id": "f0021",

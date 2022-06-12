@@ -1,0 +1,95 @@
+[
+    {
+        "fruits_id": "f0000",
+        "name": "Apple",
+        "binom": "Malus domestica",
+        "nutrition": {
+            "carbs": "14g",
+            "protein": "0.3g",
+            "calories": "52",
+            "fat": "0.2g"
+        },
+        "vitamin": ["Vit C",  "Vit B6"],
+        "about": "An incredibly nutritious fruit that offers multiple health benefits. They're rich in fiber and antioxidants. Eating them is linked to a lower risk of many chronic conditions, including diabetes, heart disease, and cancer. Apples may also promote weight loss and improve gut and brain health.",
+        "tips": ["Hold the apply in your hand and press it slightly to check for firmness. If it sinks in, it's not fresh and is most likely overripe.", "Be on the lookout for blemishes, insect holes, any kind of crevices or brown spots. This could mean that the apple is old.", "Look for the shine. Rub the apple slightly and you'll figure if that's the fruit's natural shine or food-grade wax which vendors sometimes apply to make their produce look good."],
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/apple.jpg"
+    },
+    {
+        "fruits_id": "f0001",
+        "name": "Banana",
+        "binom": "Musa paradisiaca",
+        "nutrition": {
+            "carbs": "23g",
+            "protein": "1.1g",
+            "calories": "89",
+            "fat": "0.3g"
+        },
+        "vitamin": ["Vit C", "Vit B6"],
+        "about": "They are a popular fruit with many potential health benefits. They may boost your digestion and heart health thanks to their fiber and antioxidant contents. Plus, they may support weight loss because they're relatively low in calories, nutrient dense, and filling.",
+        "tips": ["Sniff the banana. Mildewy, moldy or fermented scent could mean something bad and the banana could be rotten inside, outside or both.", 
+        "Check the banana for browning. Extensive browning or mold on the skin (especially near the stem) may mean that it's best not to eat.", 
+        "Press the banana for firmness. Unripe bananas will feel hard, overripe bananas will feel mushy and good bananas will feel soft but not squishy.", 
+        "Check for leakage. If it starts oozing liquid, it has probably gone rotten."],
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/banana.jpg"
+    },
+    {
+        "fruits_id": "f0002",
+        "name": "Mango",
+        "binom": "Magnifera indica",
+        "nutrition": {
+            "carbs": "17g",
+            "protein": "0.51g",
+            "calories": "65",
+            "fat": "0.27g"
+        },
+        "vitamin": ["Vit C", "Vit A"],
+        "about": "Mango is rich in vitamins, minerals, and antioxidants, and it has been associated with many health benefits, including potential anticancer effects, as well as improved immunity and digestive and eye health.",
+        "tips": ["Feel the mango. When gently squeezed, a mango that's ripe and ready to eat should give slightly to pressure. If it's hard as a rock, it's not yet ripe.", "Don't focus on the color. Color isn't a reliable indicator of ripeness, as not all locally available varieties show off their ripeness visually. Some mangoes with brightly coloured red and yellow skin are not necessarily ripe, while some types of mangoes do change colour as they ripen and mature, taking on a more golden hue.", "If you can't find a ripe mango, you can always buy an unripe mango and let it ripen at room temperature for a few days at home. Simply put it in a brown paper bag to accelerate the ripening process.", "For some uses, you don't need a fully ripe mango. If it's being cooked or baked (or possibly used for pickling), a mango that isn't fully ripe may be well suited to your needs. But for eating fresh, the riper the mango the better."],
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/mango.jpg"
+    },
+    {
+        "fruits_id": "f0003",
+        "name": "Orange",
+        "binom": "Citrus Sinensis",
+        "nutrition": {
+            "carbs": "12g",
+            "protein": "0.9g",
+            "calories": "47",
+            "fat": "0.1g"
+        },
+        "vitamin": ["Vit C", "Vit B6"],
+        "about": "They boast many impressive nutrients, such as vitamin C and fiber, which are associated with improved immune function and gut health, respectively. Store them at room temperature or in the refrigerator. Either way, they make a handy, scrumptious, and nutritious snack.",
+        "tips": ["Give them a squeeze: the tastiest orange are mostly firm, full-colored, smooth and thin-skinned. Avoid oranges that are too soft, show even the smallest signs of mold, or feel as though they have bruises. Don't be afraid of slight scratches or marks on the skin; this is called “wind scarring,” which happens when fruit rubs against the tree branches during windy weather.", "Go for heft: good oranges should have a good amount of weight in your hand, like a small sports ball. This heaviness indicates how much juice is in your orange.", "Consider the color: look for oranges with bright color. On some varieties, vivid and solid orange hue are best while on others, greenish tinge are great as they reabsorb chlorophyll while hanging on the tree during warmer months."],
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/orange.jpg"
+    },
+    {
+        "fruits_id": "f0004",
+        "name": "Strawberry",
+        "binom": "Fragaria ananassa",
+        "nutrition": {
+            "carbs": "7.7g",
+            "protein": "0.67g",
+            "calories": "32",
+            "fat": "0.3g"
+        },
+        "vitamin": ["Vit C"],
+        "about": "They are a good source of many vitamins, minerals and plant compounds. The health benefits include reduced cholesterol, blood pressure, inflammation, and oxidative stress. Furthermore, these berries may help prevent big spikes in both blood sugar and insulin levels.",
+        "tips": ["Look for bright red berries. Strawberries don't continue to ripen after they are picked, so what you see is what you get.", "Look for fresh green leaves. After the berries are picked, the green leaves will start to dry and wilt. Fresh green leaves mean that the berries are fresh, too.", "Look for mold. If you can see one moldy berry in the box, there are probably a few more. Even if most of the berries in the box aren't moldy, they are all probably starting to go bad."],
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/strawberry.jpg"
+    },
+    {
+        "fruits_id": "f0005",
+        "name": "Tomato",
+        "binom": "Citrullus vulgaris",
+        "nutrition": {
+            "carbs": "21g",
+            "protein": "1.7g",
+            "calories": "85",
+            "fat": "0.4g"
+        },
+        "vitamin": ["Vit C", "Vit B9"],
+        "about": "It has a very high water content and provides nutrients like lycopene, citrulline, and vitamins A and C. Studies suggest that it may even boost heart health, reduce muscle soreness, and decrease inflammation, though more research is needed.",
+        "tips": ["Hold but do not squeeze. Smaller tomatoes should be firm but not hard; larger tomatoes should feel heavy for their size and neither too solid nor too soft or swollen.", "Seek out tomatoes that are uniformly ripe. Avoid tomatoes that have hard or pale spots near the stem as well as ones with large bruises or cracks that are too long or deep to trim away. They should be shiny, with a smooth, uniform skin.", "Take a whiff. If you're not getting much of an aroma, it's likely the tomato is underripe. A great tomato should smell floral and almost basil-y."],
+        "image": "https://storage.googleapis.com/temp-c22-ps043/FruitImages/tomato.jpg"
+    }
+]
