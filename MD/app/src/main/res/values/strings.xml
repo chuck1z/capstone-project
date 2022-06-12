@@ -54,4 +54,5 @@
     <string name="back_button">back button</string>
     <string name="scan_history">Scan History</string>
     <string name="fruit_image">fruit image</string>
+    <string name="update_model_downloading">Update Model : Downloading...</string>
 </resources>

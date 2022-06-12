@@ -11,10 +11,14 @@ import com.darkshandev.freshcam.utils.ErrorUtils
 import com.darkshandev.freshcam.utils.asTensorInput
 import com.darkshandev.freshcam.utils.getIndexOfMax
 import com.darkshandev.freshcam.utils.getMax
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.ktx.app
 import com.google.firebase.ml.modeldownloader.CustomModel
 import com.google.firebase.ml.modeldownloader.CustomModelDownloadConditions
 import com.google.firebase.ml.modeldownloader.DownloadType
 import com.google.firebase.ml.modeldownloader.FirebaseModelDownloader
+import com.google.firebase.ml.modeldownloader.internal.FirebaseMlLogEvent
+import com.google.firebase.ml.modeldownloader.internal.FirebaseMlLogger
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -44,6 +48,7 @@ class ClassifierDatasource @Inject constructor(
     private var interpreterSingleClassifier: Interpreter? = null
     private var interpreterFruitsClassifier: Interpreter? = null
     private var interpreterFreshnessClassifier: Interpreter? = null
+    private var modelHash:String? = null
 
     suspend fun classifyImage(image: File): AppState<ClassifierResult> {
         return try {
@@ -52,7 +57,7 @@ class ClassifierDatasource @Inject constructor(
             } else {
                 classifyWithMultiModel(image)
             }
-        } catch (e: IOException) {
+        } catch (e: Exception) {
             AppState.Error(e.message ?: "error")
         }
     }
@@ -120,13 +125,21 @@ class ClassifierDatasource @Inject constructor(
     val downloadStatus = _downloadStatus.asStateFlow()
 
     suspend fun getLatestModel() {
+        modelDownloader.setModelDownloaderCollectionEnabled(true)
         val conditions = CustomModelDownloadConditions.Builder()
             // Also possible: .requireCharging() and .requireDeviceIdle()
             .build()
         val isSingle = remoteConfig.getBoolean("isSingleModelClassifier")
         if (isSingle) {
             _downloadStatus.value = AppState.Loading()
+
             modelDownloader.run {
+//                listDownloadedModels().addOnSuccessListener {
+//                    if (it.isNotEmpty()){
+//                        modelHash = it.elementAt(0).modelHash
+//                    }
+//                }
+//                listDownloadedModels()
                 getModel(
                     "converted_model", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND,
                     conditions
@@ -137,6 +150,13 @@ class ClassifierDatasource @Inject constructor(
                             Log.d("model", "model downloaded ${modelFile.absolutePath}")
                             interpreterSingleClassifier = Interpreter(modelFile)
                             _downloadStatus.value = AppState.Success("model downloaded")
+//                            if(modelHash == null){
+//                                _downloadStatus.value = AppState.Success("model downloaded")
+//                            } else if(modelHash != null && modelHash!=model.modelHash){
+//                                modelHash=model.modelHash
+//                                _downloadStatus.value = AppState.Success("model downloaded")
+//                            }
+
                             deleteDownloadedModel("fruits-classifier")
                             deleteDownloadedModel("freshness-classifier")
                         }

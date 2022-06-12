@@ -1,5 +1,6 @@
 package com.darkshandev.freshcam.data.repositories
 
+import android.os.Bundle
 import android.util.Log
 import com.darkshandev.freshcam.data.database.ClassifierLabelDao
 import com.darkshandev.freshcam.data.database.HistoryClassificationDao
@@ -7,12 +8,14 @@ import com.darkshandev.freshcam.data.datasources.ClassifierDatasource
 import com.darkshandev.freshcam.data.datasources.PrefService
 import com.darkshandev.freshcam.data.models.*
 import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.crashlytics.ktx.crashlytics
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 import java.io.File
 import javax.inject.Inject
+
 
 class ClassifierRepository @Inject constructor(
     private val dataSource: ClassifierDatasource,
@@ -63,7 +66,8 @@ class ClassifierRepository @Inject constructor(
                 is AppState.Success -> {
                     try {
                         result.data?.let {
-                            val label = dao.getLabel(it.classifiedIndex)
+                            val findLabel = dao.getLabel(it.classifiedIndex)
+                            findLabel?.let {label->
                             var labelResult = label.label
                             it.freshness?.let { isFresh ->
                                 labelResult = "${if (isFresh) "FRESH_" else "ROTTEN_"}$labelResult"
@@ -78,17 +82,30 @@ class ClassifierRepository @Inject constructor(
                                 HistoryClassificationEntity(
                                     fruitsName = scanResult.getName(),
                                     photo = image.path,
-                                    freshness = it.freshness ?: false,
+                                    freshness = labelResult.lowercase().contains("fresh"),
                                     confidence = it.confidence
                                 )
                             )
                             callback.onSuccess(
                                 scanResult
                             )
+                            }?: run{
+                                val params = Bundle()
+                                params.putString("exception", "exception :"+"label missmatch no label with index ${result.data.classifiedIndex} found ")
+                                params.putParcelable("result", result.data)
+                                Firebase.analytics.logEvent("classifier_exception", params)
+                                callback.onError("missmatch result, please try again")
+                            }
                         } ?: callback.onError("No result")
                     } catch (e: Exception) {
-                        Firebase.analytics.logEvent(e.message ?: "unknown exception", null)
+                        val params = Bundle()
+                        params.putString("exception", "exception :"+e.message)
+                        params.putParcelable("result", result.data)
+                        Firebase.analytics.logEvent("classifier_exception", params)
+
                         Log.d("exception", e.message ?: "unknown")
+                        Firebase.crashlytics.setCustomKey("exception", e.message ?: "unknown")
+
                         callback.onError("please try again")
                     }
                 }
