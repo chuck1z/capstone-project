@@ -1,6 +1,8 @@
 package com.darkshandev.freshcam.presentation
 
 import android.Manifest
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -16,6 +18,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.darkshandev.freshcam.R
+import com.darkshandev.freshcam.data.models.AppState
 import com.darkshandev.freshcam.databinding.ActivityMainBinding
 import com.darkshandev.freshcam.presentation.classifier.viewmodels.ClassifierViewmodel
 import com.darkshandev.freshcam.presentation.fruits.viewmodels.FruitsViewmodel
@@ -49,6 +52,34 @@ class MainActivity : AppCompatActivity() {
             classifierViewmodel.isFirstLaunch.collect {
                 if (it) {
                     navController.navigate(R.id.action_homeFruitsFragment_to_oneTimeSetUpFragment)
+                }
+            }
+        }
+        lifecycleScope.launchWhenResumed {
+            classifierViewmodel.downloadStatus.collect {
+                when (it) {
+                    is AppState.Error -> {
+                        binding.downloadStatus.visibility = View.GONE
+                    }
+                    is AppState.Initial -> {
+                        binding.downloadStatus.visibility = View.GONE
+                    }
+                    is AppState.Loading -> {
+                        binding.downloadStatus.visibility = View.VISIBLE
+                    }
+                    is AppState.Success -> {
+                        binding.downloadStatus.visibility = View.VISIBLE
+                        binding.downloadStatusText.text = it.message
+                        binding.downloadStatus.animate()
+                            .alpha(0f)
+                            .setDuration(1000)
+                            .setListener(object : AnimatorListenerAdapter() {
+                                override fun onAnimationEnd(animation: Animator) {
+                                    binding.downloadStatus.visibility = View.GONE
+                                }
+                            })
+
+                    }
                 }
             }
         }

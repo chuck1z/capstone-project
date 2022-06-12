@@ -13,7 +13,7 @@ interface ClassifierLabelDao {
     fun getLabels(): Flow<List<ClassifierLabelEntity>>
 
     @Query("SELECT * FROM ClassifierLabelEntity WHERE `index` = :index")
-    fun getLabel(index: Int): ClassifierLabelEntity
+    fun getLabel(index: Int): ClassifierLabelEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(label: ClassifierLabelEntity)
