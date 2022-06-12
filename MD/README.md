@@ -2,7 +2,7 @@
 ![FreshCam!](.././fontart.png?raw=true "ArtFont") 
 
 ## About
-
+<img src="https://s8.gifyu.com/images/demo3.gif" width="200" />
 this app using :
 
 - kotlinx - flow
