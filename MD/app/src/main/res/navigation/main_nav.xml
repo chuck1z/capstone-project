@@ -58,7 +58,9 @@
         tools:layout="@layout/fragment_scan_result">
         <action
             android:id="@+id/action_scanResultFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:popUpTo="@id/scanFruitsFragment"
+            app:popUpToInclusive="true" />
     </dialog>
     <fragment
         android:id="@+id/detailFragment"
