@@ -8,7 +8,7 @@ import com.darkshandev.freshcam.data.models.HistoryClassificationEntity
 
 @Database(
     entities = [ClassifierLabelEntity::class, HistoryClassificationEntity::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
