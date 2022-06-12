@@ -1,5 +1,6 @@
 const almanac = require("./almanac_small.json");
 const articles = require("./articles.json");
+const label = require("./label.json");
 
 function rand_from_seed(x, iterations) {
   iterations = iterations || 100;
@@ -192,7 +193,7 @@ const getDetails = (request, h) => {
 // };
 
 const getLabel = (h) => {
-  let temp = almanac.map((x) => ({
+  let temp = label.map((x) => ({
     id: x.fruits_id,
     name: x.name,
     about: x.about,
