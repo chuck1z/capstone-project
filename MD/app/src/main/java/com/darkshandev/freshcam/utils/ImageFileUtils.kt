@@ -41,29 +41,30 @@ fun File.asTensorInput(): ByteBuffer {
     val inputShape = intArrayOf(100, 100, 3)
     val bitmap = Bitmap.createScaledBitmap(imagebitmap, inputShape[0], inputShape[1], true)
 
-    val input = ByteBuffer.allocateDirect(inputShape[0] * inputShape[1] * inputShape[2] * 4).order(ByteOrder.nativeOrder())
+    val input = ByteBuffer.allocateDirect(inputShape[0] * inputShape[1] * inputShape[2] * 4)
+        .order(ByteOrder.nativeOrder())
 //    val input = ByteBuffer.allocateDirect(100 * 100 * 3 * 4).order(ByteOrder.nativeOrder())
 
-        for (x in 0 until inputShape[0]) {
-            for (y in 0 until inputShape[1]) {
+    for (x in 0 until inputShape[0]) {
+        for (y in 0 until inputShape[1]) {
 
-                val px = bitmap.getPixel(x, y)
+            val px = bitmap.getPixel(x, y)
 
-                // Get channel values from the pixel value.
-                val r = Color.red(px)
-                val g = Color.green(px)
-                val b = Color.blue(px)
+            // Get channel values from the pixel value.
+            val r = Color.red(px)
+            val g = Color.green(px)
+            val b = Color.blue(px)
 
-                // Normalize channel values to [-1.0, 1.0]. This requirement depends on the model.
-                // For example, some models might require values to be normalized to the range
-                // [0.0, 1.0] instead.
-                val rf = (r - 127) / 255f
-                val gf = (g - 127) / 255f
-                val bf = (b - 127) / 255f
+            // Normalize channel values to [-1.0, 1.0]. This requirement depends on the model.
+            // For example, some models might require values to be normalized to the range
+            // [0.0, 1.0] instead.
+            val rf = (r - 127) / 255f
+            val gf = (g - 127) / 255f
+            val bf = (b - 127) / 255f
 
-                input.putFloat(rf)
-                input.putFloat(gf)
-                input.putFloat(bf)
+            input.putFloat(rf)
+            input.putFloat(gf)
+            input.putFloat(bf)
 
         }
     }
