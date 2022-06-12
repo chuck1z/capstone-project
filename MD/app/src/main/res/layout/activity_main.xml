@@ -20,6 +20,7 @@
             android:padding="4dp"
             android:visibility="visible"
             app:layout_constraintTop_toTopOf="parent">
+
             <TextView
                 android:id="@+id/downloadStatusText"
                 android:layout_width="wrap_content"

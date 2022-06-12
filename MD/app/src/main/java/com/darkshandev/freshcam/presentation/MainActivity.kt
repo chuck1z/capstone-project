@@ -14,7 +14,6 @@ import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.core.view.ViewCompat.animate
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -57,20 +56,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
         lifecycleScope.launchWhenResumed {
-            classifierViewmodel.downloadStatus.collect{
-                when(it){
+            classifierViewmodel.downloadStatus.collect {
+                when (it) {
                     is AppState.Error -> {
-                        binding.downloadStatus.visibility= View.GONE
+                        binding.downloadStatus.visibility = View.GONE
                     }
                     is AppState.Initial -> {
-                        binding.downloadStatus.visibility= View.GONE
+                        binding.downloadStatus.visibility = View.GONE
                     }
                     is AppState.Loading -> {
-                        binding.downloadStatus.visibility= View.VISIBLE
+                        binding.downloadStatus.visibility = View.VISIBLE
                     }
                     is AppState.Success -> {
-                        binding.downloadStatus.visibility= View.VISIBLE
-                        binding.downloadStatusText.text= it.message
+                        binding.downloadStatus.visibility = View.VISIBLE
+                        binding.downloadStatusText.text = it.message
                         binding.downloadStatus.animate()
                             .alpha(0f)
                             .setDuration(1000)

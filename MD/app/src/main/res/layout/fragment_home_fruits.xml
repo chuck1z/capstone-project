@@ -1,142 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/back">
 
-    <ImageView
-        android:id="@+id/ivLogo"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="14dp"
-        android:src="@drawable/logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cvFruit"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="16dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivLogo">
+        android:background="@color/back">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="14dp"
+            android:src="@drawable/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvFruit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="16dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivLogo">
 
-            <TextView
-                android:id="@+id/tvFruitOfTheDay"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingStart="16dp"
-                android:paddingTop="16dp"
-                android:text="@string/fruit_of_the_day"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tvDesc"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:ellipsize="end"
-                android:maxLines="3"
-                android:padding="6dp"
-                android:paddingStart="16dp"
-                android:textSize="13sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/ivFruitOfTheDay"
-                app:layout_constraintStart_toStartOf="@+id/tvFruitOfTheDay"
-                app:layout_constraintTop_toBottomOf="@+id/tvFruitOfTheDay"
-                app:layout_constraintVertical_bias="0.068" />
+                <TextView
+                    android:id="@+id/tvFruitOfTheDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="16dp"
+                    android:paddingTop="16dp"
+                    android:text="@string/fruit_of_the_day"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/ivFruitOfTheDay"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tvDesc"
-                app:layout_constraintTop_toBottomOf="@+id/tvFruitOfTheDay"
-                tools:src="@tools:sample/avatars" />
+                <TextView
+                    android:id="@+id/tvDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:padding="6dp"
+                    android:paddingStart="16dp"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ivFruitOfTheDay"
+                    app:layout_constraintStart_toStartOf="@+id/tvFruitOfTheDay"
+                    app:layout_constraintTop_toBottomOf="@+id/tvFruitOfTheDay"
+                    app:layout_constraintVertical_bias="0.068" />
 
-            <Button
-                android:id="@+id/btnInfo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="12dp"
-                android:backgroundTint="@color/secondary"
-                android:text="@string/more_info"
-                android:textAllCaps="false"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvDesc"
-                app:layout_constraintVertical_bias="1.0" />
+                <ImageView
+                    android:id="@+id/ivFruitOfTheDay"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvDesc"
+                    app:layout_constraintTop_toBottomOf="@+id/tvFruitOfTheDay"
+                    tools:src="@tools:sample/avatars" />
 
-            <TextView
-                android:id="@+id/tvFruitTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="11sp"
-                android:text="@string/fruit_title"
-                app:layout_constraintEnd_toEndOf="@+id/ivFruitOfTheDay"
-                app:layout_constraintStart_toStartOf="@+id/ivFruitOfTheDay"
-                app:layout_constraintTop_toBottomOf="@+id/ivFruitOfTheDay" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+                <Button
+                    android:id="@+id/btnInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="12dp"
+                    android:backgroundTint="@color/secondary"
+                    android:text="@string/more_info"
+                    android:textAllCaps="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDesc"
+                    app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/tvFruitTips"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/fruit_tips"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textStyle="bold"
-        android:padding="14dp"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/cvFruit" />
+                <TextView
+                    android:id="@+id/tvFruitTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:text="@string/fruit_title"
+                    app:layout_constraintEnd_toEndOf="@+id/ivFruitOfTheDay"
+                    app:layout_constraintStart_toStartOf="@+id/ivFruitOfTheDay"
+                    app:layout_constraintTop_toBottomOf="@+id/ivFruitOfTheDay" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvFruitsTips"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFruitTips"
-        tools:listitem="@layout/item_fruits_tips" />
+        <TextView
+            android:id="@+id/tvFruitTips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fruit_tips"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textStyle="bold"
+            android:padding="14dp"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/cvFruit" />
 
-    <ProgressBar
-        android:id="@+id/progressBar2"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/rvFruitsTips"
-        app:layout_constraintTop_toTopOf="@+id/rvFruitsTips" />
-    <View
-        app:layout_constraintTop_toBottomOf="@id/rvFruitsTips"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFruitsTips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFruitTips"
+            tools:listitem="@layout/item_fruits_tips" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/rvFruitsTips"
+            app:layout_constraintTop_toTopOf="@+id/rvFruitsTips" />
+
+        <View
+            app:layout_constraintTop_toBottomOf="@id/rvFruitsTips"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
