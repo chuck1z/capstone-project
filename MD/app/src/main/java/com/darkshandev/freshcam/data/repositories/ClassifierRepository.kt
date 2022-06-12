@@ -82,7 +82,7 @@ class ClassifierRepository @Inject constructor(
                                 HistoryClassificationEntity(
                                     fruitsName = scanResult.getName(),
                                     photo = image.path,
-                                    freshness = it.freshness ?: false,
+                                    freshness = labelResult.lowercase().contains("fresh"),
                                     confidence = it.confidence
                                 )
                             )
