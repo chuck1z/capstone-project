@@ -2,6 +2,8 @@
 ![FreshCam!](.././fontart.png?raw=true "ArtFont") 
 
 ## About
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/65596335/173263743-c529bb47-a025-46ec-83a8-3a99767c27df.gif)
+<image src="[https://giphy.com/embed/facKDNMJo43ubb530s](https://user-images.githubusercontent.com/65596335/173263743-c529bb47-a025-46ec-83a8-3a99767c27df.gif)" width="200" />
 <img src="https://s8.gifyu.com/images/demo3.gif" width="200" />
 this app using :
 
